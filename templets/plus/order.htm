@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<head>
+<title>{dede:global.cfg_webname/}-在线报名</title>
+<link href="{dede:global.cfg_templeturl/}/style/dedecms.css" rel="stylesheet" media="screen" type="text/css" />
+</script>
+<!-- Resources from http://down.liehuo.net -->
+</head>
+<body>
+{dede:include filename="../default/head.htm"/}<!-- 包含头部 -->
+<blockquote style="margin:50px auto" >
+  <form method="post" action="">
+姓  名:<input type="text" size=30 name="name" /><br /><br />
+邮  箱:<input type="text" size=30 name="mail" /><br /><br />
+<!--vdimgck.php 是验证码-->
+验证码:<input type="text" name="validation" /><img src="../../include/vdimgck.php" /><br /><br />
+  <input name="encoll" type="submit" value="报名" /><br />
+  </form>
+</blockquote>
+{dede:include filename="../default/footer.htm"/}<!-- 包含尾部 -->
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{dede:field.title/} - {dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field.keywords/}" />
+<meta name="description" content="{dede:field.description function='html2text(@me)'/}" />
+{dede:include filename="meta.htm"/}
+</head>
+<body>
+{dede:include filename="header.htm"/}
+<div class="body">
+	<div class="breadcrumb">{dede:field name='position'/}</div>
+	<div class="body_l">
+		<div class="pt020">
+			<span class="module_t_l mbn"><h1>{dede:field name='typename'/}</h1></span>
+			<ul class="piczy_list">{dede:list pagesize='15'}
+				<li>
+					<div class="piczy_l"><a href="[field:arcurl/]" target="_blank"><img src="[field:litpic/]" title="[field:title/]"></a></div>
+					<div class="piczy_r"><a href="[field:arcurl/]" target="_blank">[field:title/]</a><span>时间：[field:pubdate function="MyDate('Y-m-d',@me)"/] 浏览：[field:click/]</span><p>[field:description function='cn_substr(@me,250)' /]...</p></p></div>
+				</li>{/dede:list}
+			</ul>
+		</div>
+	</div>
+	<div class="body_r">
+		<div class="pt015">
+			<span class="module_t_c bbn">相关栏目</span>
+			<ul class="related_colums">
+				{dede:type}
+					[field:id runphp="yes"]
+						global $cfg_Cs, $dsql;
+						$reid = $dsql->GetOne("SELECT reid FROM dede_arctype WHERE id LIKE '%@me%' ");
+						if($reid['reid'] != 0){
+							$dsql->Execute('mbidss',"SELECT id FROM dede_arctype WHERE reid LIKE '%$reid[reid]%' ");
+						}else{
+							$dsql->Execute('mbidss',"SELECT id FROM dede_arctype WHERE reid LIKE '%@me%' ");
+						}
+						while ($mbid = $dsql->GetArray('mbidss')) {
+        					$mbids .= $mbid['id'] . ',';
+        				}
+        				$mbidsnew = substr($mbids,0,strlen($mbdis)-1);
+        				if ($mbids !='') {
+        					$sql = 'SELECT typename,typedir FROM dede_arctype WHERE id IN (' . $mbidsnew . ')';
+							$dsql->Execute('me', $sql);
+							while ($row = $dsql->GetArray('me')) {
+								$s .= '<li><a href="' . str_replace('{cmspath}','',$row['typedir']) . '/">' . $row['typename'] . '</a></li>';
+        					}
+        				}
+        				@me = $s;
+					[/field:id]
+				{/dede:type}
+				<div class="cl"></div>
+			</ul>
+		</div>
+		<div class="pt015">
+			<span class="module_t_c">推荐套餐</span>
+			<ul class="piczy_price">{dede:arclist limit='0,8' channelid='6' addfields='trueprice,truepricemax' typeid='22'}
+				<li><div class="piczy_p_l"><a href="[field:arcurl/]"><img src="[field:litpic/]" title="[field:title/]"></a></div><div class="piczy_p_r"><a href="">[field:title/]</a><p>¥[field:trueprice/][field:truepricemax runphp="yes"]if(empty(@me)){@me="";}else{@me=" - ".@me;}[/field:truepricemax]</p></div></li>
+				{/dede:arclist}
+			</ul>
+		</div>
+	</div>
+	<div class="cl"></div>
+</div>
+{dede:include filename="footer.htm"/}
+</body>
+</html>

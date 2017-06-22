@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{dede:field.title/} - {dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field.keywords/}" />
+<meta name="description" content="{dede:field.description function='html2text(@me)'/}" />
+{dede:include filename="meta.htm"/}
+</head>
+<body>
+{dede:include filename="header.htm"/}
+<div class="body">
+	<div class="breadcrumb">{dede:field name='position'/}</div>
+	<div class="body_l">
+		<div class="shop_list">{dede:list pagesize='15'}
+			<dl>
+				<dd class="tit"><a href="[field:arcurl/]" target="_blank">[field:title/]</a></dd>
+				<dt><a href="[field:arcurl/]" target="_blank"><img src="[field:litpic/]" title="[field:title/]"></a></dt>
+				<dd class="pri"><em>¥[field:trueprice/][field:truepricemax runphp="yes"]if(empty(@me)){@me="";}else{@me=" - ".@me;}[/field:truepricemax]</em><span><a href="">预定</a></span></dd>
+			</dl>{/dede:list}
+		</div>
+	</div>
+	<div class="body_r">
+		<div class="pt015">
+			<span class="module_t_c">推荐套餐</span>
+			<ul class="piczy_price">{dede:arclist limit='0,8' channelid='6' addfields='trueprice,truepricemax' typeid='22'}
+				<li><div class="piczy_p_l"><a href="[field:arcurl/]"><img src="[field:litpic/]" title="[field:title/]"></a></div><div class="piczy_p_r"><a href="">[field:title/]</a><p>¥[field:trueprice/][field:truepricemax runphp="yes"]if(empty(@me)){@me="";}else{@me=" - ".@me;}[/field:truepricemax]</p></div></li>
+				{/dede:arclist}
+			</ul>
+		</div>
+	</div>
+	<div class="cl"></div>
+</div>
+{dede:include filename="footer.htm"/}
+</body>
+</html>

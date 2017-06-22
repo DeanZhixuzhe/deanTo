@@ -1,0 +1,5 @@
+<?php
+$z[0]=Array("id","\r\n						global \$cfg_Cs, \$dsql;\r\n						\$reid = \$dsql->GetOne(\"SELECT reid FROM dede_arctype WHERE id LIKE '%@me%' \");\r\n						if(\$reid['reid'] != 0){\r\n							\$dsql->Execute('mbidss',\"SELECT id FROM dede_arctype WHERE reid LIKE '%\$reid[reid]%' \");\r\n						}else{\r\n							\$dsql->Execute('mbidss',\"SELECT id FROM dede_arctype WHERE reid LIKE '%@me%' \");\r\n						}\r\n						while (\$mbid = \$dsql->GetArray('mbidss')) {\r\n        					\$mbids .= \$mbid['id'] . ',';\r\n        				}\r\n        				\$mbidsnew = substr(\$mbids,0,strlen(\$mbdis)-1);\r\n        				if (\$mbids !='') {\r\n        					\$sql = 'SELECT typename,typedir FROM dede_arctype WHERE id IN (' . \$mbidsnew . ')';\r\n							\$dsql->Execute('me', \$sql);\r\n							while (\$row = \$dsql->GetArray('me')) {\r\n								\$s .= '<li><a href=\"' . str_replace('{cmspath}','',\$row['typedir']) . '/\">' . \$row['typename'] . '</a></li>';\r\n        					}\r\n        				}\r\n        				@me = \$s;\r\n					",0,952);
+$z[0][4]['runphp']="yes";
+
+?>
