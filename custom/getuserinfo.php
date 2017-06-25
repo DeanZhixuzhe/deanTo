@@ -136,9 +136,3 @@ function get_ip(){
     $ip = $_SERVER["REMOTE_ADDR"];
     return $ip;
 }
-
-//为了测试GitHub能否顺利的更新
-//
-//为了测试更改git全局用户名称
-//
-//上次设置错误，再次测试更改git全局用户名称
