@@ -31,17 +31,15 @@ $z[14]=Array("global","",1622,1649);
 $z[14][4]['name']="cfg_basehost";
 $z[15]=Array("global","",1721,1748);
 $z[15][4]['name']="cfg_basehost";
-$z[16]=Array("global","",1848,1875);
+$z[16]=Array("global","",1845,1872);
 $z[16][4]['name']="cfg_basehost";
-$z[17]=Array("global","",1972,1999);
+$z[17]=Array("global","",1969,1996);
 $z[17][4]['name']="cfg_basehost";
-$z[18]=Array("global","",2096,2123);
+$z[18]=Array("global","",2093,2120);
 $z[18][4]['name']="cfg_basehost";
 $z[19]=Array("global","",2220,2247);
 $z[19][4]['name']="cfg_basehost";
-$z[20]=Array("global","",2347,2374);
+$z[20]=Array("global","",2342,2369);
 $z[20][4]['name']="cfg_basehost";
-$z[21]=Array("global","",2469,2496);
-$z[21][4]['name']="cfg_basehost";
 
 ?>

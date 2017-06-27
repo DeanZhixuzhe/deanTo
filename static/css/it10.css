@@ -174,3 +174,11 @@ img{border: 0;}
 .footerseo_con a{margin: 0 5px;}
 .footerab{width: 1000px; margin: auto; text-align: center;}
 .footerab p{line-height: 26px;}
+
+.left_mian{width: 280px; height: auto; float: left; margin-top: 20px; background: #fff}
+.left_mian{border: 1px solid #ddd}
+.left_mian a{border-bottom: 1px solid #ddd; text-align: center; width: 100%; padding: 15px 0; float: left;}
+.right_mian{width: 860px; height: auto; float: right; margin-top: 20px; background: #fff; padding: 20px; border: 1px solid #ddd}
+.right_mian h1{border-bottom: 1px solid #e4e4e4; height: 76px; line-height: 76px; font-size: 24px; margin-bottom: 20px;}
+.about_con h2{font-size: 16px; line-height: 38px;}
+.about_con p{line-height: 32px;}

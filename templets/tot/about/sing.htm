@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{dede:field.title/} - {dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field.keywords/}" />
+<meta name="description" content="{dede:field.description function='html2text(@me)'/}" />
+{dede:include filename="meta.htm"/}
+</head>
+<body>
+{dede:include filename="header.htm"/}
+<div class="body">
+{dede:include filename="about/about_left.htm"/}
+    <!--右侧开始-->
+    <div class="right_mian">
+		<div class="title_page"><h1>{dede:field.title/}</h1></div>
+		<div class="about_con">
+			{dede:field name='body'/}
+		</div>
+    </div><!--右侧结束-->
+</div>
+<div class="cl"></div>
+{dede:include filename="footer.htm"/}
+</body>
+</html>
