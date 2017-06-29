@@ -41,5 +41,15 @@ $z[19]=Array("global","",2220,2247);
 $z[19][4]['name']="cfg_basehost";
 $z[20]=Array("global","",2342,2369);
 $z[20][4]['name']="cfg_basehost";
+$z[21]=Array("global","",3149,3174);
+$z[21][4]['name']="cfg_static";
+$z[22]=Array("global","",3251,3276);
+$z[22][4]['name']="cfg_static";
+$z[23]=Array("global","",3422,3447);
+$z[23][4]['name']="cfg_static";
+$z[24]=Array("global","",3736,3761);
+$z[24][4]['name']="cfg_static";
+$z[25]=Array("global","",3851,3876);
+$z[25][4]['name']="cfg_static";
 
 ?>
