@@ -13,14 +13,25 @@ $(function(){
 });
 
 $(function(){
-	$(".header dl dt").hover(function(){
-		$(this).find("dd.city").show();
+	$(".city").hover(function(){
+		$(this).find(".cityList").show();
 	},function(){
-		$(this).find("dd.city").hide();
+		$(this).find(".cityList").hide();
 	});
 });
 //回到顶部函数
 function goTop(){
 	$('html,body').animate({'scrollTop':0},200);
 }
-
+$(function(){
+	var a = $('.header-frame'),
+		b = a.offset();
+	$(document).on('scroll',function(){
+		var	c = $(document).scrollTop();
+		if(b.top<=c){
+			a.css({'position':'fixed','top':'0px'})
+		}else{
+			a.css({'position':'absolute','top':'0px'})
+		}
+	});
+});

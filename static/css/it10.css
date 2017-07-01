@@ -6,6 +6,7 @@ a:hover{/*text-decoration: underline;*/ color: #F06;}
 ul,li,ol,i,em,p,dl,dt,dd{list-style: none; padding: 0; margin: 0; font-style: normal;}
 div{display: block;}
 img{border: 0;}
+p{line-height: 26px;}
 .cl{clear: both;}
 .body{width: 1200px; margin: auto; display: block;}
 .body_l{width: 900px; height: auto; float: left;}
@@ -24,10 +25,12 @@ img{border: 0;}
 .bbn{border-bottom: none;}
 .mbn{margin-bottom: 0;}
 
-.header-frame{background: #fff; border-bottom: 1px solid #E4E4E4; height: 60px;}
+.header-frame{background: #fff; border-bottom: 1px solid #E4E4E4; height: 60px; width: 100%;z-index: 99999;}
 .header{position: relative; width: 1200px; margin: auto;}
 .header .logo{width: 160px; height: 60px; float: left; margin-right: 120px; background: url(../images/Logo_50.png) center left no-repeat;}
-.header .l2{position: absolute; left: 160px; top: 28px; z-index: 9999; opacity: .5;}
+.header .city{position: absolute; left: 160px; top: 28px; z-index: 9999; }
+.header .city dt{opacity: .5;}
+.header .city dt:hover{cursor: pointer;}
 .header .nav{float: left;}
 .header .nav a{color: #666; line-height: 60px; padding: 0 10px; margin: 0 20px; text-align: center; font-size: 14px; opacity: .9; height: 60px; box-sizing: border-box;}
 .breadcrumb{font-size: 14px; margin: 15px; width: 100%; display: block;}
@@ -198,4 +201,6 @@ img{border: 0;}
 .side ul li .circle .blank{height: 35px;}
 
 /*city*/
-.city{display: none; z-index: 10000}
+.cityList{display: none; z-index: 10000; background: #fff; padding: 10px; opacity: 1;/* position: absolute;*/}
+.cityList b{color: #F06;}
+.cityList a{color: #666;}
