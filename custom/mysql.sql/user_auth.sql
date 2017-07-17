@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS `dede_user_auth`(
+   `id` INT(10) NOT NULL COMMENT 'ID' AUTO_INCREMENT,
+   `user_id` INT(10) NOT NULL COMMENT '会员ID',
+   `type` VARCHAR(10) NOT NULL COMMENT '类型',
+   `identifier` VARCHAR(100) NULL COMMENT '标识',
+   `credential` VARCHAR(100) NOT NULL COMMENT '凭证',
+   PRIMARY KEY ( `id` )
+)ENGINE=MyISAM DEFAULT CHARSET=utf8;

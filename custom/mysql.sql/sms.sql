@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS `dede_sms`(
+   `sms_id` INT(10) NOT NULL COMMENT '短信ID' AUTO_INCREMENT,
+   `mobile` VARCHAR(11) NOT NULL COMMENT '手机',
+   `code` INT(6) NOT NULL COMMENT '验证码',
+   `ctime` INT(10) NOT NULL COMMENT '创建时间',
+   `ip` VARCHAR(20) NOT NULL COMMENT 'IP',
+   `realip` VARCHAR(20) NOT NULL COMMENT '真实IP',
+   `area` CHAR(2) NOT NULL COMMENT '地区',
+   `status` VARCHAR(10) NOT NULL COMMENT '状态',
+   PRIMARY KEY ( `sms_id` )
+)ENGINE=MyISAM DEFAULT CHARSET=utf8;

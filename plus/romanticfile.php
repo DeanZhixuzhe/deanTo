@@ -7,7 +7,7 @@
  * @package        DedeCMS.Site
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
- * @link           http://www.dedecms.com
+ * @link           http://www.1314theone.com
  */
 require_once(dirname(__FILE__)."/../include/common.inc.php");
 require_once("../custom/getuserinfo.php");
@@ -27,9 +27,8 @@ function Post(){ }
 if (empty($action)) {
     showMsg('输入的网址有误', 'javascript:;');
     exit();
-}
-else {
-    $action = in_array($action, array('post', 'list', 'view')) ? $action : 'post';
+}else {
+    $action = in_array($action, array('post', 'list', 'view')) ? $action : 'post';  //检测变量是否在数组中
 }
 
 if ($action == 'post')

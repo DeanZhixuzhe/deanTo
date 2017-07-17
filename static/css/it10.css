@@ -204,3 +204,6 @@ p{line-height: 26px;}
 .cityList{display: none; z-index: 10000; background: #fff; padding: 10px; opacity: 1;/* position: absolute;*/}
 .cityList b{color: #F06;}
 .cityList a{color: #666;}
+
+.regform{width: 800px; margin: 20px auto; background: #fff; padding: 30px; border: 1px solid #E4E4E4; text-align: center;}
+.regform span{width: 100%; height: 80px; text-align: center; line-height: 80; border-bottom: 1px solid #E4E4E4; font-size: 28px; overflow: hidden; display: block; color: red;}

@@ -7,6 +7,11 @@
  * @package        DeanChina
  * @copyright      Copyright (c) 2017 - 永久, DeanChina, Inc.
  */
+$GLOBALS['agent'] = get_agent();
+$GLOBALS['brower'] = get_broswer();
+$GLOBALS['os'] = get_os();
+$GLOBALS['realip'] = get_realip();
+$GLOBALS['ip'] = get_ip();
 
 function get_agent(){
 	return $_SERVER['HTTP_USER_AGENT'];

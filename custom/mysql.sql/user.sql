@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS `dede_user`(
+   `id` INT(10) NOT NULL COMMENT '会员ID' AUTO_INCREMENT,
+   `mobile` VARCHAR(11) NOT NULL COMMENT '手机',
+   `nickname` VARCHAR(20) NOT NULL COMMENT '昵称',
+   `avatar` VARCHAR(100) NULL COMMENT '头像',
+   `sex` INT(1) NOT NULL COMMENT '性别',
+   `email` VARCHAR(50) NULL COMMENT '邮箱',
+   `ctime` INT(10) NOT NULL COMMENT '注册时间',
+   `ip` VARCHAR(20) NOT NULL COMMENT '注册IP',
+   `realip` VARCHAR(20) NOT NULL COMMENT '注册真实IP',
+   PRIMARY KEY ( `id` )
+)ENGINE=MyISAM DEFAULT CHARSET=utf8;

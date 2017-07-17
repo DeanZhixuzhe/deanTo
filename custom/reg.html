@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>会员注册 - TheOne浪漫策划公司</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="/static/css/it10.css">
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="/static/js/jquery.validate.min.js"></script>
+<script src="/static/js/messages_cn.js"></script>
+<script src="/static/js/additional-methods.js"></script>
+<script>
+$().ready(function() {
+    $("#commentForm").validate({
+        submitHandler:function(form){
+            $.post("reg.php",$("form").serialize(),function(data,status){
+                document.write(data);
+            });
+        },
+        debug:true,
+        errorElement:"span",
+        errorPlacement: function(error, element) {
+            $(element).closest("p").append(error);  //
+        },
+    });
+
+    $("#mobile").blur(function(){
+        if (!$("#mobile").val().match(/^(((1[3|5|7|8][0-9]{1})|145|147|149)+\d{8})$/)) {
+            $('#getCode').attr('disabled','disabled');
+        }else {
+            $('#getCode').removeAttr('disabled');
+        }
+    });
+    var test = {
+        node:null,
+        count:60,
+        start:function(){
+            if(this.count > 0){
+                this.node.value = this.count--+"秒后重发"
+                var _this = this;
+                setTimeout(function(){
+                    _this.start();
+                },1000);
+            }else{
+                this.node.removeAttribute("disabled");
+                this.node.value = "获取验证码";
+                this.count = 60;
+            }
+        },
+        //初始化
+        init:function(node){
+            this.node = node;
+            this.node.setAttribute("disabled",true);
+            this.start();
+        }
+    };
+    $("#getCode").click(function(){
+        var mobile=$("#mobile").val();
+        if (mobile.match(/^(((1[3|5|7|8][0-9]{1})|145|147|149)+\d{8})$/)) {
+            $.get("sms.php?action=getcode&mobile="+mobile); //数据库版本使用代码
+            test.init(document.getElementById("getCode"));
+        }
+    });
+});
+</script>
+
+<style>
+.error{color:red;}
+</style>
+</head>
+<body>
+<?php include(TEMPLETS."/tot/header.htm"); ?>
+<form class="cmxform" id="commentForm" method="get" action="">
+    <div class="regform">
+        <span>用户注册</span>
+        <p>
+            <label for="mobile">手机</label>
+            <input id="mobile" name="mobile" type="text" required data-rule-isMobileZH="true">
+        </p>
+        <p>
+            <label for="mcode">验证码</label>
+            <input id="mcode" name="mcode" type="text" required data-rule-digits="true">
+            <input type="button" name="getCode" id="getCode" value="获取验证码" disabled="disabled">
+        </p>
+        <p>
+            <label for="pwd">密码</label>
+            <input id="pwd" name="pwd" type="password" required data-rule-minlength="6" data-msg-minlength="密码不能少于6位"  data-rule-notEqualTo="#old_pwd" data-msg-notEqualTo="新密码不能和旧密码相同">
+        </p>
+        <p>
+            <label for="confirm_pwd">确认密码</label>
+            <input id="confirm_pwd" name="confirm_pwd" type="password" required data-rule-equalTo="#pwd">
+        </p>
+        <p>
+            <input class="submit" type="submit" id="submit" value="提交注册">
+        </p>
+    </div>
+</form>
+<?php include(TEMPLETS."/tot/footer.htm"); ?>
+</body>
+</html>
