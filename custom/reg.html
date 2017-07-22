@@ -56,7 +56,7 @@ $().ready(function() {
     $("#getCode").click(function(){
         var mobile=$("#mobile").val();
         if (mobile.match(/^(((1[3|5|7|8][0-9]{1})|145|147|149)+\d{8})$/)) {
-            $.get("sms.php?action=getcode&mobile="+mobile); //数据库版本使用代码
+            $.get("sms/smsapi.php?action=getcode&mobile="+mobile); //数据库版本使用代码
             test.init(document.getElementById("getCode"));
         }
     });
@@ -71,6 +71,7 @@ $().ready(function() {
 <?php include(TEMPLETS."/tot/header.htm"); ?>
 <form class="cmxform" id="commentForm" method="get" action="">
     <div class="regform">
+        <div id="showCode"></div>
         <span>用户注册</span>
         <p>
             <label for="mobile">手机</label>

@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS `dede_sms`(
    `ip` VARCHAR(20) NOT NULL COMMENT 'IP',
    `realip` VARCHAR(20) NOT NULL COMMENT '真实IP',
    `area` CHAR(2) NOT NULL COMMENT '地区',
-   `status` VARCHAR(10) NOT NULL COMMENT '状态',
+   `status` VARCHAR(100) NOT NULL COMMENT '状态',
+   `explain` VARCHAR(255) NULL COMMENT '说明',
    PRIMARY KEY ( `sms_id` )
 )ENGINE=MyISAM DEFAULT CHARSET=utf8;
