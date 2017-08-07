@@ -7,6 +7,8 @@ ul,li,ol,i,em,p,dl,dt,dd{list-style: none; padding: 0; margin: 0; font-style: no
 div{display: block;}
 img{border: 0;}
 p{line-height: 26px;}
+div,ul,li,p,dl,dt,dd,i,em,a,h1,h2,h3,h4,h5,h6,img{box-sizing: border-box;-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;-o-box-sizing:border-box;-ms-box-sizing:border-box;}
 .cl{clear: both;}
 .body{width: 1200px; margin: auto; display: block;}
 .body_l{width: 900px; height: auto; float: left;}
@@ -16,6 +18,7 @@ p{line-height: 26px;}
 .pt015{padding: 0 15px;}
 .pt050{padding: 0 50px;}
 .pt020{padding: 0 20px;}
+.pt50t{padding-top: 50px;}
 .blank20{height: 20px; line-height: 20px; clear: both;}
 .module_t_c{height: 55px; line-height: 55px; text-align: center; color: #F06; font-size: 16px;border-bottom: 1px solid #E4E4E4; width: 100%; display: block;}
 .module_t_l{height: 55px; line-height: 55px; color: #F06; font-size: 18px;border-bottom: 1px solid #E4E4E4; margin-bottom: 20px; width: 100%; display: block;}
@@ -28,7 +31,7 @@ p{line-height: 26px;}
 .header-frame{background: #fff; border-bottom: 1px solid #E4E4E4; height: 60px; width: 100%;z-index: 99999;}
 .header{position: relative; width: 1200px; margin: auto;}
 .header .logo{width: 160px; height: 60px; float: left; margin-right: 120px; background: url(../images/Logo_50.png) center left no-repeat;}
-.header .city{position: absolute; left: 160px; top: 28px; z-index: 9999; }
+.header .city{position: absolute; left: 160px; top: 16px; z-index: 9999; }
 .header .city dt{opacity: .5;}
 .header .city dt:hover{cursor: pointer;}
 .header .nav{float: left;}
@@ -69,6 +72,19 @@ p{line-height: 26px;}
 .piczy_list .piczy_r span{color: #747474; margin: 10px 0; display: block;}
 .piczy_list .piczy_r p{line-height: 2; font-size: 14px; color: #666;}
 .piczy_list li:last-child{border-bottom: none;}
+
+.gridbg2{background: #F2F2F2;}
+.grid{overflow: hidden; display: block; float: left; width: 400px; padding: 25px;}
+.grid h2,.grid em{font-size: 20px; color: #F36; text-align: center; display: block; margin: 5px 0;}
+.grid li{overflow: hidden; margin-top: 15px;}
+.grid .piczy_l{padding-right: 10px; float: left;}
+.grid .piczy_l img{width: 65px; height: 65px;}
+.grid .piczy_l a{overflow: hidden;}
+.grid .piczy_r{float: right; width: 270px; overflow: hidden; height: 70px}
+.grid .piczy_r a{font-size: 16px; color: #333; overflow: hidden; display: block; padding-bottom: 10px;}
+.grid .piczy_r span{color: #747474; margin: 10px 0; display: block;}
+.grid .piczy_r p{line-height: 1.5; font-size: 13px; color: #999;}
+.grid li:last-child{border-bottom: none;}
 
 .shop_list{margin-left: -21px; overflow: hidden;}
 .shop_list dl{float: left; width: 286px; height: 316px; margin: 0 0 20px 21px; box-shadow: 0 0 10px rgba(0,0,0,.2); border-radius: 5px; background: #fff;}

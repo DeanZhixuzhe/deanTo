@@ -67,6 +67,57 @@
 			<dd class="pri"><em>¥[field:trueprice/][field:truepricemax runphp="yes"]if(empty(@me)){@me="";}else{@me=" - ".@me;}[/field:truepricemax]</em><span><a href="">预定</a></span></dd>
 		</dl>{/dede:arclist}
 	</div>
+	<div class="pt50t">
+		<ul class="grid">
+			<h2>求婚策划</h2>
+			<em>Proposal Plan</em>{dede:arclist typeid='16' row='3' titlelen='60' addfields='truepricemax,trueprice'}
+			<li>
+				<div class="piczy_l"><a href="[field:arcurl/]" target="_blank"><img src="[field:litpic/]" title="[field:title/]"></a></div>
+				<div class="piczy_r"><a href="[field:arcurl/]" target="_blank">[field:title/]</a><p>[field:description function='cn_substr(@me,250)' /]...</p></div>
+			</li>{/dede:arclist}
+		</ul>
+		<ul class="grid gridbg2">
+			<h2>求婚创意</h2>
+			<em>Proposal Originality</em>{dede:arclist typeid='17' row='3' titlelen='60' addfields='truepricemax,trueprice'}
+			<li>
+				<div class="piczy_l"><a href="[field:arcurl/]" target="_blank"><img src="[field:litpic/]" title="[field:title/]"></a></div>
+				<div class="piczy_r"><a href="[field:arcurl/]" target="_blank">[field:title/]</a><p>[field:description function='cn_substr(@me,250)' /]...</p></div>
+			</li>{/dede:arclist}
+		</ul>
+		<ul class="grid">
+			<h2>求婚方式</h2>
+			<em>Proposal Mode</em>{dede:arclist typeid='18' row='3' titlelen='60' addfields='truepricemax,trueprice'}
+			<li>
+				<div class="piczy_l"><a href="[field:arcurl/]" target="_blank"><img src="[field:litpic/]" title="[field:title/]"></a></div>
+				<div class="piczy_r"><a href="[field:arcurl/]" target="_blank">[field:title/]</a><p>[field:description function='cn_substr(@me,250)' /]...</p></div>
+			</li>{/dede:arclist}
+		</ul>
+		<ul class="grid gridbg2">
+			<h2>求婚词</h2>
+			<em>Proposal Declaration</em>{dede:arclist typeid='20' row='3' titlelen='60' addfields='truepricemax,trueprice'}
+			<li>
+				<div class="piczy_l"><a href="[field:arcurl/]" target="_blank"><img src="[field:litpic/]" title="[field:title/]"></a></div>
+				<div class="piczy_r"><a href="[field:arcurl/]" target="_blank">[field:title/]</a><p>[field:description function='cn_substr(@me,250)' /]...</p></div>
+			</li>{/dede:arclist}
+		</ul>
+		<ul class="grid">
+			<h2>求婚歌曲</h2>
+			<em>Proposal Song</em>{dede:arclist typeid='19' row='3' titlelen='60' addfields='truepricemax,trueprice'}
+			<li>
+				<div class="piczy_l"><a href="[field:arcurl/]" target="_blank"><img src="[field:litpic/]" title="[field:title/]"></a></div>
+				<div class="piczy_r"><a href="[field:arcurl/]" target="_blank">[field:title/]</a><p>[field:description function='cn_substr(@me,250)' /]...</p></div>
+			</li>{/dede:arclist}
+		</ul>
+		<ul class="grid gridbg2">
+			<h2>求婚戒指</h2>
+			<em>Proposal Ring</em>{dede:arclist typeid='21' row='3' titlelen='60' addfields='truepricemax,trueprice'}
+			<li>
+				<div class="piczy_l"><a href="[field:arcurl/]" target="_blank"><img src="[field:litpic/]" title="[field:title/]"></a></div>
+				<div class="piczy_r"><a href="[field:arcurl/]" target="_blank">[field:title/]</a><p>[field:description function='cn_substr(@me,250)' /]...</p></div>
+			</li>{/dede:arclist}
+		</ul>
+		<div class="cl"></div>
+	</div>
 </div>
 {dede:include filename="footer.htm"/}
 </body>
