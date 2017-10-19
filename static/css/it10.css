@@ -22,15 +22,15 @@ div,ul,li,p,dl,dt,dd,i,em,a,h1,h2,h3,h4,h5,h6,img{box-sizing: border-box;-moz-bo
 .blank20{height: 20px; line-height: 20px; clear: both;}
 .module_t_c{height: 55px; line-height: 55px; text-align: center; color: #F06; font-size: 16px;border-bottom: 1px solid #E4E4E4; width: 100%; display: block;}
 .module_t_l{height: 55px; line-height: 55px; color: #F06; font-size: 18px;border-bottom: 1px solid #E4E4E4; margin-bottom: 20px; width: 100%; display: block;}
-.module_t_l h1{line-height: 55px;}
+.module_t_l h1{line-height: 55px; float: left;}
 .module_t_i{font-size: 20px; padding: 50px 0; text-align: center; color: #333;}
-.more{float: right; font-size: 14px;}
+.more{float: right; font-size: 14px; display: block;}
 .bbn{border-bottom: none;}
 .mbn{margin-bottom: 0;}
 
-.header-frame{background: #fff; border-bottom: 1px solid #E4E4E4; height: 60px; width: 100%;z-index: 99999;}
+.header-frame{background: #fff; border-bottom: 1px solid #E4E4E4; height: 60px; width: 100%;z-index: 99999; position: relative;}
 .header{position: relative; width: 1200px; margin: auto;}
-.header .logo{width: 160px; height: 60px; float: left; margin-right: 120px; background: url(../images/Logo_50.png) center left no-repeat;}
+.header .logo{width: 160px; height: 60px; float: left; margin-right: 120px; background: url(../images/Logo_0101.png) center left no-repeat;}
 .header .city{position: absolute; left: 160px; top: 16px; z-index: 9999; }
 .header .city dt{opacity: .5;}
 .header .city dt:hover{cursor: pointer;}
@@ -44,8 +44,9 @@ div,ul,li,p,dl,dt,dd,i,em,a,h1,h2,h3,h4,h5,h6,img{box-sizing: border-box;-moz-bo
 .con_info span{margin-right: 10px;}
 .con_article{font-size: 16px; margin-top: 30px; line-height: 1.75;}
 .con_article img{max-width: 100%; margin: 10px auto; display: block;}
-.con_article p{text-indent: 2em;}
+.con_article p{text-indent: 2em; margin-bottom: 10px;}
 .con_article strong{margin-left: -2em;}
+.con_article iframe{width: 800px; height: 550px;}
 
 .picsx_price{overflow: hidden;}
 .picsx_price li{width: 160px; border: none; float: left; margin-left: 31px;}
@@ -77,11 +78,11 @@ div,ul,li,p,dl,dt,dd,i,em,a,h1,h2,h3,h4,h5,h6,img{box-sizing: border-box;-moz-bo
 .grid{overflow: hidden; display: block; float: left; width: 400px; padding: 25px;}
 .grid h2,.grid em{font-size: 20px; color: #F36; text-align: center; display: block; margin: 5px 0;}
 .grid li{overflow: hidden; margin-top: 15px;}
-.grid .piczy_l{padding-right: 10px; float: left;}
-.grid .piczy_l img{width: 65px; height: 65px;}
+.grid .piczy_l{padding-right: 10px; float: left;width: 65px;height: 65px}
+.grid .piczy_l img{width: 65px; height: 65px; overflow: hidden;}
 .grid .piczy_l a{overflow: hidden;}
 .grid .piczy_r{float: right; width: 270px; overflow: hidden; height: 70px}
-.grid .piczy_r a{font-size: 16px; color: #333; overflow: hidden; display: block; padding-bottom: 10px;}
+.grid .piczy_r a{font-size: 16px; color: #333; height: 30px;line-height: 30px; overflow: hidden; display: block; padding-bottom: 10px;}
 .grid .piczy_r span{color: #747474; margin: 10px 0; display: block;}
 .grid .piczy_r p{line-height: 1.5; font-size: 13px; color: #999;}
 .grid li:last-child{border-bottom: none;}
@@ -114,6 +115,10 @@ div,ul,li,p,dl,dt,dd,i,em,a,h1,h2,h3,h4,h5,h6,img{box-sizing: border-box;-moz-bo
 .pic_list dl .pri em{margin-left: 15px;}
 .pic_list dl .pri span{float: right;}
 .pic_list dl .pri span a{color: #F36; border-left: 1px solid #E4E4E4; padding: 6px 30px; font-size: 14px;}
+
+.colums2 li{float: left;width: 350px;line-height: 28px; height: 28px; margin: 0 20px}
+.colums1{padding:15px 0;}
+.colums1 li{overflow: hidden;height: 26px;line-height: 26px;}
 
 .related_colums li{float: left; width: 110px; height: 40px; line-height: 40px; text-align: center; background: #F69; color: #fff; border-radius: 3px; margin: 0 5px 10px;}
 .related_colums li a{color: #fff;}
@@ -192,7 +197,7 @@ div,ul,li,p,dl,dt,dd,i,em,a,h1,h2,h3,h4,h5,h6,img{box-sizing: border-box;-moz-bo
 .footerseo_con{width: 1200px; margin: auto; line-height: 38px; display: block;}
 .footerseo_con a{margin: 0 5px;}
 .footerab{width: 1000px; margin: auto; text-align: center;}
-.footerab p{line-height: 26px;}
+.footerab p{line-height:28px;}
 
 .left_mian{width: 280px; height: auto; float: left; margin-top: 20px; background: #fff}
 .left_mian{border: 1px solid #ddd}
@@ -215,6 +220,7 @@ div,ul,li,p,dl,dt,dd,i,em,a,h1,h2,h3,h4,h5,h6,img{box-sizing: border-box;-moz-bo
 .side ul li .circle span{margin-top: 5px; margin-bottom: 10px; color: #737373; display: block;}
 .side ul li .circle p{margin-bottom: 10px;}
 .side ul li .circle .blank{height: 35px;}
+.side ul li .circle img{width: 140px;height: 140px;margin-left:30px; margin-top: -5px;}
 
 /*city*/
 .cityList{display: none; z-index: 10000; background: #fff; padding: 10px; opacity: 1;/* position: absolute;*/}

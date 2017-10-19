@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{dede:field.title/} - {dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field.keywords/}" />
+<meta name="description" content="{dede:field.description function='html2text(@me)'/}" />
+<link rel="canonical" href="{dede:global.cfg_basehost/}{dede:field.id
+runphp='yes'}global $dsql;$dir = $dsql->GetOne("SELECT typedir FROM dede_arctype WHERE id = ".@me);@me=str_replace('{cmspath}','',$dir['typedir']).'/';{/dede:field.id}">
+{dede:include filename="meta.htm"/}
+</head>
+<body>
+{dede:include filename="header.htm"/}
+<div class="body">
+	<div class="breadcrumb">{dede:field name='position'/}</div>
+	<div class="body_l">
+		<div class="module_t_l mbn">
+			<h1>求婚策划</h1><a href="/proposal/plan/" class="more" target="_blank">更多求婚策划</a>
+		</div>
+		<div class="pic_list">{dede:arclist typeid='16' row='6' titlelen='60'}
+			<dl>
+				<dt><a href="[field:arcurl/]" target="_blank"><img src="[field:litpic/]" title="[field:title/]"></a></dt>
+				<dd class="tit"><a href="[field:arcurl/]" target="_blank" title="[field:title/]">[field:title/]</a></dd>
+			</dl>{/dede:arclist}
+		</div>
+		<div class="module_t_l mbn">
+			<h1>求婚创意</h1><a href="/proposal/originality/" class="more" target="_blank">更多求婚创意</a>
+		</div>
+		<div class="pic_list">{dede:arclist typeid='17' row='6' titlelen='60'}
+			<dl>
+				<dt><a href="[field:arcurl/]" target="_blank"><img src="[field:litpic/]" title="[field:title/]"></a></dt>
+				<dd class="tit"><a href="[field:arcurl/]" target="_blank" title="[field:title/]">[field:title/]</a></dd>
+			</dl>{/dede:arclist}
+		</div>
+		<div class="module_t_l mbn">
+			<h1>求婚方式</h1><a href="/proposal/mode/" class="more" target="_blank">更多求婚方式</a>
+		</div>
+		<div class="pic_list">{dede:arclist typeid='18' row='6' titlelen='60'}
+			<dl>
+				<dt><a href="[field:arcurl/]" target="_blank"><img src="[field:litpic/]" title="[field:title/]"></a></dt>
+				<dd class="tit"><a href="[field:arcurl/]" target="_blank" title="[field:title/]">[field:title/]</a></dd>
+			</dl>{/dede:arclist}
+		</div>
+		<div class="module_t_l mbn">
+			<h1>求婚歌曲</h1><a href="/proposal/song/" class="more" target="_blank">更多求婚歌曲</a>
+		</div>
+		<div class="pic_list">{dede:arclist typeid='19' row='6' titlelen='60'}
+			<dl>
+				<dt><a href="[field:arcurl/]" target="_blank"><img src="[field:litpic/]" title="[field:title/]"></a></dt>
+				<dd class="tit"><a href="[field:arcurl/]" target="_blank" title="[field:title/]">[field:title/]</a></dd>
+			</dl>{/dede:arclist}
+		</div>
+		<div class="module_t_l mbn">
+			<h1>求婚词</h1><a href="/proposal/word/" class="more" target="_blank">更多求婚词</a>
+		</div>
+		<div class="pic_list">{dede:arclist typeid='20' row='6' titlelen='60'}
+			<dl>
+				<dt><a href="[field:arcurl/]" target="_blank"><img src="[field:litpic/]" title="[field:title/]"></a></dt>
+				<dd class="tit"><a href="[field:arcurl/]" target="_blank" title="[field:title/]">[field:title/]</a></dd>
+			</dl>{/dede:arclist}
+		</div>
+		<div class="module_t_l mbn">
+			<h1>求婚戒指</h1><a href="/proposal/ring/" class="more" target="_blank">更多求婚戒指</a>
+		</div>
+		<div class="pic_list">{dede:arclist typeid='21' row='6' titlelen='60'}
+			<dl>
+				<dt><a href="[field:arcurl/]" target="_blank"><img src="[field:litpic/]" title="[field:title/]"></a></dt>
+				<dd class="tit"><a href="[field:arcurl/]" target="_blank" title="[field:title/]">[field:title/]</a></dd>
+			</dl>{/dede:arclist}
+		</div>
+	</div>
+	<div class="body_r">
+		<div class="pt015">
+			<span class="module_t_c bbn">相关栏目</span>
+			<ul class="related_colums">
+				{dede:type}
+					[field:id runphp="yes"]
+						global $cfg_Cs, $dsql;
+						$reid = $dsql->GetOne("SELECT reid FROM dede_arctype WHERE id LIKE '%@me%' ");
+						if($reid['reid'] != 0){
+							$dsql->Execute('mbidss',"SELECT id FROM dede_arctype WHERE reid LIKE '%$reid[reid]%' AND id NOT IN(27) AND sortrank < 50");
+						}else{
+							$dsql->Execute('mbidss',"SELECT id FROM dede_arctype WHERE reid LIKE '%@me%' AND id NOT IN(27) AND sortrank < 900");
+						}
+						while ($mbid = $dsql->GetArray('mbidss')) {
+        					$mbids .= $mbid['id'] . ',';
+        				}
+        				$mbidsnew = substr($mbids,0,strlen($mbdis)-1);
+        				if ($mbids !='') {
+        					$sql = "SELECT typename,typedir FROM dede_arctype WHERE id IN ($mbidsnew) ORDER BY id ASC";
+							$dsql->Execute('me', $sql);
+							while ($row = $dsql->GetArray('me')) {
+								$s .= '<li><a href="' . str_replace('{cmspath}','',$row['typedir']) . '/">' . $row['typename'] . '</a></li>';
+        					}
+        				}
+        				@me = $s;
+					[/field:id]
+				{/dede:type}
+				<div class="cl"></div>
+			</ul>
+		</div>
+		<div class="pt015">
+			<span class="module_t_c">推荐套餐</span>
+			<ul class="piczy_price">{dede:arclist limit='0,8' channelid='6' addfields='trueprice,truepricemax' typeid='22'}
+				<li><div class="piczy_p_l"><a href="[field:arcurl/]"><img src="[field:litpic/]" title="[field:title/]"></a></div><div class="piczy_p_r"><a href="">[field:title/]</a><p>¥[field:trueprice/][field:truepricemax runphp="yes"]if(empty(@me)){@me="";}else{@me=" - ".@me;}[/field:truepricemax]</p></div></li>
+				{/dede:arclist}
+			</ul>
+		</div>
+	</div>
+	<div class="cl"></div>
+</div>
+{dede:include filename="footer.htm"/}
+</body>
+</html>
