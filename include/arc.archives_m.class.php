@@ -238,26 +238,26 @@ class Archives
             //设置全局环境变量
             $this->Fields['typename'] = $this->TypeLink->TypeInfos['typename'];
             @SetSysEnv($this->Fields['typeid'],$this->Fields['typename'],$this->Fields['id'],$this->Fields['title'],'archives');
-			
-			//处理字段body，增加图片Alt属性，默认值为文档标题；增加样式lazy_load，用作延迟加载
-			$this->Fields['body'] = str_ireplace(array('altalt=""','alt=\'\''),'',$this->Fields['body']);  
-			$this->Fields['body'] = preg_replace("@ [\s]{0,}alt[\s]{0,}=[\"'\s]{0,}[\s\S]{0,}[\"'\s] @isU"," ",$this->Fields['body']);    
-			$this->Fields['body'] = str_ireplace("<img " ,"<img alt=\"".$this->Fields['title']."\" class=\"lazy_load\" ",$this->Fields['body']); 
 
-			//处理产品字段youhuixq
-			$this->Fields['youhuixq'] = str_ireplace(array('altalt=""','alt=\'\''),'',$this->Fields['youhuixq']);  
-			$this->Fields['youhuixq'] = preg_replace("@ [\s]{0,}alt[\s]{0,}=[\"'\s]{0,}[\s\S]{0,}[\"'\s] @isU"," ",$this->Fields['youhuixq']);    
-			$this->Fields['youhuixq'] = str_ireplace("<img " ,"<img alt=\"".$this->Fields['title']."\" class=\"lazy_load\" ",$this->Fields['youhuixq']);
+            //处理字段body，增加图片Alt属性，默认值为文档标题；增加样式lazy_load，用作延迟加载
+            $this->Fields['body'] = str_ireplace(array('altalt=""','alt=\'\''),'',$this->Fields['body']);  
+            $this->Fields['body'] = preg_replace("@ [\s]{0,}alt[\s]{0,}=[\"'\s]{0,}[\s\S]{0,}[\"'\s] @isU"," ",$this->Fields['body']);    
+            $this->Fields['body'] = str_ireplace("<img " ,"<img alt=\"".$this->Fields['title']."\" class=\"lazy_load\" ",$this->Fields['body']); 
 
-			//处理产品字段cptese	
-			$this->Fields['cptese'] = str_ireplace(array('altalt=""','alt=\'\''),'',$this->Fields['cptese']);  
-			$this->Fields['cptese'] = preg_replace("@ [\s]{0,}alt[\s]{0,}=[\"'\s]{0,}[\s\S]{0,}[\"'\s] @isU"," ",$this->Fields['cptese']);    
-			$this->Fields['cptese'] = str_ireplace("<img " ,"<img alt=\"".$this->Fields['title']."\" class=\"lazy_load\" ",$this->Fields['cptese']); 
+            //处理产品字段youhuixq
+            $this->Fields['youhuixq'] = str_ireplace(array('altalt=""','alt=\'\''),'',$this->Fields['youhuixq']);  
+            $this->Fields['youhuixq'] = preg_replace("@ [\s]{0,}alt[\s]{0,}=[\"'\s]{0,}[\s\S]{0,}[\"'\s] @isU"," ",$this->Fields['youhuixq']);    
+            $this->Fields['youhuixq'] = str_ireplace("<img " ,"<img alt=\"".$this->Fields['title']."\" class=\"lazy_load\" ",$this->Fields['youhuixq']);
 
-			//处理产品字段originality	
-			$this->Fields['originality'] = str_ireplace(array('altalt=""','alt=\'\''),'',$this->Fields['originality']);  
-			$this->Fields['originality'] = preg_replace("@ [\s]{0,}alt[\s]{0,}=[\"'\s]{0,}[\s\S]{0,}[\"'\s] @isU"," ",$this->Fields['originality']);    
-			$this->Fields['originality'] = str_ireplace("<img " ,"<img alt=\"".$this->Fields['title']."\" class=\"lazy_load\" ",$this->Fields['originality']);
+            //处理产品字段cptese  
+            $this->Fields['cptese'] = str_ireplace(array('altalt=""','alt=\'\''),'',$this->Fields['cptese']);  
+            $this->Fields['cptese'] = preg_replace("@ [\s]{0,}alt[\s]{0,}=[\"'\s]{0,}[\s\S]{0,}[\"'\s] @isU"," ",$this->Fields['cptese']);    
+            $this->Fields['cptese'] = str_ireplace("<img " ,"<img alt=\"".$this->Fields['title']."\" class=\"lazy_load\" ",$this->Fields['cptese']); 
+
+            //处理产品字段originality 
+            $this->Fields['originality'] = str_ireplace(array('altalt=""','alt=\'\''),'',$this->Fields['originality']);  
+            $this->Fields['originality'] = preg_replace("@ [\s]{0,}alt[\s]{0,}=[\"'\s]{0,}[\s\S]{0,}[\"'\s] @isU"," ",$this->Fields['originality']);    
+            $this->Fields['originality'] = str_ireplace("<img " ,"<img alt=\"".$this->Fields['title']."\" class=\"lazy_load\" ",$this->Fields['originality']);
 
             //处理产品字段bodysi 
             $this->Fields['bodysi'] = str_ireplace(array('altalt=""','alt=\'\''),'',$this->Fields['bodysi']);  
@@ -373,7 +373,7 @@ class Archives
      * @param     int    $isremote  是否远程
      * @return    string
      */
-    function MakeHtml($isremote=0,$m=0)     //$m=0 判断移动端参数
+    function MakeHtml($isremote=0)
     {
         global $cfg_remote_site,$fileFirst;
         if($this->IsError)
@@ -382,7 +382,7 @@ class Archives
         }
         $this->Fields["displaytype"] = "st";
         //预编译$th
-        $this->LoadTemplet($m);     //增加参数$m 移动端参数
+        $this->LoadTemplet();
         $this->ParAddTable();
         $this->ParseTempletsFirst();
         $this->Fields['senddate'] = empty($this->Fields['senddate'])? '' : $this->Fields['senddate'];
@@ -396,7 +396,7 @@ class Archives
         $filename = GetFileNewName(
             $this->ArcID,$this->Fields['typeid'],$this->Fields['senddate'],
             $this->Fields['title'],$this->Fields['ismake'],$this->Fields['arcrank'],
-            ($m?'m/':'').$this->TypeLink->TypeInfos['namerule'],$this->TypeLink->TypeInfos['typedir'],$this->Fields['money'],$this->Fields['filename']      //($m?'m/':'').文件夹路径增加移动端
+            'm/'.$this->TypeLink->TypeInfos['namerule'],$this->TypeLink->TypeInfos['typedir'],$this->Fields['money'],$this->Fields['filename']
         );
 
         $filenames  = explode(".", $filename);
@@ -639,11 +639,12 @@ class Archives
      * @access    public
      * @return    void
      */
-    function LoadTemplet($m=0)      //增加$m=0移动端参数，并增加一段移动端模版获取的判断代码
+    function LoadTemplet()
     {
-        if($m){
-            $pathinfo = pathinfo($this->GetTempletFile());
-            $tempfile = $pathinfo[dirname].'/'.basename($pathinfo[basename],'.htm').'_m.htm';   
+        if($this->TempSource=='')
+        {
+			$pathinfo = pathinfo($this->GetTempletFile());
+			$tempfile = $pathinfo[dirname].'/'.basename($pathinfo[basename],'.htm').'_m.htm';
             if(!file_exists($tempfile) || !is_file($tempfile))
             {
                 echo "文档ID：{$this->Fields['id']} - {$this->TypeLink->TypeInfos['typename']} - {$this->Fields['title']}<br />";
@@ -652,23 +653,10 @@ class Archives
             }
             $this->dtp->LoadTemplate($tempfile);
             $this->TempSource = $this->dtp->SourceString;
-        }else{
-            if($this->TempSource=='')
-            {
-                $tempfile = $this->GetTempletFile();
-                if(!file_exists($tempfile) || !is_file($tempfile))
-                {
-                    echo "文档ID：{$this->Fields['id']} - {$this->TypeLink->TypeInfos['typename']} - {$this->Fields['title']}<br />";
-                    echo "模板文件不存在，无法解析文档！";
-                    exit();
-                }
-                $this->dtp->LoadTemplate($tempfile);
-                $this->TempSource = $this->dtp->SourceString;
-            }
-            else
-            {
-                $this->dtp->LoadSource($this->TempSource);
-            }
+        }
+        else
+        {
+            $this->dtp->LoadSource($this->TempSource);
         }
     }
 
@@ -916,33 +904,30 @@ class Archives
         {
             return "";
         }
-        $PageList = "<a>共".$totalPage."页: </a>";
+        $PageList = "<li><a>共".$totalPage."页: </a></li>";
         $nPage = $nowPage-1;
         $lPage = $nowPage+1;
         if($nowPage==1)
         {
-            $PageList.="<a href='#' target=\"_self\">上一页</a>";
+            $PageList.="<li><a href='#'>上一页</a></li>";
         }
         else
         {
             if($nPage==1)
             {
-                $PageList.="<a href=\"view.php?aid=$aid\" target=\"_self\">上一页</a>";
+                $PageList.="<li><a href='view.php?aid=$aid'>上一页</a></li>";
                 if($cfg_rewrite == 'Y')
                 {
-                    //$PageList = preg_replace("#.php\?aid=(\d+)#i", '-\\1-1.html', $PageList);
-					$PageList = preg_replace("#view.php\?aid=(\d+)#i", '\1.html', $PageList);
+                    $PageList = preg_replace("#.php\?aid=(\d+)#i", '-\\1-1.html', $PageList);
                 }
             }
             else
             {
-                $PageList.="<a href=\"view.php?aid=$aid&pageno=$nPage\" target=\"_self\">上一页</a>";
+                $PageList.="<li><a href='view.php?aid=$aid&pageno=$nPage'>上一页</a></li>";
                 if($cfg_rewrite == 'Y')
                 {
-                    //$PageList = str_replace(".php?aid=", "-", $PageList);
-                    //$PageList =  preg_replace("#&pageno=(\d+)#i", '-\\1.html', $PageList);
-					$PageList = str_replace("view.php?aid=", "", $PageList);
-					$PageList =  preg_replace("#&pageno=(\d+)#i", '_\\1.html', $PageList);
+                    $PageList = str_replace(".php?aid=", "-", $PageList);
+                    $PageList =  preg_replace("#&pageno=(\d+)#i", '-\\1.html', $PageList);
                 }
             }
         }
@@ -952,16 +937,15 @@ class Archives
             {
                 if($nowPage!=1)
                 {
-                    $PageList.="<a href=\"view.php?aid=$aid\" target=\"_self\">1</a>";
+                    $PageList.="<li><a href='view.php?aid=$aid'>1</a></li>";
                     if($cfg_rewrite == 'Y')
                     {
-                        //$PageList = preg_replace("#.php\?aid=(\d+)#i", '-\\1-1.html', $PageList);
-						$PageList = preg_replace("#view.php\?aid=(\d+)#i", '\1.html', $PageList);
+                        $PageList = preg_replace("#.php\?aid=(\d+)#i", '-\\1-1.html', $PageList);
                     }
                 }
                 else
                 {
-                    $PageList.="<a class=\"selected\">1</a>";
+                    $PageList.="<li class=\"thisclass\"><a>1</a></li>";
                 }
             }
             else
@@ -969,35 +953,31 @@ class Archives
                 $n = $i;
                 if($nowPage!=$i)
                 {
-                    $PageList.="<a href=\"view.php?aid=$aid&pageno=$i\" target=\"_self\">".$n."</a>";
+                    $PageList.="<li><a href='view.php?aid=$aid&pageno=$i'>".$n."</a></li>";
                     if($cfg_rewrite == 'Y')
                     {
-                        //$PageList = str_replace(".php?aid=", "-", $PageList);
-                        //$PageList =  preg_replace("#&pageno=(\d+)#i", '-\\1.html', $PageList);
-						$PageList = str_replace("view.php?aid=", "", $PageList);
-						$PageList =  preg_replace("#&pageno=(\d+)#i", '_\\1.html', $PageList);
+                        $PageList = str_replace(".php?aid=", "-", $PageList);
+                        $PageList =  preg_replace("#&pageno=(\d+)#i", '-\\1.html', $PageList);
                     }
                 }
                 else
                 {
-                    $PageList.="<a href='#' class=\"selected\" target=\"_self\">{$n}</a>";
+                    $PageList.="<li class=\"thisclass\"><a href='#'>{$n}</a></li>";
                 }
             }
         }
         if($lPage <= $totalPage)
         {
-            $PageList.="<a href=\"view.php?aid=$aid&pageno=$lPage\" target=\"_self\">下一页</a>";
+            $PageList.="<li><a href='view.php?aid=$aid&pageno=$lPage'>下一页</a></li>";
             if($cfg_rewrite == 'Y')
             {
-                //$PageList = str_replace(".php?aid=", "-", $PageList);
-                //$PageList =  preg_replace("#&pageno=(\d+)#i", '-\\1.html', $PageList);
-				$PageList = str_replace("view.php?aid=", "", $PageList);
-				$PageList =  preg_replace("#&pageno=(\d+)#i", '_\\1.html', $PageList);
+                $PageList = str_replace(".php?aid=", "-", $PageList);
+                $PageList =  preg_replace("#&pageno=(\d+)#i", '-\\1.html', $PageList);
             }
         }
         else
         {
-            $PageList.= "<a href='#' target=\"_self\">下一页</a>";
+            $PageList.= "<li><a href='#'>下一页</a></li>";
         }
         return $PageList;
     }
@@ -1017,22 +997,22 @@ class Archives
         {
             return "";
         }
-        $PageList = "<a>共".$totalPage."页: </a>";
+        $PageList = "<li><a>共".$totalPage."页: </a></li>";
         $nPage = $nowPage-1;
         $lPage = $nowPage+1;
         if($nowPage==1)
         {
-            $PageList.="<a href='#' target=\"_self\">上一页</a>";
+            $PageList.="<li><a href='#'>上一页</a></li>";
         }
         else
         {
             if($nPage==1)
             {
-                $PageList.="<a href=\"".$this->NameFirst.".".$this->ShortName."\" target=\"_self\">上一页</a>";
+                $PageList.="<li><a href='".$this->NameFirst.".".$this->ShortName."'>上一页</a></li>";
             }
             else
             {
-                $PageList.="<a href=\"".$this->NameFirst."_".$nPage.".".$this->ShortName."\" target=\"_self\">上一页</a>";
+                $PageList.="<li><a href='".$this->NameFirst."_".$nPage.".".$this->ShortName."'>上一页</a></li>";
             }
         }
         for($i=1;$i<=$totalPage;$i++)
@@ -1041,11 +1021,11 @@ class Archives
             {
                 if($nowPage!=1)
                 {
-                    $PageList.="<a href=\"".$this->NameFirst.".".$this->ShortName."\" target=\"_self\">1</a></li>";
+                    $PageList.="<li><a href='".$this->NameFirst.".".$this->ShortName."'>1</a></li>";
                 }
                 else
                 {
-                    $PageList.="<a class=\"selected\">1</a>";
+                    $PageList.="<li class=\"thisclass\"><a href='#'>1</a></li>";
                 }
             }
             else
@@ -1053,21 +1033,21 @@ class Archives
                 $n = $i;
                 if($nowPage!=$i)
                 {
-                    $PageList.="<a href=\"".$this->NameFirst."_".$i.".".$this->ShortName."\" target=\"_self\">".$n."</a>";
+                    $PageList.="<li><a href='".$this->NameFirst."_".$i.".".$this->ShortName."'>".$n."</a></li>";
                 }
                 else
                 {
-                    $PageList.="<a class=\"selected\">{$n}</a>";
+                    $PageList.="<li class=\"thisclass\"><a href='#'>{$n}</a></li>";
                 }
             }
         }
         if($lPage <= $totalPage)
         {
-            $PageList.="<a href=\"".$this->NameFirst."_".$lPage.".".$this->ShortName."\" target=\"_self\">下一页</a>";
+            $PageList.="<li><a href='".$this->NameFirst."_".$lPage.".".$this->ShortName."'>下一页</a></li>";
         }
         else
         {
-            $PageList.= "<a href='#' target=\"_self\">下一页</a>";
+            $PageList.= "<li><a href='#'>下一页</a></li>";
         }
         return $PageList;
     }
@@ -1218,17 +1198,38 @@ class Archives
      * @param string $body
      * @return string
      */
-/*    function ReplaceKeyword($kw,&$body)
+    function ReplaceKeyword($kw,&$body)
     {
         global $cfg_cmspath;
         $maxkey = 5;
-        $kws = explode(",",trim($kw));    //以分号为间隔符
+        $kws = explode(",",trim($kw));    //以分好为间隔符
         $i=0;
         $karr = $kaarr = $GLOBALS['replaced'] = array();
 
         //暂时屏蔽超链接
         $body = preg_replace("#(<a(.*))(>)(.*)(<)(\/a>)#isU", '\\1-]-\\4-[-\\6', $body);
 
+        /*
+        foreach($kws as $k)
+        {
+            $k = trim($k);
+            if($k!="")
+            {
+                if($i > $maxkey)
+                {
+                    break;
+                }
+                $myrow = $this->dsql->GetOne("SELECT * FROM #@__keywords WHERE keyword='$k' AND rpurl<>'' ");
+                if(is_array($myrow))
+                {
+                    $karr[] = $k;
+                    $GLOBALS['replaced'][$k] = 0;
+                    $kaarr[] = "<a href='{$myrow['rpurl']}'><u>$k</u></a>";
+                }
+                $i++;
+            }
+        }
+        */
         $query = "SELECT * FROM #@__keywords WHERE rpurl<>'' ORDER BY rank DESC"; 
         $this->dsql->SetQuery($query);
         $this->dsql->Execute();
@@ -1246,44 +1247,13 @@ class Archives
         //恢复超链接
         $body = preg_replace("#(<a(.*))-\]-(.*)-\[-(\/a>)#isU", '\\1>\\3<\\4', $body);
         return $body;
-    }*/
-
-	function ReplaceKeyword($kw,&$body)
-    {
-    	global $cfg_cmspath,$dsql;
-    	$maxkey = 5;
-    	$kws = explode(",",trim($kw)); //以分好为间隔符
-    	$i=0;
-    	$karr = $kaarr = $GLOBALS['replaced'] = array();
-    	//暂时屏蔽超链接
-    	$body = preg_replace("/(<a(.*))(>)(.*)(<)(\/a>)/isU", '\\1-]-\\4-[-\\6', $body);
-    	$query="SELECT * FROM #@__keywords WHERE rpurl<>'' and sta=1 ORDER BY length(keyword)desc";
-    	$dsql->SetQuery($query);
-    	$dsql->Execute();
-    	while($row = $dsql->GetArray())
-    	{
-    		$key = trim($row['keyword']);
-    		$key_url=trim($row['rpurl']);
-    		$karr[] = $key;
-    		$kaarr[] = "<a href=\"$key_url\" target=\"_blank\">$key</a>";
-    	}
-    	foreach ($karr as $key => $word)
-    	{
-    		$body = preg_replace("/(^|>)([^<]+)(?=<|$)/sUe", "_highlight('\\2', \$karr[$key], \$kaarr[$key],'\\1')", $body);
-    		//echo $body."<br/>";
-    		//恢复超链接
-    		$body = preg_replace("/(<a(.*))-\]-(.*)-\[-(\/a>)/isU", '\\1>\\3<\\4', $body);//暂时屏蔽超链接
-    		$body = preg_replace("/(<a(.*))(>)(.*)(<)(\/a>)/isU", '\\1-]-\\4-[-\\6', $body);
-    	}
-    		//恢复超链接
-    	$body = preg_replace("/(<a(.*))-\]-(.*)-\[-(\/a>)/isU", '\\1>\\3<\\4', $body);
-    	return $body;
     }
+
 
 }//End Archives
 
 //高亮专用, 替换多次是可能不能达到最多次
-/*function _highlight($string, $words, $result, $pre)
+function _highlight($string, $words, $result, $pre)
 {
     global $cfg_replace_num;
     $string = str_replace('\"', '"', $string);
@@ -1305,29 +1275,6 @@ class Archives
     else
     {
         $string = str_replace($words, $result, $string);
-		
     }
     return $pre.$string;
-}*/
-function _highlight($string, $words, $result, $pre)
-{
-    global $cfg_replace_num;
-    $string = str_replace('\"', '"', $string);
-	if($GLOBALS['replaced'][$words] == 1)
-	{
-    	return $pre.$string;
-    }
-	if($cfg_replace_num > 0)
-	{
-    	$string = preg_replace("/".preg_quote($words)."/", $result, $string, $cfg_replace_num);
-    	if(strpos($string, $words) !== false)
-    	{
-        	$GLOBALS['replaced'][$words] = 1;
-    	}
-    }
-	else
-	{
-		$string = str_replace($words, $result, $string);
-	}
-	return $pre.$string;
 }
