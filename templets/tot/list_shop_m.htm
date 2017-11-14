@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>{dede:field.title/} - {dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field.keywords/}" />
+<meta name="description" content="{dede:field.description function='html2text(@me)'/}" />`
+{dede:include filename="meta_m.htm"/}
+</head>
+<body>
+<div id="header">
+    <a class="return" href="javascript:if(document.referrer.indexOf('1314theone')>=0){history.go(-1);}else{window.location='/m/';}"><i class="am-icon-angle-left"></i></a>
+    <h1>{dede:field name='typename'/}</h1>
+</div>
+<div id="trip_list">
+	<div class="hei30"></div>
+    <ul>{dede:list pagesize='150'}
+		<li class="view">
+            <a href="/m[field:arcurl/]">
+                <div class="pic">
+                    <img src="[field:litpic/]">
+                    <div class="cont">
+						<span class="price">¥<em>[field:trueprice/]</em>起</span>
+					</div>
+                    <div class="clear"></div>
+                </div>
+                <div class="con">
+                    <h5>[field:title/]</h5>
+                    <p>[field:description function='cn_substr(@me,250)' /]</p>
+                </div>
+            </a>
+        </li>{/dede:list}
+	</ul>
+    <div id="none">
+        没有更多了
+    </div>
+</div>
+{dede:include filename="footer_m.htm"/}
+</body>
+</html>

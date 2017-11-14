@@ -85,7 +85,8 @@ class DedeModule
         $fp = @fopen($this->modulesPath.'/modulescache.php','w') or die('读取文件权限出错,目录文件'.$this->modulesPath.'/modulescache.php不可写!');
 		$cachefile = DEDEDATA.'/module/moduleurllist.txt';
 		$remotelist = '';
-		if(file_exists($cachefile) && (filemtime($cachefile) + 60 * 30) > time())
+		// if(file_exists($cachefile) && (filemtime($cachefile) + 60 * 30) > time())
+        if(file_exists($cachefile) && filesize($cachefile) > 10) 
 		{
 			// 30分钟本地缓存一次
 			$remotelist = file_get_contents($cachefile);

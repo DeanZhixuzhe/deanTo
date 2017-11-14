@@ -318,7 +318,7 @@ else if($action=='setupstart')
         echo $rflwft;
 
         UpDateCatCache();
-        SendData($hash);
+        // SendData($hash);
         ShowMsg('模块安装完成...', 'module_main.php');
         exit();
     }
@@ -524,7 +524,7 @@ else if($action=='uninstallok')
         $rflwft .= "else top.document.getElementById('menufra').src = 'index_menu_module.php';\r\n";
         $rflwft .= "</script>";
         echo $rflwft;
-        SendData($hash,2);
+        // SendData($hash,2);
         ShowMsg('模块卸载完成...','module_main.php');
         exit();
     }

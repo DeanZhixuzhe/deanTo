@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>定制浪漫,求婚策划定制 - <?php echo $cfg_webname; ?></title>
+<meta name="keywords" content="求婚策划,浪漫求婚,求婚策划公司,快闪求婚,电影院求婚" />
+<meta name="description" content="TheOne求婚策划公司为您提供专业的求婚策划服务，专注于浪漫求婚、快闪求婚、电影院求婚、餐厅咖啡厅求婚等多种求婚方式，还有求婚策划价格咨询、求婚策划地点推荐等专业服务。" />
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" />
+<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/m/css/amazeui.css">
+<script type="text/javascript" src="/static/m/js/jquery.min.js"></script>
+<script type="text/javascript" src="/static/m/js/amazeui.js"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo $cfg_static; ?>/css/it10.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $cfg_static; ?>/css/dingzhi.css">
+<script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript">
+ // borwserRedirect
+ (function browserRedirect(){
+  var sUserAgent = navigator.userAgent.toLowerCase();
+  var bIsIpad = sUserAgent.match(/ipad/i) == 'ipad';
+  var bIsIphone = sUserAgent.match(/iphone os/i) == 'iphone os';
+  var bIsMidp = sUserAgent.match(/midp/i) == 'midp';
+  var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == 'rv:1.2.3.4';
+  var bIsUc = sUserAgent.match(/ucweb/i) == 'web';
+  var bIsCE = sUserAgent.match(/windows ce/i) == 'windows ce';
+  var bIsWM = sUserAgent.match(/windows mobile/i) == 'windows mobile';
+  var bIsAndroid = sUserAgent.match(/android/i) == 'android';
+  var url = window.location.href;
+  var murl = url.replace('.com/','.com/m/');
+  if(bIsIpad || bIsIphone || bIsMidp || bIsUc7 || bIsUc || bIsCE || bIsWM || bIsAndroid ){
+  window.location.href = murl;
+  }
+ })();
+</script>
+</head>
+<body>
+<div class="header-frame">
+	<div class="header">
+		<div class="logo"><a href="http://www.1314theone.com/"></a></div>
+		<dl class="city">
+			<dt>[切换城市]</dt>
+			<dd class="cityList">
+				<p><b>直辖市：</b>
+					<a href="<?php echo $cfg_basehost; ?>/proposal/beijing/" target="_self">北京</a>
+					<a href="<?php echo $cfg_basehost; ?>/proposal/shanghai/" target="_self">上海</a>
+					<a href="<?php echo $cfg_basehost; ?>/proposal/chongqing/" target="_self">重庆</a>
+					<a href="<?php echo $cfg_basehost; ?>/proposal/tianjin/" target="_self">天津</a>
+				</p>
+				<p><b>西南：</b>
+					<a href="<?php echo $cfg_basehost; ?>/proposal/chengdu/" target="_self">成都</a>
+        			<a href="<?php echo $cfg_basehost; ?>/proposal/kunming/" target="_self">昆明</a>
+        			<a href="<?php echo $cfg_basehost; ?>/proposal/lijiang/" target="_self">丽江</a>
+        			<a href="<?php echo $cfg_basehost; ?>/proposal/guiyang/" target="_self">贵阳</a>
+				</p>
+				<p><b>华南：</b>
+					<a href="<?php echo $cfg_basehost; ?>/proposal/guangzhou/" target="_self">广州</a>
+        			<a href="<?php echo $cfg_basehost; ?>/proposal/shenzhen/" target="_self">深圳</a>
+        			<a href="<?php echo $cfg_basehost; ?>/proposal/nanning/" target="_self">南宁</a>
+        			<a href="<?php echo $cfg_basehost; ?>/proposal/haikou/" target="_self">海口</a>
+        			<a href="<?php echo $cfg_basehost; ?>/proposal/sanya/" target="_self">三亚</a>
+				</p>
+				<p><b>华东：</b>
+					<a href="<?php echo $cfg_basehost; ?>/proposal/hangzhou/" target="_self">杭州</a>
+        			<a href="<?php echo $cfg_basehost; ?>/proposal/suzhou/" target="_self">苏州</a>
+        			<a href="<?php echo $cfg_basehost; ?>/proposal/nanjing/" target="_self">南京</a>
+        			<a href="<?php echo $cfg_basehost; ?>/proposal/hefei/" target="_self">合肥</a>
+        			<a href="<?php echo $cfg_basehost; ?>/proposal/jinan/" target="_self">济南</a>
+        			<a href="<?php echo $cfg_basehost; ?>/proposal/qingdao/" target="_self">青岛</a>
+        			<a href="<?php echo $cfg_basehost; ?>/proposal/fuzhou/" target="_self">福州</a>
+        			<a href="<?php echo $cfg_basehost; ?>/proposal/xiamen/" target="_self">厦门</a>
+				</p>
+				<p><b>华中：</b>
+					<a href="<?php echo $cfg_basehost; ?>/proposal/nanchang/" target="_self">南昌</a>
+        			<a href="<?php echo $cfg_basehost; ?>/proposal/changsha/" target="_self">长沙</a>
+        			<a href="<?php echo $cfg_basehost; ?>/proposal/wuhan/" target="_self">武汉</a>
+        			<a href="<?php echo $cfg_basehost; ?>/proposal/zhengzhou/" target="_self">郑州</a>
+				</p>
+				<p><b>华北：</b>
+					<a href="<?php echo $cfg_basehost; ?>/proposal/taiyuan/" target="_self">太原</a>
+        			<a href="<?php echo $cfg_basehost; ?>/proposal/shijiazhuang/" target="_self">石家庄</a>
+				</p>
+				<p><b>东北：</b>
+					<a href="<?php echo $cfg_basehost; ?>/proposal/shenyang/" target="_self">沈阳</a>
+        			<a href="<?php echo $cfg_basehost; ?>/proposal/dalian/" target="_self">大连</a>
+        			<a href="<?php echo $cfg_basehost; ?>/proposal/changchun/" target="_self">长春</a>
+        			<a href="<?php echo $cfg_basehost; ?>/proposal/haerbin/" target="_self">哈尔滨</a>
+				</p>
+				<p><b>西北：</b>
+					<a href="<?php echo $cfg_basehost; ?>/proposal/xian/" target="_self">西安</a>
+        			<b>港澳台：</b>
+        			<a href="<?php echo $cfg_basehost; ?>/proposal/hongkong/" target="_self">香港</a>
+				</p>
+				<p><b>国外：</b>
+					<a href="<?php echo $cfg_basehost; ?>/proposal/paris/" target="_self">巴黎</a>
+        			<a href="<?php echo $cfg_basehost; ?>/proposal/maldives/" target="_self">马尔代夫</a>
+        			<a href="<?php echo $cfg_basehost; ?>/proposal/bali/" target="_blank">巴厘岛</a>
+        			<a href="<?php echo $cfg_basehost; ?>/proposal/kohsamui/" target="_blank">苏梅岛</a>
+        			<a href="<?php echo $cfg_basehost; ?>/proposal/saipan/" target="_blank">塞班岛</a>
+        			<a href="<?php echo $cfg_basehost; ?>/proposal/phuket/" target="_blank">普吉岛</a>
+				</p>
+			</dd>
+		</dl>
+		<div class="nav"><a href="http://www.1314theone.com/">首页</a><a href="/mall/" rel="nofollow">求婚套餐</a><a href="/case/proposal/" rel="nofollow">求婚案例</a><a href="/proposal/">求婚攻略</a></div>
+	</div>
+</div>
+
+<div class="dingzhi">
+<form>
+	<dl>
+		<dt>基本信息</dt>
+		<dd>
+			<div class="inp_box">
+				<em>浪漫主题</em>
+				<div class="inp_txt btn-group" data-toggle="buttons">
+					<label class="btn btn-primary"><input type="radio">求婚</label>
+					<label class="btn btn-primary"><input type="radio">表白</label>
+					<label class="btn btn-primary"><input type="radio">生日惊喜</label>
+					<label class="btn btn-primary"><input type="radio">感情挽回</label>
+					<label class="btn btn-primary"><input type="radio">纪念日惊喜</label>
+					<label class="btn btn-primary"><input type="radio">其他浪漫</label>
+				</div>
+			</div>
+			<div class="inp_box">
+				<em>活动地区</em>
+				<div class="inp_txt">
+					<input type="text" name="area">
+				</div>
+			</div>
+			<div class="inp_box">
+				<em>活动时间</em>
+				<div class="inp_txt">
+					<input type="text" name="area">
+				</div>
+			</div>
+		</dd>
+	</dl>
+	<dl>
+		<dt>特色定制</dt>
+		<dd>
+			<div class="inp_box">
+				<em>场地选择</em>
+				<div class="inp_txt btn-group" data-toggle="buttons">
+					<label class="btn btn-primary"><input type="radio">KTV</label>
+					<label class="btn btn-primary"><input type="radio">餐厅</label>
+					<label class="btn btn-primary"><input type="radio">咖啡厅</label>
+					<label class="btn btn-primary"><input type="radio">感情挽回</label>
+					<label class="btn btn-primary"><input type="radio">纪念日惊喜</label>
+					<label class="btn btn-primary"><input type="radio">其他浪漫</label>
+				</div>
+			</div>
+			<div class="inp_box">
+				<em>特色元素</em>
+				<div class="inp_txt btn-group" data-toggle="buttons">
+					<label class="btn btn-primary"><input type="radio">求婚</label>
+					<label class="btn btn-primary"><input type="radio">表白</label>
+					<label class="btn btn-primary"><input type="radio">生日惊喜</label>
+					<label class="btn btn-primary"><input type="radio">感情挽回</label>
+					<label class="btn btn-primary"><input type="radio">纪念日惊喜</label>
+					<label class="btn btn-primary"><input type="radio">其他浪漫</label>
+				</div>
+			</div>
+			<div class="inp_box">
+				<em>浪漫预算</em>
+				<div class="inp_txt btn-group" data-toggle="buttons">
+					<label class="btn btn-primary"><input type="radio">3000-5000</label>
+					<label class="btn btn-primary"><input type="radio">5000-8000</label>
+					<label class="btn btn-primary"><input type="radio">8000-15000</label>
+					<label class="btn btn-primary"><input type="radio">15000-30000</label>
+					<label class="btn btn-primary"><input type="radio">30000以上</label>
+					<label class="btn btn-primary"><input type="radio">不确定</label>
+				</div>
+			</div>
+			<div class="inp_box">
+				<em>其他需求</em>
+				<div class="inp_txt">
+					<textarea name="other" class="form-control" placeholder=""></textarea>
+				</div>
+			</div>
+		</dd>
+	</dl>
+	<dl>
+		<dt>个人信息</dt>
+		<dd>
+			<div class="inp_box">
+				<em>您的名字：</em>
+				<div class="inp_txt">
+					<input type="text" class="form-control" name="name">
+				</div>
+			</div>
+			<div class="inp_box">
+				<em>您的手机：</em>
+				<div class="inp_txt">
+					<input type="text" class="form-control" name="mobile">
+				</div>
+			</div>
+			<div class="inp_box">
+				<em>短信验证码：</em>
+				<div class="inp_txt">
+					<input type="text" class="form-control" name="mobile">
+				</div>
+				<button type="button">发送验证码</button>
+			</div>
+		</dd>
+	</dl>
+</form>
+</div>
+
+<div class="footer">
+	<div class="footerseo">
+	    <div class="footerseo_con">
+		    <span>热门求婚策划：</span>
+		    <a href="<?php echo $cfg_basehost; ?>/proposal/beijing/" target="_blank">北京求婚</a>
+		    <a href="<?php echo $cfg_basehost; ?>/proposal/shanghai/" target="_blank">上海求婚</a>
+		    <a href="<?php echo $cfg_basehost; ?>/proposal/chongqing/" target="_blank">重庆求婚</a>
+		    <a href="<?php echo $cfg_basehost; ?>/proposal/tianjin/" target="_blank">天津求婚</a>
+		    <a href="<?php echo $cfg_basehost; ?>/proposal/guangzhou/" target="_blank">广州求婚</a>
+		    <a href="<?php echo $cfg_basehost; ?>/proposal/shenzhen/" target="_blank">深圳求婚</a>
+		    <a href="<?php echo $cfg_basehost; ?>/proposal/kunming/" target="_blank">昆明求婚</a>
+		    <a href="<?php echo $cfg_basehost; ?>/proposal/chengdu/" target="_blank">成都求婚</a>
+		    <a href="<?php echo $cfg_basehost; ?>/proposal/hefei/" target="_blank">合肥求婚</a>
+		    <a href="<?php echo $cfg_basehost; ?>/proposal/nanjing/" target="_blank">南京求婚</a>
+		    <a href="<?php echo $cfg_basehost; ?>/proposal/wuhan/" target="_blank">武汉求婚</a>
+		    <a href="<?php echo $cfg_basehost; ?>/proposal/taiyuan/" target="_blank">太原求婚</a>
+		    <a href="<?php echo $cfg_basehost; ?>/proposal/xiamen/" target="_blank">厦门求婚</a>
+		</div>
+		<div class="footerseo_con">
+		    <span>旅游求婚城市：</span>
+		    <a href="<?php echo $cfg_basehost; ?>/proposal/sanya/" target="_blank">三亚求婚</a>
+		    <a href="<?php echo $cfg_basehost; ?>/proposal/hangzhou/" target="_blank">杭州求婚</a>
+		    <a href="<?php echo $cfg_basehost; ?>/proposal/xian/" target="_blank">西安求婚</a>
+		    <a href="<?php echo $cfg_basehost; ?>/proposal/lijiang/" target="_blank">丽江求婚</a>
+		    <a href="<?php echo $cfg_basehost; ?>/proposal/suzhou/" target="_blank">苏州求婚</a>
+		    <a href="<?php echo $cfg_basehost; ?>/proposal/qingdao/" target="_blank">青岛求婚</a>
+		    <a href="<?php echo $cfg_basehost; ?>/proposal/hongkong/" target="_blank">香港求婚</a>
+		    <a href="<?php echo $cfg_basehost; ?>/proposal/bali/" target="_blank">巴厘岛求婚</a>
+		    <a href="<?php echo $cfg_basehost; ?>/proposal/phuket/" target="_blank">普吉岛求婚</a>
+		    <a href="<?php echo $cfg_basehost; ?>/proposal/saipan/" target="_blank">塞班岛求婚</a>
+		    <a href="<?php echo $cfg_basehost; ?>/proposal/maldives/" target="_blank">马尔代夫求婚</a>
+		</div>
+	</div>
+	<div class="footerab">
+		<p>
+			<a href="<?php echo $cfg_basehost; ?>/about/corporation.html" target="_blank" rel="nofollow">关于我们</a>
+			&nbsp;|&nbsp;
+			<a href="<?php echo $cfg_basehost; ?>/about/service.html" target="_blank" rel="nofollow">产品服务</a>
+			&nbsp;|&nbsp;
+			<a href="<?php echo $cfg_basehost; ?>/about/quality.html" target="_blank" rel="nofollow">品质保障</a>
+			&nbsp;|&nbsp;
+			<a href="<?php echo $cfg_basehost; ?>/about/concept.html" target="_blank" rel="nofollow">企业理念</a>
+			&nbsp;|&nbsp;
+			<a href="<?php echo $cfg_basehost; ?>/about/privacy.html" target="_blank" rel="nofollow">隐私保护</a>
+			&nbsp;|&nbsp;
+			<a href="<?php echo $cfg_basehost; ?>/map/" target="_blank">网站地图</a>
+		</p>
+		<p>Copyright © 2017 <a href="<?php echo $cfg_basehost; ?>/">TheOne浪漫策划公司</a>
+	  (本网站部分图片和视频来源于网络，如有侵权，请及时联系我们删除)</p>
+		<p>全国免费咨询热线：023-62752304&nbsp;&nbsp;24小时值班热线：17353237074&nbsp;&nbsp;全国统一客户QQ：<a href="tencent://message/?uin=3547038718&Site=qq&Menu=yes" rel="nofollow">3562419182</a>&nbsp;&nbsp;<a href="http://www.miitbeian.gov.cn/" rel="nofollow" target="_blank">渝ICP备17003306号</a></p>
+	</div>
+</div>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b852b11b2eba5cc8858312816b5106eb";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<div class="side">
+	<ul>
+	  	<li><a href="tencent://message/?uin=3547038718&Site=qq&Menu=yes" rel="nofollow"><div class="sidebox"><img src="<?php echo $cfg_static; ?>/images/qq_icon.png"></div></a></li>
+	  	<li><div class="sidebox"><img src="<?php echo $cfg_static; ?>/images/weixin_icon.png"></div><div class="circle"><div class="blank"></div><img src="<?php echo $cfg_static; ?>/images/wechat@linda.jpg" /></div></li>
+	  	<li><div class="sidebox"><img src="<?php echo $cfg_static; ?>/images/phone_icon.png"></div><div class="circle"><div class="blank"></div><span>全国浪漫热线</span><p>023-62352154</p><span>24小时值班热线</span><p>17353247074</p></div></li>
+	  	<li style="border:none;"><a href="javascript:goTop();" class="sidetop" rel="nofollow"><img src="<?php echo $cfg_static; ?>/images/side_icon05.png"></a></li>
+  	</ul>
+</div>
+<script type="text/javascript" src="<?php echo $cfg_static; ?>/js/index.js"></script>
+</body>
+</html>

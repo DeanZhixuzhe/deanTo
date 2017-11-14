@@ -1,0 +1,48 @@
+.dingzhi{
+	margin: 20px auto 20px;
+	width: 1180px;
+	border: 1px solid #ddd;
+	background: #fff;
+	padding: 10px 20px;
+}
+.dingzhi .bbn{
+	border-bottom: none;
+}
+.dingzhi dl{
+	border-bottom: 1px solid #d0d0d0;
+	zoom:1;
+	padding:20px 0 20px 200px;
+}
+.dingzhi dl dt{
+	width: 190px;
+    margin-left: -190px;
+    float: left;
+    display: inline;
+    font-size: 18px;
+    font: 400 18px '微软雅黑';
+}
+.dingzhi dl dd{
+	vertical-align: top;
+	padding-top: 0;
+}
+.dingzhi dl dd .inp_box{
+	padding: 0 0 15px 140px;
+	position: relative;
+	zoom:1;
+}
+.dingzhi dl dd .inp_box em{
+	font-style: normal;
+	width: 130px;
+	text-align: right;
+	height: 26px;
+	line-height: 26px;
+	display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.dingzhi dl dd .inp_txt{
+	height: 20px;
+	line-height: 20px;
+	padding-left: 5px;
+}

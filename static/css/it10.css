@@ -31,6 +31,7 @@ div,ul,li,p,dl,dt,dd,i,em,a,h1,h2,h3,h4,h5,h6,img{box-sizing: border-box;-moz-bo
 .header-frame{background: #fff; border-bottom: 1px solid #E4E4E4; height: 60px; width: 100%;z-index: 99999; position: relative;}
 .header{position: relative; width: 1200px; margin: auto;}
 .header .logo{width: 160px; height: 60px; float: left; margin-right: 120px; background: url(../images/Logo_0101.png) center left no-repeat;}
+.header .logo a{width: 150px; height: 100%; display: block;}
 .header .city{position: absolute; left: 160px; top: 16px; z-index: 9999; }
 .header .city dt{opacity: .5;}
 .header .city dt:hover{cursor: pointer;}
@@ -45,6 +46,7 @@ div,ul,li,p,dl,dt,dd,i,em,a,h1,h2,h3,h4,h5,h6,img{box-sizing: border-box;-moz-bo
 .con_article{font-size: 16px; margin-top: 30px; line-height: 1.75;}
 .con_article img{max-width: 100%; margin: 10px auto; display: block;}
 .con_article p{text-indent: 2em; margin-bottom: 10px;}
+.con_article a{color:#44A2FF;}
 .con_article strong{margin-left: -2em;}
 .con_article iframe{width: 800px; height: 550px;}
 

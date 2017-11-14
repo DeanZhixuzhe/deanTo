@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>首页</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <!--库-->
+    <link rel="stylesheet" type="text/css" href="/static/m/css/amazeui.css">
+    <script type="text/javascript" src="/static/m/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/m/js/amazeui.js"></script>
+    <!-- 样式 -->
+    <link rel="stylesheet" type="text/css" href="/static/m/css/style.css">
+</head>
+
+<body>
+<div id="index">
+    <!--首页头部-->
+    <div class="index_head">
+		<div class="logo">
+			<a href="#"><img src="/static/images/logo_0101.png"></a>
+		</div>
+		<!--搜索-->
+		<a class="phone">
+			<img src="/static/m/images/phone.png">
+		</a>
+        <!-- <div class="nav">导航</div> -->
+    </div>
+    <!--轮播banner-->
+    <div id="index_banner">
+        <div data-am-widget="slider" class="am-slider am-slider-default">
+            <ul class="am-slides">
+                <li><img src="/static/images/c1200.jpg"/></li>
+                <!-- <li><a title="" href="activity_detail.html"><img src="/static/m/images/banner4.jpg"/></a></li>
+                <li><a title="" href="activity_detail.html"><img src="/static/m/images/banner3.jpg"/></a></li>
+                <li><a title="" href="activity_detail.html"><img src="/static/m/images/banner.jpg"/></a></li> -->
+            </ul>
+        </div>
+    </div>
+    <!--栏目-->
+    <div class="order_nav">
+        <ul class="box_nav am-avg-sm-3">
+            <li>
+                <a href="/m/mall/" rel="nofollow">
+                    <img src="/static/m/images/index_icon01.png"/>
+                    <p>浪漫套餐</p>
+                </a>
+            </li>
+            <li>
+                <a href="/m/case/proposal/" rel="nofollow">
+                    <img src="/static/m/images/index_icon02.png"/>
+                    <p>成功案例</p>
+                </a>
+            </li>
+            <li>
+                <a href="/m/proposal/">
+                    <img src="/static/m/images/index_icon03.png"/>
+                    <p>求婚攻略</p>
+                </a>
+            </li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+	
+	
+	<!-- <div id="trip_list" style="width:100%;overflow:hidden;"> -->
+    <div id="trip_list">
+		<div class="am-tabs" data-am-tabs>
+			<ul class="am-tabs-nav am-nav am-nav-tabs am-avg-sm-3">
+				<li class="am-active"><a href="#tab1">热门套餐</a></li>
+				<li><a href="#tab2">经济实惠</a></li>
+                <li><a href="#tab3">专属浪漫</a></li>
+			</ul>
+			<div class="am-tabs-bd">
+				<ul class="am-tab-panel am-fade am-in am-active" id="tab1">
+                {dede:arclist typeid='22' row='4' titlelen='60' addfields='truepricemax,trueprice' channelid='6' keyword='热门'}
+					<li class="view">
+                        <a href="/m/[field:arcurl/]">
+    						<div class="pic">
+    							<img src="[field:litpic/]">
+    							<div class="cont">
+    								<span class="button xq">¥[field:trueprice/]起</span>
+    							</div>
+    							<div class="clear"></div>
+    						</div>
+    						<div class="con">
+    							<h5>[field:title/]</h5>
+    							<p>卫坡古民居翠湾果岭观唐生态园炎帝本草园洛阳粤钰青...</p>
+    						</div>
+                        </a>
+					</li>
+                {/dede:arclist}
+				</ul>
+				<ul class="am-tab-panel am-fade" id="tab2">
+				{dede:arclist typeid='22' row='4' titlelen='60' addfields='truepricemax,trueprice' channelid='6' keyword='实惠'}
+                    <li class="view">
+                        <a href="/m/[field:arcurl/]">
+                            <div class="pic">
+                                <img src="[field:litpic/]">
+                                <div class="cont">
+                                    <span class="button xq">¥[field:trueprice/]起</span>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="con">
+                                <h5>[field:title/]</h5>
+                                <p>卫坡古民居翠湾果岭观唐生态园炎帝本草园洛阳粤钰青...</p>
+                            </div>
+                        </a>
+                    </li>
+                {/dede:arclist}
+				</ul>
+                <ul class="am-tab-panel am-fade" id="tab3">
+                {dede:arclist typeid='22' row='4' titlelen='60' addfields='truepricemax,trueprice' channelid='6' keyword='高端'}
+                    <li class="view">
+                        <a href="/m[field:arcurl/]">
+                            <div class="pic">
+                                <img src="[field:litpic/]">
+                                <div class="cont">
+                                    <span class="button xq">¥[field:trueprice/]起</span>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="con">
+                                <h5>[field:title/]</h5>
+                                <p>卫坡古民居翠湾果岭观唐生态园炎帝本草园洛阳粤钰青...</p>
+                            </div>
+                        </a>
+                    </li>
+                {/dede:arclist}
+                </ul>
+			</div>
+		</div>
+	</div>
+   
+    <!--特产商城-->
+    <!-- <div id="specialty_mall">
+        <div id="item_name">
+            <img src="/static/m/images/index_icon06.png">
+            <span>特产商城</span>
+        </div>
+        <ul>
+            <li>
+                <a class="project" href="project_basic.html">
+                    <div class="pic">
+                        <img src="/static/m/images/project_01.jpg"/>
+                    </div>
+                    <div class="project_cont">
+                        <p>孟津袖珍西瓜皮薄质优、携带方便、色泽艳丽、皮薄质优门峡...</p>
+                    </div>
+                    <div class="price">
+                        <label>￥300</label>
+                        <span>杰尔逊西瓜庄园</span>
+                        <div class="clear"></div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a class="project"  href="project_basic.html">
+                    <div class="pic">
+                        <img src="/static/m/images/project_02.jpg"/>
+                    </div>
+                    <div class="project_cont">
+                        <p>孟津袖珍西瓜皮薄质优、携带方便、色泽艳丽、皮薄质优门峡...</p>
+                    </div>
+                    <div class="price">
+                        <label>￥300</label>
+                        <span>杰尔逊西瓜庄园</span>
+                        <div class="clear"></div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a class="project"  href="project_basic.html">
+                    <div class="pic">
+                        <img src="/static/m/images/project_03.jpg"/>
+                    </div>
+                    <div class="project_cont">
+                        <p>孟津袖珍西瓜皮薄质优、携带方便、色泽艳丽、皮薄质优门峡...</p>
+                    </div>
+                    <div class="price">
+                        <label>￥300</label>
+                        <span>杰尔逊西瓜庄园</span>
+                        <div class="clear"></div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a class="project"  href="project_basic.html">
+                    <div class="pic">
+                        <img src="/static/m/images/project_04.jpg"/>
+                    </div>
+                    <div class="project_cont">
+                        <p>孟津袖珍西瓜皮薄质优、携带方便、色泽艳丽、皮薄质优门峡...</p>
+                    </div>
+                    <div class="price">
+                        <label>￥300</label>
+                        <span>杰尔逊西瓜庄园</span>
+                        <div class="clear"></div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+        <div id="more">
+            <a title=""  href="specialty_mall.html">
+                <span>更多特产 </span>
+                <i class="am-icon-angle-right" ></i>
+            </a>
+        </div>
+    </div> -->
+    <!--美丽乡村-->
+    <!-- <div id="beautiful_country">
+        <div id="item_name">
+            <img src="/static/m/images/index_icon07.png">
+            <span>美丽乡村</span>
+        </div>
+        <ul class="am-avg-sm-2">
+            <li class="beautiful_list">
+                <a  title="" href="beautiful_detail.html">
+                    <div class="pic">
+                        <img src="/static/m/images/beautiful_01.jpg"/>
+                    </div>
+                    <div class="name">
+                        <img alt="" class="head" src="/static/m/images/head.jpg">
+                        <span>181***5241</span>
+                        <div class="num">
+                            <i class="am-icon-eye"></i>
+                            <span>2</span>
+                            <i class="am-icon-comments"></i>
+                            <span>0</span>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <label>偶遇洛阳</label>
+                    <p>路易威登代购speedy枕头超奢华枕头套装，国内有速读...</p>
+                </a>
+            </li>
+            <li class="beautiful_list">
+                <a  title="" href="beautiful_detail.html">
+                    <div class="pic">
+                        <img src="/static/m/images/beautiful_02.jpg"/>
+                    </div>
+                    <div class="name">
+                        <img alt="" class="head" src="/static/m/images/head.jpg">
+                        <span>181***5241</span>
+                        <div class="num">
+                            <i class="am-icon-eye"></i>
+                            <span>2</span>
+                            <i class="am-icon-comments"></i>
+                            <span>0</span>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <label>偶遇洛阳</label>
+                    <p>路易威登代购speedy枕头超奢华枕头套装，国内有速读...</p>
+                </a>
+            </li>
+        </ul>
+        <div id="more">
+            <a title=""  href="trip_list.html">
+                <span>更多景点</span>
+                <i class="am-icon-angle-right" ></i>
+            </a>
+        </div>
+    </div> -->
+    <!--新闻资讯-->
+    <div id="news_list">
+        <div id="item_name">
+            <img src="/static/m/images/index_icon08.png">
+            <span>求婚攻略</span>
+        </div>
+        <div class="am-tabs" data-am-tabs>
+            <ul class="am-tabs-nav am-nav am-nav-tabs am-avg-sm-3">
+                <li class="am-active"><a href="#gl1">求婚策划</a></li>
+                <li><a href="#gl2">快闪求婚</a></li>
+                <li><a href="#gl3">电影院求婚</a></li>
+                <li><a href="#gl4">求婚创意</a></li>
+                <li><a href="#gl5">求婚方式</a></li>
+                <li><a href="#gl6">求婚歌曲</a></li>
+            </ul>
+            <div class="am-tabs-bd">
+                <ul id="gl1" class="am-tab-panel am-fade am-in am-active">
+                {dede:arclist typeid='16' row='5' titlelen='60'}
+                    <li>
+                        <a class="news" href="/m[field:arcurl/]">
+                            <div class="pic">
+                                <img src="[field:litpic/]"/>
+                            </div>
+                            <div class="project_cont">
+                                <h5>[field:title/]</h5>
+                            </div>
+                            <div class="price">
+                                <p>2015/04/16</p>
+                                <span>[field:click/]</span>
+                                <i class="am-icon-eye"></i>
+                                <div class="clear"></div>
+                            </div>
+                        </a>
+                    </li>
+                {/dede:arclist}
+                    <div id="more">
+                        <a href="/m/proposal/plan/">
+                            <span>更多求婚策划</span>
+                            <i class="am-icon-angle-right"></i>
+                        </a>
+                    </div>
+                </ul>
+                <ul id="gl2" class="am-tab-panel am-fade">
+                {dede:arclist typeid='40' row='5' titlelen='60'}
+                    <li>
+                        <a class="news" href="/m[field:arcurl/]">
+                            <div class="pic">
+                                <img src="[field:litpic/]"/>
+                            </div>
+                            <div class="project_cont">
+                                <h5>[field:title/]</h5>
+                            </div>
+                            <div class="price">
+                                <p>2015/04/16</p>
+                                <span>[field:click/]</span>
+                                <i class="am-icon-eye"></i>
+                                <div class="clear"></div>
+                            </div>
+                        </a>
+                    </li>
+                {/dede:arclist}
+                    <div id="more">
+                        <a href="/m/proposal/kuaishan/">
+                            <span>更多快闪求婚</span>
+                            <i class="am-icon-angle-right"></i>
+                        </a>
+                    </div>
+                </ul>
+                <ul id="gl3" class="am-tab-panel am-fade">
+                {dede:arclist typeid='26' row='5' titlelen='60'}
+                    <li>
+                        <a class="news" href="/m[field:arcurl/]">
+                            <div class="pic">
+                                <img src="[field:litpic/]"/>
+                            </div>
+                            <div class="project_cont">
+                                <h5>[field:title/]</h5>
+                            </div>
+                            <div class="price">
+                                <p>2015/04/16</p>
+                                <span>[field:click/]</span>
+                                <i class="am-icon-eye"></i>
+                                <div class="clear"></div>
+                            </div>
+                        </a>
+                    </li>
+                {/dede:arclist}
+                    <div id="more">
+                        <a href="/m/proposal/dianyingyuan/">
+                            <span>更多电影院求婚</span>
+                            <i class="am-icon-angle-right"></i>
+                        </a>
+                    </div>
+                </ul>
+                <ul id="gl4" class="am-tab-panel am-fade">
+                {dede:arclist typeid='17' row='5' titlelen='60'}
+                    <li>
+                        <a class="news" href="/m[field:arcurl/]">
+                            <div class="pic">
+                                <img src="[field:litpic/]"/>
+                            </div>
+                            <div class="project_cont">
+                                <h5>[field:title/]</h5>
+                            </div>
+                            <div class="price">
+                                <p>2015/04/16</p>
+                                <span>[field:click/]</span>
+                                <i class="am-icon-eye"></i>
+                                <div class="clear"></div>
+                            </div>
+                        </a>
+                    </li>
+                {/dede:arclist}
+                    <div id="more">
+                        <a href="/m/proposal/originality/">
+                            <span>更多求婚创意</span>
+                            <i class="am-icon-angle-right"></i>
+                        </a>
+                    </div>
+                </ul>
+                <ul id="gl5" class="am-tab-panel am-fade">
+                {dede:arclist typeid='18' row='5' titlelen='60'}
+                    <li>
+                        <a class="news" href="/m[field:arcurl/]">
+                            <div class="pic">
+                                <img src="[field:litpic/]"/>
+                            </div>
+                            <div class="project_cont">
+                                <h5>[field:title/]</h5>
+                            </div>
+                            <div class="price">
+                                <p>2015/04/16</p>
+                                <span>[field:click/]</span>
+                                <i class="am-icon-eye"></i>
+                                <div class="clear"></div>
+                            </div>
+                        </a>
+                    </li>
+                {/dede:arclist}
+                    <div id="more">
+                        <a href="/m/proposal/mode/">
+                            <span>更多求婚方式</span>
+                            <i class="am-icon-angle-right"></i>
+                        </a>
+                    </div>
+                </ul>
+                <ul id="gl6" class="am-tab-panel am-fade">
+                {dede:arclist typeid='19' row='5' titlelen='60'}
+                    <li>
+                        <a class="news" href="/m[field:arcurl/]">
+                            <div class="pic">
+                                <img src="[field:litpic/]"/>
+                            </div>
+                            <div class="project_cont">
+                                <h5>[field:title/]</h5>
+                            </div>
+                            <div class="price">
+                                <p>2015/04/16</p>
+                                <span>[field:click/]</span>
+                                <i class="am-icon-eye"></i>
+                                <div class="clear"></div>
+                            </div>
+                        </a>
+                    </li>
+                {/dede:arclist}
+                    <div id="more">
+                        <a href="/m/proposal/song/">
+                            <span>更多求婚歌曲</span>
+                            <i class="am-icon-angle-right"></i>
+                        </a>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--footer-->
+<div id="footer">
+    <div class="first">
+        <ul class="am-avg-sm-2">
+            <li class="active">
+                <a href="/m/">
+                    <!-- <img src="/static/m/images/icon-footer01-a.png"/> -->
+                    <p>首页</p>
+                </a>
+            </li>
+            <li>
+                <a href="trip_list.html">
+                    <!-- <img alt="" src="/static/m/images/icon-footer2-a.png"/> -->
+                    <p>孟津旅游</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="beautiful">
+        <a title=""  href="beautiful_list.html">
+            <!-- <img alt="" src="/static/m/images/icon-footer3-a.png"/> -->
+        </a>
+    </div>
+    <div class="last">
+        <ul class="am-avg-sm-2">
+            <li >
+                <a title="" href="specialty_mall.html">
+                    <!-- <img alt="" src="/static/m/images/icon-footer4-a.png"/> -->
+                    <p>特产商城</p>
+                </a>
+            </li>
+            <li>
+                <a title="" href="user_center.html">
+                    <!-- <img alt="" src="/static/m/images/icon-footer5-a.png"/> -->
+                    <p>我的</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('.am-slider').flexslider({
+            controlNav: true,               // Boolean: 是否创建控制点
+            directionNav: false,             // Boolean: 是否创建上/下一个按钮（previous/next）
+            touch: true,                    // Boolean: 允许触摸屏触摸滑动滑块
+        });
+    });
+</script>
+</body>
+</html>

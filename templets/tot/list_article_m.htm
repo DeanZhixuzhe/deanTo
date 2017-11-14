@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>{dede:type}[field:id runphp='yes']
+global $dsql; 
+$row = $dsql->GetOne('SELECT * FROM dede_arctype WHERE id='.@me); 
+if(!empty($row['seotitle'])){
+    @me=$row['seotitle'];
+}else{
+    if($row['sortrank']<50){
+        @me=$row['typename'];
+    }elseif($row['sortrank']>50 and $row['sortrank']<100){
+        @me=$row['typename'].'_'.$row['typename'].'策划_'.$row['typename'].'价格_'.$row['typename'].'视频';
+    }
+}[/field:id]{/dede:type} - {dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:type}[field:id runphp='yes']
+global $dsql; 
+$row = $dsql->GetOne('SELECT * FROM dede_arctype WHERE id='.@me); 
+if(!empty($row['keywords'])){
+    @me=$row['keywords'];
+}else{
+    if($row['sortrank']<50){
+        @me=$row['typename'];
+    }elseif($row['sortrank']>50 and $row['sortrank']<100){
+        @me=$row['typename'].','.$row['typename'].'策划,'.$row['typename'].'价格,'.$row['typename'].'视频,'.$row['typename'].'方案';
+    }
+}[/field:id]{/dede:type}" />
+<meta name="description" content="{dede:type}[field:id runphp='yes']
+global $dsql; 
+$row = $dsql->GetOne('SELECT * FROM dede_arctype WHERE id='.@me); 
+if(!empty($row['description'])){
+    @me=$row['description'];
+}else{
+    if($row['sortrank']<50){
+        @me=$row['typename'];
+    }elseif($row['sortrank']>50 and $row['sortrank']<100){
+        @me=$row['typename'].'攻略包括'.$row['typename'].'策划、'.$row['typename'].'视频、'.$row['typename'].'价格、'.$row['typename'].'方案等，更多'.$row['typename'].'多少钱、创意、布置、歌曲等信息尽在TheOne求婚策划公司。';
+    }
+}[/field:id]{/dede:type}" />
+{dede:include filename="meta_m.htm"/}
+</head>
+<body>
+<!--公共版头-->
+<div id="header">
+    <a class="return" href="javascript:if(document.referrer.indexOf('1314theone')>=0){history.go(-1);}else{window.location='/m/';}"><i class="am-icon-angle-left"></i></a>
+    <h1>{dede:field name='typename'/}</h1>
+    <div class="nav">
+        <div class="tit">导航 <span class="am-icon-caret-down"></span></div>
+        <div class="con">
+            <ul class="am-avg-sm-3">
+                <li><a href="/m/">首页</a></li>
+                <li><a href="/m/mall/">浪漫套餐</a></li>
+                <li><a href="/m/case/">浪漫案例</a></li>
+                <li><a href="/m/proposal/">求婚攻略</a></li>
+                <li><a href="/m/proposal/plan/">求婚策划</a></li>
+                <li><a href="/m/proposal/originality/">求婚创意</a></li>
+                <li><a href="/m/proposal/mode/">求婚方式</a></li>
+                <li><a href="/m/proposal/song/">求婚歌曲</a></li>
+                <li><a href="/m/proposal/ring/">求婚戒指</a></li>
+                <li><a href="/m/proposal/word/">求婚词</a></li>
+                <li><a href="/m/proposal/kuaishan/">快闪求婚</a></li>
+                <li><a href="/m/proposal/dianyingyuan/">电影院求婚</a></li>
+                <li><a href="/m/proposal/ktv/">KTV求婚</a></li>
+                <li><a href="/m/proposal/kafeiting/">咖啡厅求婚</a></li>
+                <li><a href="/m/proposal/canting/">餐厅求婚</a></li>
+            </ul>
+        </div>
+        <div class="head_mask"></div>
+    </div>
+</div>
+<div id="news_list">
+    <div class="hei30"></div>
+    <ul>
+        {dede:list pagesize='15'}
+        <li>
+            <a class="news" href="/m[field:arcurl/]">
+                <div class="pic">
+                    <img src="[field:litpic/]"/>
+                </div>
+                <div class="project_cont">
+                    <h5>[field:title/]</h5>
+                </div>
+                <div class="price">
+                    <p>[field:pubdate function="MyDate('Y-m-d',@me)"/]</p>
+                    <span>[field:click/]</span>
+                    <i class="am-icon-eye"></i>
+                    <div class="clear"></div>
+                </div>
+            </a>
+        </li>
+        {/dede:list}
+    </ul>
+    <ul class="pagina">
+    {dede:pagelist listsize='5' listitem='pageno'/}
+    </ul>
+</div>
+{dede:include filename="footer_m.htm"/}
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>{dede:field.title/}策划_{dede:field.title/}公司_{dede:field.title/}策划价格_{dede:field.title/}地点 - TheOne求婚策划公司</title>
-<meta name="keywords" content="{dede:field.id runphp='yes'}global $dsql; $row = $dsql->GetOne('SELECT * FROM dede_archives WHERE id='.@me); if(empty($row['keywords'])){@me=$row['title'].$row['title'].'策划'.$row['title'].'公司'.$row['title'].'策划价格'.$row['title'].'地点';}else{@me=$row['keywords'];}{/dede:field.id}" />
+<meta name="keywords" content="{dede:field.id runphp='yes'}global $dsql; $row = $dsql->GetOne('SELECT * FROM dede_archives WHERE id='.@me); if(empty($row['keywords'])){@me=$row['title'].','.$row['title'].'策划,'.$row['title'].'公司,'.$row['title'].'策划价格,'.$row['title'].'地点';}else{@me=$row['keywords'];}{/dede:field.id}" />
 <meta name="description" content="{dede:field.id runphp='yes'}global $dsql; $row = $dsql->GetOne('SELECT * FROM dede_archives WHERE id='.@me); if(empty($row['description'])){@me='TheOne求婚策划公司重庆分公司为您提供'.$row['title'].'服务、'.$row['title'].'策划方案、'.$row['title'].'策划价格咨询、'.$row['title'].'地点推荐等服务，了解更多'.$row['title'].'策划多少钱及费用相关信息尽在TheOne求婚策划。
 ';}else{@me=$row['description'];}{/dede:field.id}" />
 <link rel="canonical" href="{dede:global.cfg_basehost/}{dede:field name='arcurl'/}">
@@ -64,9 +64,9 @@
 	<div class="module_t_i">浪漫套餐</div>
 	<div class="shop_index">{dede:arclist typeid='22' row='4' titlelen='60' addfields='truepricemax,trueprice' channelid='6'}
 		<dl>
-			<dd class="tit"><a href="[field:arcurl/]" target="_blank">[field:title/]</a></dd>
-			<dt><a href="[field:arcurl/]" target="_blank"><img src="[field:litpic/]" title="[field:title/]"></a></dt>
-			<dd class="pri"><em>¥[field:trueprice/][field:truepricemax runphp="yes"]if(empty(@me)){@me="";}else{@me=" - ".@me;}[/field:truepricemax]</em><span><a href="">预定</a></span></dd>
+			<dd class="tit"><a href="[field:arcurl/]" target="_blank" rel="nofollow">[field:title/]</a></dd>
+			<dt><a href="[field:arcurl/]" target="_blank" rel="nofollow"><img src="[field:litpic/]" title="[field:title/]"></a></dt>
+			<dd class="pri"><em>¥[field:trueprice/][field:truepricemax runphp="yes"]if(empty(@me)){@me="";}else{@me=" - ".@me;}[/field:truepricemax]</em><span><a href="tencent://message/?uin=3547038718&Site=qq&Menu=yes" target="_blank" rel="nofollow">预定</a></span></dd>
 		</dl>{/dede:arclist}
 	</div>
 	<div class="pt50t">

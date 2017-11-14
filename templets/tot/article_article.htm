@@ -57,7 +57,7 @@ runphp='yes'}$id=@me;@me='';$url=GetOneArchive($id);@me=$url['arcurl'];{/dede:fi
 	{dede:field.id runphp="yes"}
 function getCon($lim,$nid,$num=0,$whereArr,$len,&$con){
 	global $dsql;
-	$tid = "(16,17,18,19,20,21) AND";
+	$tid = "(16,17,18,19,20,21,26,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42) AND";
 	$num++;
 	if($len == 0){
 		for($i=0;$i<count($whereArr);$i++){
@@ -105,13 +105,13 @@ function related($myme){
 			'北京','上海','重庆','天津','成都','昆明','丽江','贵阳','广州','深圳','南宁','海口','三亚','杭州','南京','苏州','合肥','济南','青岛','福州','厦门','南昌','长沙','武汉','郑州','太原','石家庄','沈阳','大连','长春','哈尔滨','西安','香港','巴黎','马尔代夫','巴厘岛','苏梅岛','塞班岛','普吉岛'
 		],
 		'分类' => [
-			'策划','方式','创意','戒','词','歌',
+			'求婚策划','求婚方式','求婚创意','求婚戒','求婚钻戒','求婚词','求婚歌','求婚音乐'
 		],
 		'场景' => [
 			'快闪','电影院','咖啡','KTV','酒吧','酒店','餐厅','商场','广场','海边','校园','公园','机场','地铁'
 		],
 		'节日' => [
-			'情人节','国庆','圣诞','元旦','春节','光棍',
+			'情人节','国庆','圣诞','元旦','春节','光棍'
 		],
 	];
 	if(strpos($row['title'],'求婚')!==false or strpos($row['keywords'],'求婚')!==false){
@@ -134,7 +134,7 @@ function related($myme){
 		<div class="pt050">
 			<span class="module_t_l">热门套餐<a href="/mall/" class="more" rel="nofollow">更多</a></span>
 			<ul class="picsx_price">{dede:arclist limit='0,4' channelid='6' addfields='trueprice,truepricemax' typeid='22'}
-				<li><a href="[field:arcurl/]"><img src="[field:litpic/]" title="[field:title/]"><span>[field:title/]</span></a><p>￥[field:trueprice/][field:truepricemax runphp="yes"]if(empty(@me)){@me="";}else{@me=" - ".@me;}[/field:truepricemax]</p></li>
+				<li><a href="[field:arcurl/]" target="_blank" rel="nofollow"><img src="[field:litpic/]" title="[field:title/]"><span>[field:title/]</span></a><p>￥[field:trueprice/][field:truepricemax runphp="yes"]if(empty(@me)){@me="";}else{@me=" - ".@me;}[/field:truepricemax]</p></li>
 				{/dede:arclist}
 				<div class="cl"></div>
 			</ul>
@@ -190,15 +190,21 @@ function related($myme){
 		'七' => [
 			'哈尔滨','长春','沈阳','大连'
 		],
+		'八' => [
+			'巴黎','马尔代夫','巴厘','苏梅','塞班','普吉'
+		],
 		'场景' => [
 			'快闪','电影院','咖啡','KTV','酒吧','酒店','餐厅','商场','广场','海边','校园','公园','机场','地铁'
+		],
+		'节日' => [
+			'圣诞','光棍'
 		],
 	];
 	global $dsql;
 	foreach($arr as $k=>$v){
 		foreach($v as $val){
 			if(strpos(@me,$val)!==false){
-				if($k != '场景'){
+				if($k != '场景' AND $k != '节日'){
 					$relName = array_rand($v,2);
 					foreach($relName as $relVal){
 						$rel = $dsql->GetOne("SELECT * FROM dede_archives WHERE title LIKE '%{$v[$relVal]}%' AND channel = -1");
@@ -209,7 +215,7 @@ function related($myme){
 				}else{
 					$relName = array_rand($v,2);
 					foreach($relName as $relVal){
-						$rel = $dsql->GetOne("SELECT * FROM dede_arctype WHERE typename LIKE '%{$v[$relVal]}求婚%'");
+						$rel = $dsql->GetOne("SELECT * FROM dede_arctype WHERE typename LIKE '%{$v[$relVal]}%求婚%'");
 						if($rel){
 							$con .= '<li><a href="' . str_replace('{cmspath}','',$rel['typedir']) . '/">' . $rel['typename'] . '</a></li>';
 						}
@@ -226,19 +232,19 @@ function related($myme){
 		<div class="pt015">
 			<span class="module_t_c">推荐套餐</span>
 			<ul class="piczy_price">{dede:arclist limit='0,8' channelid='6' addfields='trueprice,truepricemax' typeid='22'}
-				<li><div class="piczy_p_l"><a href="[field:arcurl/]"><img src="[field:litpic/]" title="[field:title/]"></a></div><div class="piczy_p_r"><a href="">[field:title/]</a><p>¥[field:trueprice/][field:truepricemax runphp="yes"]if(empty(@me)){@me="";}else{@me=" - ".@me;}[/field:truepricemax]</p></div></li>
+				<li><div class="piczy_p_l"><a href="[field:arcurl/]" target="_blank" rel="nofollow"><img src="[field:litpic/]" title="[field:title/]"></a></div><div class="piczy_p_r"><a href="[field:arcurl/]" target="_blank" rel="nofollow">[field:title/]</a><p>¥[field:trueprice/][field:truepricemax runphp="yes"]if(empty(@me)){@me="";}else{@me=" - ".@me;}[/field:truepricemax]</p></div></li>
 				{/dede:arclist}
 			</ul>
 		</div>
 		<div class="pt015">
 			<span class="module_t_c">最新求婚攻略</span>
 			<ul class="colums1">{dede:field.id runphp="yes"}global $dsql;
-				$sql = "SELECT arc.*,tp.typedir,tp.typename,tp.corank,tp.isdefault,tp.defaultname,tp.namerule,tp.namerule2,tp.ispart,tp.moresite,tp.siteurl,tp.sitepath FROM `dede_archives` AS arc LEFT JOIN `dede_arctype` tp ON arc.typeid=tp.id WHERE arc.arcrank>=0 AND arc.typeid IN(16,17,18,19,20,21) ORDER BY pubdate DESC LIMIT 0,8";
+				$sql = "SELECT arc.*,tp.typedir,tp.typename,tp.corank,tp.isdefault,tp.defaultname,tp.namerule,tp.namerule2,tp.ispart,tp.moresite,tp.siteurl,tp.sitepath FROM `dede_archives` AS arc LEFT JOIN `dede_arctype` tp ON arc.typeid=tp.id WHERE arc.arcrank>=0 AND arc.typeid IN(16,17,18,19,20,21,26,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42) AND arc.id<>@me ORDER BY pubdate DESC LIMIT 0,9";
 				$dsql->Execute("me", $sql);
 				while ($row = $dsql->GetArray("me")){
 					$con .= '<li><a href="' . GetFileUrl($row['id'], $row['typeid'], $row['senddate'], $row['title'], $row['ismake'], $row['arcrank'], $row['namerule'], $row['typedir'], $row['money'], $row['filename'], $row['moresite'], $row['siteurl'], $row['sitepath']) . '" target="_blank">' . $row['title'] . '</a></li>';
 				}
-				$sql2 = "SELECT arc.*,tp.typedir,tp.typename,tp.corank,tp.isdefault,tp.defaultname,tp.namerule,tp.namerule2,tp.ispart,tp.moresite,tp.siteurl,tp.sitepath FROM `dede_archives` AS arc LEFT JOIN `dede_arctype` tp ON arc.typeid=tp.id WHERE arc.arcrank>=0 AND arc.typeid IN(27) ORDER BY pubdate DESC LIMIT 0,2";
+				$sql2 = "SELECT arc.*,tp.typedir,tp.typename,tp.corank,tp.isdefault,tp.defaultname,tp.namerule,tp.namerule2,tp.ispart,tp.moresite,tp.siteurl,tp.sitepath FROM `dede_archives` AS arc LEFT JOIN `dede_arctype` tp ON arc.typeid=tp.id WHERE arc.arcrank>=0 AND arc.typeid IN(27) AND arc.id<>@me ORDER BY pubdate DESC LIMIT 0,1";
 				$dsql->Execute("news", $sql2);
 				while ($row = $dsql->GetArray("news")){
 					$con .= '<li><a href="' . GetFileUrl($row['id'], $row['typeid'], $row['senddate'], $row['title'], $row['ismake'], $row['arcrank'], $row['namerule'], $row['typedir'], $row['money'], $row['filename'], $row['moresite'], $row['siteurl'], $row['sitepath']) . '" target="_blank">' . $row['title'] . '</a></li>';

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>{dede:field.title/} - {dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field.keywords/}" />
+<meta name="description" content="{dede:field.description function='html2text(@me)'/}" />
+{dede:include filename="meta_m.htm"/}
+</head>
+<body>
+<div id="news_detail">
+    <div class="cover" style="background-image: url({dede:field.litpic/});">
+        <a class="return" href="javascript:if(document.referrer.indexOf('1314theone')>=0){history.go(-1);}else{window.location='/m/';}"><i class="am-icon-angle-left"></i></a>
+        <div class="title">
+            <p>{dede:field.title/}</p>
+            <span>{dede:field.pubdate function="MyDate('Y-m-d',@me)"/}</span>
+            <div class="clear"></div>
+        </div>
+        <div class="read">
+            <img class="eye" src="/static/m/images/read.png">
+            <span>{dede:field.click/}</span>
+        </div>
+    </div>
+    <div class="fill">
+        <div class="con">{dede:field.body/}</div>
+    </div>
+</div>
+{dede:include filename="footer_m.htm"/}
+</body>
+</html>

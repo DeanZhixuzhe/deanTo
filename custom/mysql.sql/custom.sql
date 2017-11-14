@@ -1,0 +1,15 @@
+CREATE TABLE IF NOT EXISTS `dede_custom`(
+   `id` INT(10) NOT NULL COMMENT 'ID' AUTO_INCREMENT,
+   `mobile` VARCHAR(11) NOT NULL COMMENT '手机',
+   `name` VARCHAR(20) NOT NULL COMMENT '姓名',
+   `theme` VARCHAR(30) NOT NULL COMMENT '主题',
+   `area` VARCHAR(30) NOT NULL COMMENT '活动地区',
+   `place` VARCHAR(30) NOT NULL COMMENT '活动场地',
+   `other` TEXT NOT NULL COMMENT '其他需求',
+   `budget` DECIMAL(10,2) NOT NULL COMMENT '预算',
+   `place` VARCHAR(30) NOT NULL COMMENT '活动场地',
+   `create_time` INT(10) NOT NULL COMMENT '创建时间',
+   `ip` VARCHAR(20) NOT NULL COMMENT 'IP',
+   `realip` VARCHAR(20) NOT NULL COMMENT '真实IP',
+   PRIMARY KEY ( `sms_id` )
+)ENGINE=MyISAM DEFAULT CHARSET=utf8;
