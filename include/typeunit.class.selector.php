@@ -141,7 +141,7 @@ class TypeUnitSelector
                 }
                 if($chackRadio !='' ) 
                 {
-                    $soncat .= "  <div class='item'>".$chackRadio.$typeName."</div>\r\n";
+                    $soncat .= "  <div class='item'><label style='cursor:pointer;'>".$chackRadio.$typeName."</label></div>\r\n";
                     $this->LogicListAllSunType($id, $channel, $soncat);
                 }
                 else

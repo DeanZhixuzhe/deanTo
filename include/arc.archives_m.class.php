@@ -1198,38 +1198,17 @@ class Archives
      * @param string $body
      * @return string
      */
-    function ReplaceKeyword($kw,&$body)
+/*    function ReplaceKeyword($kw,&$body)
     {
         global $cfg_cmspath;
         $maxkey = 5;
-        $kws = explode(",",trim($kw));    //以分好为间隔符
+        $kws = explode(",",trim($kw));    //以分号为间隔符
         $i=0;
         $karr = $kaarr = $GLOBALS['replaced'] = array();
 
         //暂时屏蔽超链接
         $body = preg_replace("#(<a(.*))(>)(.*)(<)(\/a>)#isU", '\\1-]-\\4-[-\\6', $body);
 
-        /*
-        foreach($kws as $k)
-        {
-            $k = trim($k);
-            if($k!="")
-            {
-                if($i > $maxkey)
-                {
-                    break;
-                }
-                $myrow = $this->dsql->GetOne("SELECT * FROM #@__keywords WHERE keyword='$k' AND rpurl<>'' ");
-                if(is_array($myrow))
-                {
-                    $karr[] = $k;
-                    $GLOBALS['replaced'][$k] = 0;
-                    $kaarr[] = "<a href='{$myrow['rpurl']}'><u>$k</u></a>";
-                }
-                $i++;
-            }
-        }
-        */
         $query = "SELECT * FROM #@__keywords WHERE rpurl<>'' ORDER BY rank DESC"; 
         $this->dsql->SetQuery($query);
         $this->dsql->Execute();
@@ -1246,6 +1225,38 @@ class Archives
 
         //恢复超链接
         $body = preg_replace("#(<a(.*))-\]-(.*)-\[-(\/a>)#isU", '\\1>\\3<\\4', $body);
+        return $body;
+    }*/
+
+    function ReplaceKeyword($kw,&$body)
+    {
+        global $cfg_cmspath,$dsql;
+        $maxkey = 5;
+        $kws = explode(",",trim($kw)); //以分好为间隔符
+        $i=0;
+        $karr = $kaarr = $GLOBALS['replaced'] = array();
+        //暂时屏蔽超链接
+        $body = preg_replace("/(<a(.*))(>)(.*)(<)(\/a>)/isU", '\\1-]-\\4-[-\\6', $body);
+        $query="SELECT * FROM #@__keywords WHERE rpurl<>'' and sta=1 ORDER BY length(keyword),rank desc";
+        $dsql->SetQuery($query);
+        $dsql->Execute();
+        while($row = $dsql->GetArray())
+        {
+            $key = trim($row['keyword']);
+            $key_url=str_replace('.com/','.com/m/',trim($row['rpurl']));
+            $karr[] = $key;
+            $kaarr[] = "<a href=\"$key_url\" target=\"_blank\">$key</a>";
+        }
+        foreach ($karr as $key => $word)
+        {
+            $body = preg_replace("/(^|>)([^<]+)(?=<|$)/sUe", "_highlight('\\2', \$karr[$key], \$kaarr[$key],'\\1')", $body);
+            //echo $body."<br/>";
+            //恢复超链接
+            $body = preg_replace("/(<a(.*))-\]-(.*)-\[-(\/a>)/isU", '\\1>\\3<\\4', $body);//暂时屏蔽超链接
+            $body = preg_replace("/(<a(.*))(>)(.*)(<)(\/a>)/isU", '\\1-]-\\4-[-\\6', $body);
+        }
+            //恢复超链接
+        $body = preg_replace("/(<a(.*))-\]-(.*)-\[-(\/a>)/isU", '\\1>\\3<\\4', $body);
         return $body;
     }
 

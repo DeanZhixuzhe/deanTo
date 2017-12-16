@@ -137,6 +137,10 @@ else if($dopost=='save')
                 if($vs[1]=='htmltext'||$vs[1]=='textdata') //HTML文本特殊处理
                 {
                     ${$vs[0]} = AnalyseHtmlBody(${$vs[0]},$description,$litpic,$keywords,$vs[1]);
+                    
+                    //2017-12-05增加，替换内容中IMG的宽高为空
+                    ${$vs[0]} = preg_replace("/width.+?;/i",'',$body);
+                    ${$vs[0]} = preg_replace("/height.+?;/i",'',$body);
                 }else
                 {
                     if(!isset(${$vs[0]}))

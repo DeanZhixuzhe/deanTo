@@ -12,6 +12,8 @@ $(function(){
 	});
 });
 
+
+
 $(function(){
 	$(".city").hover(function(){
 		$(this).find(".cityList").show();
@@ -35,3 +37,14 @@ $(function(){
 		}
 	});
 });
+
+$(function(){
+	$(".nav ul li").hover(function(){
+		$(this).children("ul").css({"display":"block"});
+		$(this).css({'background-color':'#E8E8E8'});
+	},function(){
+		$(this).children("ul").css({"display":"none"});
+		$(this).css({'background-color':'#fff'});
+	});
+});
+

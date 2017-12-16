@@ -39,13 +39,13 @@ require_once("lib/alipay_submit.class.php");
         $show_url = $_POST['WIDshow_url'];
 
         //商品描述，可空
-        $body = $_POST['WIDbody'];
+        $body = isset($_POST['WIDbody'])?$_POST['WIDbody']:'';
 
         // 顾客姓名
-        $name = $_POST['WIDname'];
+        $name = isset($_POST['WIDname'])?$_POST['WIDname']:'';
 
         // 顾客手机
-        $mobile = $_POST['WIDmobile'];
+        $mobile = isset($_POST['WIDmobile'])?$_POST['WIDmobile']:'';
 
         // 顾客姓名和顾客手机赋值到商品描述中
         $body .= "【顾客姓名：".$name."】【顾客手机：".$mobile."】";

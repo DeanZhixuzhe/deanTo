@@ -29,13 +29,13 @@ $notify = new NativePay();
         $total_fee = $_POST['WIDtotal_fee'];
 
         //商品描述，可空
-        $body = $_POST['WIDbody'];
+        $body = isset($_POST['WIDbody'])?$_POST['WIDbody']:'';
 
         // 顾客姓名
-        $name = $_POST['WIDname'];
+        $name = isset($_POST['WIDname'])?$_POST['WIDname']:'';
 
         // 顾客手机
-        $mobile = $_POST['WIDmobile'];
+        $mobile = isset($_POST['WIDmobile'])?$_POST['WIDmobile']:'';
 
         // 顾客姓名和顾客手机赋值到商品描述中
         $body .= "【顾客姓名：".$name."】【顾客手机：".$mobile."】";
@@ -49,14 +49,14 @@ $notify = new NativePay();
  * 4、在支付成功通知中需要查单确认是否真正支付成功（见：notify.php）
  */
 $input = new WxPayUnifiedOrder();
-$input->SetBody("Tell Love订单-".$out_trade_no);
+$input->SetBody("TheOne订单-".$out_trade_no);
 $input->SetAttach($body);
 $input->SetOut_trade_no($out_trade_no);
 $input->SetTotal_fee(intval($total_fee)*100);
 $input->SetTime_start(date("YmdHis"));
 $input->SetTime_expire(date("YmdHis", time() + 600));
 $input->SetGoods_tag("test");
-$input->SetNotify_url("http://www.tell520.com/plus/payment/wechat/example/notify.php");
+$input->SetNotify_url("http://www.1314theone.com/custom/payment/wechat/example/notify.php");
 $input->SetTrade_type("NATIVE");
 $input->SetProduct_id("123456789");
 $result = $notify->GetPayUrl($input);

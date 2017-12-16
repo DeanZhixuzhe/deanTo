@@ -105,7 +105,7 @@ if(empty($dopost))
         echo "ERROR: Copy Uploadfile Error! ";
         exit(0);
     }
-    //WaterImg($cfg_basedir.$fileurl, 'up');
+    WaterImg($cfg_basedir.$fileurl, 'up');
     $title = $filename.$sname;
 
     $inquery = "INSERT INTO `#@__uploads`(title,url,mediatype,width,height,playtime,filesize,uptime,mid)

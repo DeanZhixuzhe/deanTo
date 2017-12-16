@@ -2,9 +2,44 @@
 <html lang="zh-CN">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>{dede:field.title/} - {dede:global.cfg_webname/}</title>
-<meta name="keywords" content="{dede:field.keywords/}" />
-<meta name="description" content="{dede:field.description function='html2text(@me)'/}" />
+<title>{dede:type}[field:id runphp='yes']
+global $dsql; 
+$row = $dsql->GetOne('SELECT * FROM dede_arctype WHERE id='.@me); 
+if(!empty($row['seotitle'])){
+	@me=$row['seotitle'];
+}else{
+	if($row['sortrank']<50){
+		@me=$row['typename'];
+	}elseif($row['sortrank']>50 and $row['sortrank']<100){
+		@me=$row['typename'].'_'.$row['typename'].'策划_'.$row['typename'].'价格_'.$row['typename'].'视频';
+	}
+}[/field:id]{/dede:type} - {dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:type}[field:id runphp='yes']
+global $dsql; 
+$row = $dsql->GetOne('SELECT * FROM dede_arctype WHERE id='.@me); 
+if(!empty($row['keywords'])){
+	@me=$row['keywords'];
+}else{
+	if($row['sortrank']<50){
+		@me=$row['typename'];
+	}elseif($row['sortrank']>50 and $row['sortrank']<100){
+		@me=$row['typename'].','.$row['typename'].'策划,'.$row['typename'].'价格,'.$row['typename'].'视频,'.$row['typename'].'方案';
+	}
+}[/field:id]{/dede:type}" />
+<meta name="description" content="{dede:type}[field:id runphp='yes']
+global $dsql; 
+$row = $dsql->GetOne('SELECT * FROM dede_arctype WHERE id='.@me); 
+if(!empty($row['description'])){
+	@me=$row['description'];
+}else{
+	if($row['sortrank']<50){
+		@me=$row['typename'];
+	}elseif($row['sortrank']>50 and $row['sortrank']<100){
+		@me=$row['typename'].'攻略包括'.$row['typename'].'策划、'.$row['typename'].'视频、'.$row['typename'].'价格、'.$row['typename'].'方案等，更多'.$row['typename'].'多少钱、创意、布置、歌曲等信息尽在TheOne求婚策划公司。';
+	}
+}[/field:id]{/dede:type}" />
+<link rel="canonical" href="{dede:global.cfg_basehost/}{dede:field.id
+runphp='yes'}global $dsql;$dir = $dsql->GetOne("SELECT typedir FROM dede_arctype WHERE id = ".@me);@me=str_replace('{cmspath}','',$dir['typedir']).'/';{/dede:field.id}">
 {dede:include filename="meta.htm"/}
 </head>
 <body>
@@ -21,6 +56,7 @@
 				</dl>{/dede:list}
 			</div>
 		</div>
+		<div><ul class="pages">{dede:pagelist listsize='5' listitem='pre,pageno,next' /}</ul></div>
 	</div>
 	<div class="body_r">
 		<div class="pt015">
@@ -36,24 +72,3 @@
 {dede:include filename="footer.htm"/}
 </body>
 </html>
-
-
-<div id="trip_list">
-<ul>{dede:list pagesize='15'}
-<li class="view">
-<a href="/m[field:arcurl/]">
-<div class="pic">
-<img src="[field:litpic/]">
-<div class="clear"></div>
-</div>
-<div class="con">
-<h5>[field:title/]</h5>
-<p>卫坡古民居翠湾果岭观唐生态园炎帝本草园洛阳粤钰青...</p>
-</div>
-</a>
-</li>{/dede:list}
-</ul>
-<ul class="pagina">
-  
-</ul>
-</div>

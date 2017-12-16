@@ -16,7 +16,7 @@
 		<p>惊喜  非必浮夸</p>
 		<p>浪漫  源于表达</p>
 		<span>能够被感受的爱，才不算辜负！</span>
-		<a href="" target="_blank">我要求婚</a>
+		<a href="tencent://message/?uin=3547038718&Site=qq&Menu=yes" rel="nofollow" target="_blank">我要求婚</a>
 	</div>
 </div>
 <div class="i-steps">
@@ -58,16 +58,37 @@
 </div>
 <div class="body">
 	<div class="module_t_i">案例精选</div>
-	<div class="pic_i_big">{dede:arclist typeid='14' row='3' titlelen='60'}
+	<div class="pic_i_big">{dede:arclist typeid='14' row='3' titlelen='80'}
 		<a href="[field:arcurl/]" title="[field:title/]" target="_blank"><img src="[field:litpic/]" title="[field:title/]"><span>[field:title/]</span></a>{/dede:arclist}
 	</div>
-	<div class="module_t_i">浪漫套餐</div>
-	<div class="shop_index">{dede:arclist typeid='22' row='4' titlelen='60' addfields='truepricemax,trueprice' channelid='6'}
-		<dl>
-			<dd class="tit"><a href="[field:arcurl/]" target="_blank" rel="nofollow">[field:title/]</a></dd>
-			<dt><a href="[field:arcurl/]" target="_blank" rel="nofollow"><img src="[field:litpic/]" title="[field:title/]"></a></dt>
-			<dd class="pri"><em>¥[field:trueprice/][field:truepricemax runphp="yes"]if(empty(@me)){@me="";}else{@me=" - ".@me;}[/field:truepricemax]</em><span><a href="tencent://message/?uin=3547038718&Site=qq&Menu=yes" target="_blank" rel="nofollow">预定</a></span></dd>
-		</dl>{/dede:arclist}
+	<div class="module_t_i">客户评价反馈</div>
+	<div class="feedback">
+		<ul>
+		{dede:field.id runphp='yes'}
+			global $dsql;
+			if(empty(@me)){
+				$where = '首页求婚';
+			}else{
+				$title = $dsql->GetOne("SELECT title FROM dede_archives WHERE channel=-1 AND id=".@me);
+				$where = $title['title'];
+			}
+			$sql = "SELECT * FROM `dede_addonfakefeedback` WHERE title LIKE '%$where%' LIMIT 0,5";
+			$dsql->Execute("me", $sql);
+			while ($row = $dsql->GetArray("me")){
+				$con .= '<li><img src="'.$row['litpic'].'"><span>'.$row['username'].'</span><p>'.$row['body'].'</p></li>';
+			}
+			$total=$dsql->GetTotalRow("me");
+			if($total < 5){
+				$limit = 5-$total;
+				$sql2 = "SELECT * FROM `dede_addonfakefeedback` WHERE title LIKE '%首页求婚%' order by rand() LIMIT 0,$limit";
+				$dsql->Execute("me2", $sql2);
+				while ($row2 = $dsql->GetArray("me2")){
+					$con .= '<li><img src="'.$row2['litpic'].'"><span>'.$row2['username'].'</span><p>'.$row2['body'].'</p></li>';
+				}
+			}
+			@me = $con;
+		{/dede:field.id}
+		</ul>
 	</div>
 	<div class="pt50t">
 		{dede:field.id runphp='yes'}global $dsql;$name = '求婚策划';$nameUs = 'Proposal Plan';
@@ -75,70 +96,70 @@
 		$city = str_replace('求婚','',$row['title']);
 		$city_name = $city . $name;
 		$cid = $dsql->GetOne('SELECT * FROM dede_arctype WHERE typename = "' . $name . '"');
-		$sql = 'SELECT arc.*,tp.typedir,tp.typename,tp.corank,tp.isdefault,tp.defaultname,tp.namerule,tp.namerule2,tp.ispart,tp.moresite,tp.siteurl,tp.sitepath FROM `dede_archives` AS arc LEFT JOIN `dede_arctype` tp ON arc.typeid=tp.id WHERE arc.arcrank>=0 AND arc.typeid=' . $cid['id'] . ' AND arc.title LIKE "%' . $city . '%" ORDER BY pubdate DESC LIMIT 0,3' ;
+		$sql = 'SELECT arc.*,tp.typedir,tp.typename,tp.corank,tp.isdefault,tp.defaultname,tp.namerule,tp.namerule2,tp.ispart,tp.moresite,tp.siteurl,tp.sitepath FROM `dede_archives` AS arc LEFT JOIN `dede_arctype` tp ON arc.typeid=tp.id WHERE arc.arcrank>=0 AND arc.typeid=' . $cid['id'] . ' AND (arc.title LIKE "%' . $city . '%" OR arc.keywords LIKE "%' . $city . '%") ORDER BY pubdate DESC LIMIT 0,3' ;
 		$dsql->Execute('me', $sql);
 		while ($row = $dsql->GetArray('me')){
-			$con .= '<li><div class="piczy_l"><a href="' . GetFileUrl($row['id'], $row['typeid'], $row['senddate'], $row['title'], $row['ismake'], $row['arcrank'], $row['namerule'], $row['typedir'], $row['money'], $row['filename'], $row['moresite'], $row['siteurl'], $row['sitepath']) . '" title="' . $row['title'] . '" target="_blank"><img src="' . $row['litpic'] . '" title="' . $row['title'] . '" /></a></div><div class="piczy_r"><a href="' . GetFileUrl($row['id'], $row['typeid'], $row['senddate'], $row['title'], $row['ismake'], $row['arcrank'], $row['namerule'], $row['typedir'], $row['money'], $row['filename'], $row['moresite'], $row['siteurl'], $row['sitepath']) . '" target="_blank">' . $row['title'] . '</a><p>' . substr($row['description'],0,60) . '</p></div></li>';
+			$con .= '<li><div class="piczy_l"><a href="' . GetFileUrl($row['id'], $row['typeid'], $row['senddate'], $row['title'], $row['ismake'], $row['arcrank'], $row['namerule'], $row['typedir'], $row['money'], $row['filename'], $row['moresite'], $row['siteurl'], $row['sitepath']) . '" title="' . $row['title'] . '" target="_blank"><img src="' . $row['litpic'] . '" title="' . $row['title'] . '" /></a></div><div class="piczy_r"><a href="' . GetFileUrl($row['id'], $row['typeid'], $row['senddate'], $row['title'], $row['ismake'], $row['arcrank'], $row['namerule'], $row['typedir'], $row['money'], $row['filename'], $row['moresite'], $row['siteurl'], $row['sitepath']) . '" target="_blank">' . $row['title'] . '</a><p>' . substr($row['description'],0,250) . '</p></div></li>';
 		}
 		if(empty($con)){@me='';}else{@me = '<ul class="grid"><h2>' . $city_name . '</h2><em>' . $city_nameUs . '</em>' . $con . '</ul>';}
 		{/dede:field.id}
-		{dede:field.id runphp='yes'}global $dsql;$name = '求婚创意';$nameUs = 'Proposal Plan';
+		{dede:field.id runphp='yes'}global $dsql;$name = '求婚创意';$nameUs = 'Proposal Originality';
 		$row = $dsql->GetOne('SELECT * FROM dede_archives WHERE id='.@me); if(!empty($row['filename'])){$city_nameUs=ucfirst(str_replace('/index','',$row['filename'])) . ' ' . $nameUs;}
 		$city = str_replace('求婚','',$row['title']);
 		$city_name = $city . $name;
 		$cid = $dsql->GetOne('SELECT id FROM dede_arctype WHERE typename = "' . $name . '"');
-		$sql = 'SELECT arc.*,tp.typedir,tp.typename,tp.corank,tp.isdefault,tp.defaultname,tp.namerule,tp.namerule2,tp.ispart,tp.moresite,tp.siteurl,tp.sitepath FROM `dede_archives` AS arc LEFT JOIN `dede_arctype` tp ON arc.typeid=tp.id WHERE arc.arcrank>=0 AND arc.typeid=' . $cid['id'] . ' AND arc.title LIKE "%' . $city . '%" ORDER BY pubdate DESC LIMIT 0,3' ;
+		$sql = 'SELECT arc.*,tp.typedir,tp.typename,tp.corank,tp.isdefault,tp.defaultname,tp.namerule,tp.namerule2,tp.ispart,tp.moresite,tp.siteurl,tp.sitepath FROM `dede_archives` AS arc LEFT JOIN `dede_arctype` tp ON arc.typeid=tp.id WHERE arc.arcrank>=0 AND arc.typeid=' . $cid['id'] . ' AND (arc.title LIKE "%' . $city . '%" OR arc.keywords LIKE "%' . $city . '%") ORDER BY pubdate DESC LIMIT 0,3' ;
 		$dsql->Execute('me', $sql);
 		while ($row = $dsql->GetArray('me')){
-			$con .= '<li><div class="piczy_l"><a href="' . GetFileUrl($row['id'], $row['typeid'], $row['senddate'], $row['title'], $row['ismake'], $row['arcrank'], $row['namerule'], $row['typedir'], $row['money'], $row['filename'], $row['moresite'], $row['siteurl'], $row['sitepath']) . '" title="' . $row['title'] . '" target="_blank"><img src="' . $row['litpic'] . '" title="' . $row['title'] . '" /></a></div><div class="piczy_r"><a href="' . GetFileUrl($row['id'], $row['typeid'], $row['senddate'], $row['title'], $row['ismake'], $row['arcrank'], $row['namerule'], $row['typedir'], $row['money'], $row['filename'], $row['moresite'], $row['siteurl'], $row['sitepath']) . '" target="_blank">' . $row['title'] . '</a><p>' . substr($row['description'],0,60) . '</p></div></li>';
+			$con .= '<li><div class="piczy_l"><a href="' . GetFileUrl($row['id'], $row['typeid'], $row['senddate'], $row['title'], $row['ismake'], $row['arcrank'], $row['namerule'], $row['typedir'], $row['money'], $row['filename'], $row['moresite'], $row['siteurl'], $row['sitepath']) . '" title="' . $row['title'] . '" target="_blank"><img src="' . $row['litpic'] . '" title="' . $row['title'] . '" /></a></div><div class="piczy_r"><a href="' . GetFileUrl($row['id'], $row['typeid'], $row['senddate'], $row['title'], $row['ismake'], $row['arcrank'], $row['namerule'], $row['typedir'], $row['money'], $row['filename'], $row['moresite'], $row['siteurl'], $row['sitepath']) . '" target="_blank">' . $row['title'] . '</a><p>' . substr($row['description'],0,250) . '</p></div></li>';
 		}
 		if(empty($con)){@me='';}else{@me = '<ul class="grid gridbg2"><h2>' . $city_name . '</h2><em>' . $city_nameUs . '</em>' . $con . '</ul>';}
 		{/dede:field.id}
-		{dede:field.id runphp='yes'}global $dsql;$name = '求婚方式';$nameUs = 'Proposal Plan';
+		{dede:field.id runphp='yes'}global $dsql;$name = '求婚方式';$nameUs = 'Proposal Mode';
 		$row = $dsql->GetOne('SELECT * FROM dede_archives WHERE id='.@me); if(!empty($row['filename'])){$city_nameUs=ucfirst(str_replace('/index','',$row['filename'])) . ' ' . $nameUs;}
 		$city = str_replace('求婚','',$row['title']);
 		$city_name = $city . $name;
 		$cid = $dsql->GetOne('SELECT id FROM dede_arctype WHERE typename = "' . $name . '"');
-		$sql = 'SELECT arc.*,tp.typedir,tp.typename,tp.corank,tp.isdefault,tp.defaultname,tp.namerule,tp.namerule2,tp.ispart,tp.moresite,tp.siteurl,tp.sitepath FROM `dede_archives` AS arc LEFT JOIN `dede_arctype` tp ON arc.typeid=tp.id WHERE arc.arcrank>=0 AND arc.typeid=' . $cid['id'] . ' AND arc.title LIKE "%' . $city . '%" ORDER BY pubdate DESC LIMIT 0,3' ;
+		$sql = 'SELECT arc.*,tp.typedir,tp.typename,tp.corank,tp.isdefault,tp.defaultname,tp.namerule,tp.namerule2,tp.ispart,tp.moresite,tp.siteurl,tp.sitepath FROM `dede_archives` AS arc LEFT JOIN `dede_arctype` tp ON arc.typeid=tp.id WHERE arc.arcrank>=0 AND arc.typeid=' . $cid['id'] . ' AND (arc.title LIKE "%' . $city . '%" OR arc.keywords LIKE "%' . $city . '%") ORDER BY pubdate DESC LIMIT 0,3' ;
 		$dsql->Execute('me', $sql);
 		while ($row = $dsql->GetArray('me')){
-			$con .= '<li><div class="piczy_l"><a href="' . GetFileUrl($row['id'], $row['typeid'], $row['senddate'], $row['title'], $row['ismake'], $row['arcrank'], $row['namerule'], $row['typedir'], $row['money'], $row['filename'], $row['moresite'], $row['siteurl'], $row['sitepath']) . '" title="' . $row['title'] . '" target="_blank"><img src="' . $row['litpic'] . '" title="' . $row['title'] . '" /></a></div><div class="piczy_r"><a href="' . GetFileUrl($row['id'], $row['typeid'], $row['senddate'], $row['title'], $row['ismake'], $row['arcrank'], $row['namerule'], $row['typedir'], $row['money'], $row['filename'], $row['moresite'], $row['siteurl'], $row['sitepath']) . '" target="_blank">' . $row['title'] . '</a><p>' . substr($row['description'],0,60) . '</p></div></li>';
+			$con .= '<li><div class="piczy_l"><a href="' . GetFileUrl($row['id'], $row['typeid'], $row['senddate'], $row['title'], $row['ismake'], $row['arcrank'], $row['namerule'], $row['typedir'], $row['money'], $row['filename'], $row['moresite'], $row['siteurl'], $row['sitepath']) . '" title="' . $row['title'] . '" target="_blank"><img src="' . $row['litpic'] . '" title="' . $row['title'] . '" /></a></div><div class="piczy_r"><a href="' . GetFileUrl($row['id'], $row['typeid'], $row['senddate'], $row['title'], $row['ismake'], $row['arcrank'], $row['namerule'], $row['typedir'], $row['money'], $row['filename'], $row['moresite'], $row['siteurl'], $row['sitepath']) . '" target="_blank">' . $row['title'] . '</a><p>' . substr($row['description'],0,250) . '</p></div></li>';
 		}
 		if(empty($con)){@me='';}else{@me = '<ul class="grid"><h2>' . $city_name . '</h2><em>' . $city_nameUs . '</em>' . $con . '</ul>';}
 		{/dede:field.id}
-		{dede:field.id runphp='yes'}global $dsql;$name = '求婚词';$nameUs = 'Proposal Plan';
+		{dede:field.id runphp='yes'}global $dsql;$name = '求婚词';$nameUs = 'Proposal Word';
 		$row = $dsql->GetOne('SELECT * FROM dede_archives WHERE id='.@me); if(!empty($row['filename'])){$city_nameUs=ucfirst(str_replace('/index','',$row['filename'])) . ' ' . $nameUs;}
 		$city = str_replace('求婚','',$row['title']);
 		$city_name = $city . $name;
 		$cid = $dsql->GetOne('SELECT id FROM dede_arctype WHERE typename = "' . $name . '"');
-		$sql = 'SELECT arc.*,tp.typedir,tp.typename,tp.corank,tp.isdefault,tp.defaultname,tp.namerule,tp.namerule2,tp.ispart,tp.moresite,tp.siteurl,tp.sitepath FROM `dede_archives` AS arc LEFT JOIN `dede_arctype` tp ON arc.typeid=tp.id WHERE arc.arcrank>=0 AND arc.typeid=' . $cid['id'] . ' AND arc.title LIKE "%' . $city . '%" ORDER BY pubdate DESC LIMIT 0,3' ;
+		$sql = 'SELECT arc.*,tp.typedir,tp.typename,tp.corank,tp.isdefault,tp.defaultname,tp.namerule,tp.namerule2,tp.ispart,tp.moresite,tp.siteurl,tp.sitepath FROM `dede_archives` AS arc LEFT JOIN `dede_arctype` tp ON arc.typeid=tp.id WHERE arc.arcrank>=0 AND arc.typeid=' . $cid['id'] . ' AND (arc.title LIKE "%' . $city . '%" OR arc.keywords LIKE "%' . $city . '%") ORDER BY pubdate DESC LIMIT 0,3' ;
 		$dsql->Execute('me', $sql);
 		while ($row = $dsql->GetArray('me')){
-			$con .= '<li><div class="piczy_l"><a href="' . GetFileUrl($row['id'], $row['typeid'], $row['senddate'], $row['title'], $row['ismake'], $row['arcrank'], $row['namerule'], $row['typedir'], $row['money'], $row['filename'], $row['moresite'], $row['siteurl'], $row['sitepath']) . '" title="' . $row['title'] . '" target="_blank"><img src="' . $row['litpic'] . '" title="' . $row['title'] . '" /></a></div><div class="piczy_r"><a href="' . GetFileUrl($row['id'], $row['typeid'], $row['senddate'], $row['title'], $row['ismake'], $row['arcrank'], $row['namerule'], $row['typedir'], $row['money'], $row['filename'], $row['moresite'], $row['siteurl'], $row['sitepath']) . '" target="_blank">' . $row['title'] . '</a><p>' . substr($row['description'],0,60) . '</p></div></li>';
+			$con .= '<li><div class="piczy_l"><a href="' . GetFileUrl($row['id'], $row['typeid'], $row['senddate'], $row['title'], $row['ismake'], $row['arcrank'], $row['namerule'], $row['typedir'], $row['money'], $row['filename'], $row['moresite'], $row['siteurl'], $row['sitepath']) . '" title="' . $row['title'] . '" target="_blank"><img src="' . $row['litpic'] . '" title="' . $row['title'] . '" /></a></div><div class="piczy_r"><a href="' . GetFileUrl($row['id'], $row['typeid'], $row['senddate'], $row['title'], $row['ismake'], $row['arcrank'], $row['namerule'], $row['typedir'], $row['money'], $row['filename'], $row['moresite'], $row['siteurl'], $row['sitepath']) . '" target="_blank">' . $row['title'] . '</a><p>' . substr($row['description'],0,250) . '</p></div></li>';
 		}
 		if(empty($con)){@me='';}else{@me = '<ul class="grid gridbg2"><h2>' . $city_name . '</h2><em>' . $city_nameUs . '</em>' . $con . '</ul>';}
 		{/dede:field.id}
-		{dede:field.id runphp='yes'}global $dsql;$name = '求婚歌曲';$nameUs = 'Proposal Plan';
+		{dede:field.id runphp='yes'}global $dsql;$name = '求婚歌曲';$nameUs = 'Proposal Song';
 		$row = $dsql->GetOne('SELECT * FROM dede_archives WHERE id='.@me); if(!empty($row['filename'])){$city_nameUs=ucfirst(str_replace('/index','',$row['filename'])) . ' ' . $nameUs;}
 		$city = str_replace('求婚','',$row['title']);
 		$city_name = $city . $name;
 		$cid = $dsql->GetOne('SELECT id FROM dede_arctype WHERE typename = "' . $name . '"');
-		$sql = 'SELECT arc.*,tp.typedir,tp.typename,tp.corank,tp.isdefault,tp.defaultname,tp.namerule,tp.namerule2,tp.ispart,tp.moresite,tp.siteurl,tp.sitepath FROM `dede_archives` AS arc LEFT JOIN `dede_arctype` tp ON arc.typeid=tp.id WHERE arc.arcrank>=0 AND arc.typeid=' . $cid['id'] . ' AND arc.title LIKE "%' . $city . '%" ORDER BY pubdate DESC LIMIT 0,3' ;
+		$sql = 'SELECT arc.*,tp.typedir,tp.typename,tp.corank,tp.isdefault,tp.defaultname,tp.namerule,tp.namerule2,tp.ispart,tp.moresite,tp.siteurl,tp.sitepath FROM `dede_archives` AS arc LEFT JOIN `dede_arctype` tp ON arc.typeid=tp.id WHERE arc.arcrank>=0 AND arc.typeid=' . $cid['id'] . ' AND (arc.title LIKE "%' . $city . '%" OR arc.keywords LIKE "%' . $city . '%") ORDER BY pubdate DESC LIMIT 0,3' ;
 		$dsql->Execute('me', $sql);
 		while ($row = $dsql->GetArray('me')){
-			$con .= '<li><div class="piczy_l"><a href="' . GetFileUrl($row['id'], $row['typeid'], $row['senddate'], $row['title'], $row['ismake'], $row['arcrank'], $row['namerule'], $row['typedir'], $row['money'], $row['filename'], $row['moresite'], $row['siteurl'], $row['sitepath']) . '" title="' . $row['title'] . '" target="_blank"><img src="' . $row['litpic'] . '" title="' . $row['title'] . '" /></a></div><div class="piczy_r"><a href="' . GetFileUrl($row['id'], $row['typeid'], $row['senddate'], $row['title'], $row['ismake'], $row['arcrank'], $row['namerule'], $row['typedir'], $row['money'], $row['filename'], $row['moresite'], $row['siteurl'], $row['sitepath']) . '" target="_blank">' . $row['title'] . '</a><p>' . substr($row['description'],0,60) . '</p></div></li>';
+			$con .= '<li><div class="piczy_l"><a href="' . GetFileUrl($row['id'], $row['typeid'], $row['senddate'], $row['title'], $row['ismake'], $row['arcrank'], $row['namerule'], $row['typedir'], $row['money'], $row['filename'], $row['moresite'], $row['siteurl'], $row['sitepath']) . '" title="' . $row['title'] . '" target="_blank"><img src="' . $row['litpic'] . '" title="' . $row['title'] . '" /></a></div><div class="piczy_r"><a href="' . GetFileUrl($row['id'], $row['typeid'], $row['senddate'], $row['title'], $row['ismake'], $row['arcrank'], $row['namerule'], $row['typedir'], $row['money'], $row['filename'], $row['moresite'], $row['siteurl'], $row['sitepath']) . '" target="_blank">' . $row['title'] . '</a><p>' . substr($row['description'],0,250) . '</p></div></li>';
 		}
 		if(empty($con)){@me='';}else{@me = '<ul class="grid"><h2>' . $city_name . '</h2><em>' . $city_nameUs . '</em>' . $con . '</ul>';}
 		{/dede:field.id}
-		{dede:field.id runphp='yes'}global $dsql;$name = '求婚戒指';$nameUs = 'Proposal Plan';
+		{dede:field.id runphp='yes'}global $dsql;$name = '求婚戒指';$nameUs = 'Proposal Ring';
 		$row = $dsql->GetOne('SELECT * FROM dede_archives WHERE id='.@me); if(!empty($row['filename'])){$city_nameUs=ucfirst(str_replace('/index','',$row['filename'])) . ' ' . $nameUs;}
 		$city = str_replace('求婚','',$row['title']);
 		$city_name = $city . $name;
 		$cid = $dsql->GetOne('SELECT id FROM dede_arctype WHERE typename = "' . $name . '"');
-		$sql = 'SELECT arc.*,tp.typedir,tp.typename,tp.corank,tp.isdefault,tp.defaultname,tp.namerule,tp.namerule2,tp.ispart,tp.moresite,tp.siteurl,tp.sitepath FROM `dede_archives` AS arc LEFT JOIN `dede_arctype` tp ON arc.typeid=tp.id WHERE arc.arcrank>=0 AND arc.typeid=' . $cid['id'] . ' AND arc.title LIKE "%' . $city . '%" ORDER BY pubdate DESC LIMIT 0,3' ;
+		$sql = 'SELECT arc.*,tp.typedir,tp.typename,tp.corank,tp.isdefault,tp.defaultname,tp.namerule,tp.namerule2,tp.ispart,tp.moresite,tp.siteurl,tp.sitepath FROM `dede_archives` AS arc LEFT JOIN `dede_arctype` tp ON arc.typeid=tp.id WHERE arc.arcrank>=0 AND arc.typeid=' . $cid['id'] . ' AND (arc.title LIKE "%' . $city . '%" OR arc.keywords LIKE "%' . $city . '%") ORDER BY pubdate DESC LIMIT 0,3' ;
 		$dsql->Execute('me', $sql);
 		while ($row = $dsql->GetArray('me')){
-			$con .= '<li><div class="piczy_l"><a href="' . GetFileUrl($row['id'], $row['typeid'], $row['senddate'], $row['title'], $row['ismake'], $row['arcrank'], $row['namerule'], $row['typedir'], $row['money'], $row['filename'], $row['moresite'], $row['siteurl'], $row['sitepath']) . '" title="' . $row['title'] . '" target="_blank"><img src="' . $row['litpic'] . '" title="' . $row['title'] . '" /></a></div><div class="piczy_r"><a href="' . GetFileUrl($row['id'], $row['typeid'], $row['senddate'], $row['title'], $row['ismake'], $row['arcrank'], $row['namerule'], $row['typedir'], $row['money'], $row['filename'], $row['moresite'], $row['siteurl'], $row['sitepath']) . '" target="_blank">' . $row['title'] . '</a><p>' . substr($row['description'],0,60) . '</p></div></li>';
+			$con .= '<li><div class="piczy_l"><a href="' . GetFileUrl($row['id'], $row['typeid'], $row['senddate'], $row['title'], $row['ismake'], $row['arcrank'], $row['namerule'], $row['typedir'], $row['money'], $row['filename'], $row['moresite'], $row['siteurl'], $row['sitepath']) . '" title="' . $row['title'] . '" target="_blank"><img src="' . $row['litpic'] . '" title="' . $row['title'] . '" /></a></div><div class="piczy_r"><a href="' . GetFileUrl($row['id'], $row['typeid'], $row['senddate'], $row['title'], $row['ismake'], $row['arcrank'], $row['namerule'], $row['typedir'], $row['money'], $row['filename'], $row['moresite'], $row['siteurl'], $row['sitepath']) . '" target="_blank">' . $row['title'] . '</a><p>' . substr($row['description'],0,250) . '</p></div></li>';
 		}
 		if(empty($con)){@me='';}else{@me = '<ul class="grid gridbg2"><h2>' . $city_name . '</h2><em>' . $city_nameUs . '</em>' . $con . '</ul>';}
 		{/dede:field.id}

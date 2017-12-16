@@ -60,7 +60,7 @@ $fromWeixin=false;
                     <img src="images/miaoshu_m.png">
                 </div>
                 <div class="jine">
-                    待付金额：￥<input id="WIDtotal_fee" name="WIDtotal_fee" value="<?php echo $trueprice; ?>" readonly="ture"/>
+                    应付金额：￥<input id="WIDtotal_fee" name="WIDtotal_fee" value="<?php echo $trueprice; ?>" readonly="ture"/>
                 </div>
                 <div class="ddid">
                     订单编号：<input id="WIDout_trade_no" name="WIDout_trade_no" readonly="ture" />
@@ -70,7 +70,7 @@ $fromWeixin=false;
                 </div>
                 <dl class="content">
                         <input id="WIDbody" name="WIDbody" value="【定金】" hidden="" readonly="ture" />
-                    <dt>姓名：</dt>
+                    <!-- <dt>姓名：</dt>
                     <dd>
                         <input type="text" name="WIDname" placeholder="请输入您的姓名" style="border:1px solid #ccc">
                     </dd>
@@ -78,7 +78,7 @@ $fromWeixin=false;
                     <dt>手机：</dt>
                     <dd>
                         <input type="text" name="WIDmobile" placeholder="请输入手机号" style="border:1px solid #ccc">
-                    </dd>
+                    </dd> -->
                 </dl>
             </div>
             <div class="paymode">
@@ -103,28 +103,7 @@ $fromWeixin=false;
 		</form>
     </div>
     <script type="text/html"></script>
-    <div class="tabs_tit">
-        <ul class="tab">
-            <li class="hover">求婚支付</li>
-            <li>活动支付</li>
-        </ul>
-    </div>
-    <div class="footer tabCon on">
-        <img src="images/qiuhunpay_02.png">
-        <img src="images/qiuhunpay_03.png">
-        <img src="images/qiuhunpay_04.png">
-        <img src="images/qiuhunpay_05.png">
-        <img src="images/qiuhunpay_06.png">
-        <img src="images/qiuhunpay_07.png">
-    </div>
-    <div class="footer tabCon">
-        <img src="images/huodongpay_02.png">
-        <img src="images/huodongpay_03.png">
-        <img src="images/huodongpay_04.png">
-        <img src="images/huodongpay_05.png">
-        <img src="images/huodongpay_06.png">
-        <img src="images/huodongpay_07.png">
-    </div>
+    
 </body>
 <script type="text/javascript">
 	var fromWeixin=<?php echo $fromWeixin ? 'true' : 'false';?>;

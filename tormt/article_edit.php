@@ -131,6 +131,10 @@ else if($dopost=='save')
     //分析body里的内容
     $body = AnalyseHtmlBody($body,$description,$litpic,$keywords,'htmltext');
 
+    //2017-12-05增加，替换内容中IMG的宽高为空
+    $body = preg_replace("/width.+?;/i",'',$body);
+    $body = preg_replace("/height.+?;/i",'',$body);
+    
     //分析处理附加表数据
     $inadd_f = '';
     $inadd_v = '';

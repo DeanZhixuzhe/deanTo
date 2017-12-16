@@ -1257,7 +1257,7 @@ class Archives
     	$karr = $kaarr = $GLOBALS['replaced'] = array();
     	//暂时屏蔽超链接
     	$body = preg_replace("/(<a(.*))(>)(.*)(<)(\/a>)/isU", '\\1-]-\\4-[-\\6', $body);
-    	$query="SELECT * FROM #@__keywords WHERE rpurl<>'' and sta=1 ORDER BY length(keyword)desc";
+    	$query="SELECT * FROM #@__keywords WHERE rpurl<>'' and sta=1 ORDER BY length(keyword),rank desc";
     	$dsql->SetQuery($query);
     	$dsql->Execute();
     	while($row = $dsql->GetArray())

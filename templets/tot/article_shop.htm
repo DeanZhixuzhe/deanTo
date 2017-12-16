@@ -12,19 +12,41 @@
 <div class="body">
 	<div class="breadcrumb">{dede:field name='position'/}</div>
 	<div class="as_head">
+	<form action="/custom/payment/index.php" class="payform" method="post" target="_blank" name="payment" id="payment">
 		<div class="le"><img src="{dede:field.litpic/}"></div>
 		<div class="ri">
 			<h1>{dede:field.title/}</h1>
-			<p class="price">¥{dede:field.trueprice/}{dede:field.truepricemax runphp="yes"}if(empty(@me)){@me="";}else{@me=" - ".@me;}{/dede:field.truepricemax}</p>
+			<p class="price">¥{dede:field.trueprice/}起</p>
 			<p class="title">适合场景：</p>
 			<p>{dede:field.defined3/}</p>
 			<p class="title">开通地区：</p>
 			<p>全国各大省份地区（包含港澳台）、日韩、东南亚、欧美</p>
+			{dede:field.defined1 runphp="yes"}
+				if(!empty(@me)){
+					$con = '<p class="title">优惠活动：</p>';
+					$con .= '<p>'. @me . '</p>';
+					$con .= '<input type="hidden" name="discounts" value="' . @me . '">';
+				}else{
+					$con = '';
+				}
+				@me = $con;
+			{/dede:field.defined1}
 			<div class="btn">
-				<a href="">立即预定</a>
-				<a href="">在线咨询</a>
+				<input type="hidden" name="title" value="{dede:field.title/}">
+				<input type="hidden" name="litpic" value="{dede:field.litpic/}">
+				<input type="hidden" name="trueprice" value="{dede:field.trueprice/}">
+				{dede:field.trueprice runphp='yes'}
+					if(@me<=3000){
+						$con = '<input type="submit" class="nowpay" value ="立即购买">';
+					}else{
+						$con = '<a href="tencent://message/?uin=3547038718&Site=qq&Menu=yes" rel="nofollow">立即预定</a>
+						<a href="tencent://message/?uin=3547038718&Site=qq&Menu=yes" rel="nofollow">在线咨询</a>';
+					}
+					@me = $con;
+				{/dede:field.trueprice}
 			</div>
 		</div>
+	</form>
 	</div>
 	<div class="blank20"></div>
 	<div class="i-steps">

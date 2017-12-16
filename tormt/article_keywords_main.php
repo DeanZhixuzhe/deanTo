@@ -53,6 +53,14 @@ if($dopost=='saveall')
             $query1 = "UPDATE `#@__keywords` SET rpurl='$rpurl' WHERE aid='$aid' ";
             $dsql->ExecuteNoneQuery($query1);
         }
+
+        //更新关键字频率
+        $rank = ${'rank_'.$aid};
+        $rankold = ${'rankold_'.$aid};
+        if ($rank != $rankold) {
+            $query1 = "UPDATE `#@__keywords` SET rank='$rank' WHERE aid='$aid' ";
+            $dsql->ExecuteNoneQuery($query1);
+        }
     }
     ShowMsg("完成指定的更改！",$ENV_GOBACK_URL);
     exit();

@@ -57,7 +57,7 @@ runphp='yes'}$id=@me;@me='';$url=GetOneArchive($id);@me=$url['arcurl'];{/dede:fi
 	{dede:field.id runphp="yes"}
 function getCon($lim,$nid,$num=0,$whereArr,$len,&$con){
 	global $dsql;
-	$tid = "(16,17,18,19,20,21,26,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42) AND";
+	$tid = "(14,16,17,18,19,20,21,26,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42) AND";
 	$num++;
 	if($len == 0){
 		for($i=0;$i<count($whereArr);$i++){

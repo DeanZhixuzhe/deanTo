@@ -36,7 +36,13 @@ div,ul,li,p,dl,dt,dd,i,em,a,h1,h2,h3,h4,h5,h6,img{box-sizing: border-box;-moz-bo
 .header .city dt{opacity: .5;}
 .header .city dt:hover{cursor: pointer;}
 .header .nav{float: left;}
-.header .nav a{color: #666; line-height: 60px; padding: 0 10px; margin: 0 20px; text-align: center; font-size: 14px; opacity: .9; height: 60px; box-sizing: border-box;}
+.header .nav li{float: left;}
+.header .nav ul li{}
+.header .nav ul li a{color: #666; line-height: 60px; padding: 0 10px; margin: 0 20px; text-align: center; font-size: 14px; opacity: .9; height: 60px; box-sizing: border-box;}
+.header .nav ul li ul{display: none; position: absolute; top: 60px; left: 230px; height: 40px; width: 730px; background: #fff}
+.header .nav ul li ul li a{color: #666; line-height: 40px; padding: 0 10px; margin: 0 10px; text-align: center; font-size: 12px; opacity: .9; height: 40px; box-sizing: border-box;}
+.header .nav ul li ul li p{color: #666; line-height: 40px; padding: 0 10px; margin: 0 10px; text-align: center; font-size: 12px; opacity: .9; height: 40px; box-sizing: border-box;}
+
 .breadcrumb{font-size: 14px; margin: 15px; width: 100%; display: block;}
 
 .content{padding: 30px 50px;}
@@ -126,7 +132,7 @@ div,ul,li,p,dl,dt,dd,i,em,a,h1,h2,h3,h4,h5,h6,img{box-sizing: border-box;-moz-bo
 .related_colums li a{color: #fff;}
 
 .banner{height: 600px; color: #FCFCFC; background-image: url(../images/c1200.jpg); background-position: center; background-repeat: no-repeat; background-size: cover; overflow: hidden;}
-.banner .info{width: 300px; height: 250px; margin: 150px auto 0; text-align: center; line-height: 45px;}
+.banner .info{width: 500px; height: 250px; margin: 150px auto 0; text-align: center; line-height: 45px;}
 .banner .info p{font-size: 28px; margin: 0 0 10px;}
 .banner .info span{font-size: 20px;}
 .banner .info a{height: 48px; line-height: 48px; font-size: 16px; width: 250px; color: #fff; border-radius: 5px; background: url(../images/fhbg.png); display: block; margin: 80px auto 0;}
@@ -154,6 +160,9 @@ div,ul,li,p,dl,dt,dd,i,em,a,h1,h2,h3,h4,h5,h6,img{box-sizing: border-box;-moz-bo
 .as_head .title{padding-top: 10px; color: #000;}
 .as_head .btn{position: absolute; left: 25px; bottom: 0;}
 .as_head .btn a{display: block; float: left; width: 140px; height: 50px; line-height: 50px; margin-right: 20px; color: #fff; background: url(../images/fhbg.png) center no-repeat; border-radius: 3px; text-align: center; font-size: 18px;}
+.isubmit{width: 100%; padding: 10px;}
+.as_head .btn .nowpay{width:180px;height:50px;line-height:50px; border:0;background-color:#E24347;font-size:16px;color:#FFF;cursor:pointer; margin-top: 5px; font-weight: bold;}
+.as_head .btn .nowpay:hover{background-color: #DF3033}
 
 .as_nav{background: #fff; border-top: 1px solid #E4E4E4; border-right: 1px solid #E4E4E4; background: #fff; overflow: hidden;}
 .as_nav li{float: left; font-size: 18px; padding: 14px 50px; line-height: 1.4}
@@ -209,6 +218,36 @@ div,ul,li,p,dl,dt,dd,i,em,a,h1,h2,h3,h4,h5,h6,img{box-sizing: border-box;-moz-bo
 .about_con h2{font-size: 16px; line-height: 38px;}
 .about_con p{line-height: 32px;}
 
+.feedback{
+	overflow: hidden;
+	display: block;
+	margin-left: -20px;
+}
+.feedback li{
+	float: left;
+	width: 220px;
+	overflow: hidden;
+	height: auto;
+	margin-left: 20px
+}
+.feedback li img{
+	display: block;
+	height: 150px;
+	margin: 0 auto;
+	width: 150px;
+	border-radius: 50%;
+}
+.feedback li span{
+	text-align: center;
+	display: block;
+	margin: 10px 0;
+	font-size: 14px;
+	font-weight: bold;
+	color: #666;
+}
+.feedback li p{
+	
+}
 /* side */
 .side{position:fixed;width:54px;height:275px;right:0;top:214px;z-index:100;}
 .side ul li{width:54px;height:54px;float:left;position:relative;border-bottom:1px solid #444;}
@@ -231,3 +270,9 @@ div,ul,li,p,dl,dt,dd,i,em,a,h1,h2,h3,h4,h5,h6,img{box-sizing: border-box;-moz-bo
 
 .regform{width: 800px; margin: 20px auto; background: #fff; padding: 30px; border: 1px solid #E4E4E4; text-align: center;}
 .regform span{width: 100%; height: 80px; text-align: center; line-height: 80; border-bottom: 1px solid #E4E4E4; font-size: 28px; overflow: hidden; display: block; color: red;}
+
+/*page*/
+.pages{width: 100%;}
+.pages li{float: left;border: 1px solid #eee; margin-right: 10px;padding: 5px 10px;}
+.pages li.thisclass{background: #97B01E}
+.pages li a{ font-size: 14px;}
