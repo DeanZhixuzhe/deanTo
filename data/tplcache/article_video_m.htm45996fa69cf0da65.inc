@@ -1,0 +1,47 @@
+<?php
+$z[0]=Array("field","",130,149);
+$z[0][4]['name']="title";
+$z[1]=Array("global","",152,178);
+$z[1][4]['name']="cfg_webname";
+$z[2]=Array("field","",219,241);
+$z[2][4]['name']="keywords";
+$z[3]=Array("field","",281,332);
+$z[3][4]['name']="description";
+$z[3][4]['function']="html2text(@me)";
+$z[4]=Array("include","",338,373);
+$z[4][4]['filename']="meta.htm";
+$z[5]=Array("include","",392,429);
+$z[5][4]['filename']="header.htm";
+$z[6]=Array("field","",476,505);
+$z[6][4]['name']="position";
+$z[7]=Array("field","",568,587);
+$z[7][4]['name']="title";
+$z[8]=Array("field","",634,654);
+$z[8][4]['name']="writer";
+$z[9]=Array("field","",676,732);
+$z[9][4]['name']="pubdate";
+$z[9][4]['function']="MyDate('Y-m-d H:i',@me)";
+$z[10]=Array("field","",767,794);
+$z[10][4]['name']="phpurl";
+$z[11]=Array("field","",818,841);
+$z[11][4]['name']="id";
+$z[12]=Array("field","",846,870);
+$z[12][4]['name']="mid";
+$z[13]=Array("field","",975,1022);
+$z[13][4]['name']="body";
+$z[13][4]['runphp']="yes";
+$z[14]=Array("arclist","\r\n				<li><a href=\"[field:arcurl/]\"><img src=\"[field:litpic/]\" title=\"[field:title/]\"><span>[field:title/]</span></a><p>￥[field:trueprice/][field:truepricemax runphp=\"yes\"]if(empty(@me)){@me=\"\";}else{@me=\" - \".@me;}[/field:truepricemax]</p></li>\r\n				",1178,1533);
+$z[14][4]['limit']="0,4";
+$z[14][4]['channelid']="6";
+$z[14][4]['addfields']="trueprice,truepricemax";
+$z[14][4]['typeid']="22";
+$z[15]=Array("type","\r\n					[field:id runphp=\"yes\"]\r\n						global \$cfg_Cs, \$dsql;\r\n						\$reid = \$dsql->GetOne(\"SELECT reid FROM dede_arctype WHERE id LIKE '%@me%' \");\r\n						if(\$reid['reid'] != 0){\r\n							\$dsql->Execute('mbidss',\"SELECT id FROM dede_arctype WHERE reid LIKE '%\$reid[reid]%' \");\r\n						}else{\r\n							\$dsql->Execute('mbidss',\"SELECT id FROM dede_arctype WHERE reid LIKE '%@me%' \");\r\n						}\r\n						while (\$mbid = \$dsql->GetArray('mbidss')) {\r\n        					\$mbids .= \$mbid['id'] . ',';\r\n        				}\r\n        				\$mbidsnew = substr(\$mbids,0,strlen(\$mbdis)-1);\r\n        				if (\$mbids !='') {\r\n        					\$sql = 'SELECT typename,typedir FROM dede_arctype WHERE id IN (' . \$mbidsnew . ')';\r\n							\$dsql->Execute('me', \$sql);\r\n							while (\$row = \$dsql->GetArray('me')) {\r\n								\$s .= '<li><a href=\"' . str_replace('{cmspath}','',\$row['typedir']) . '/\">' . \$row['typename'] . '</a></li>';\r\n        					}\r\n        				}\r\n        				@me = \$s;\r\n					[/field:id]\r\n				",1727,2715);
+$z[16]=Array("arclist","\r\n				<li><div class=\"piczy_p_l\"><a href=\"[field:arcurl/]\"><img src=\"[field:litpic/]\" title=\"[field:title/]\"></a></div><div class=\"piczy_p_r\"><a href=\"\">[field:title/]</a><p>¥[field:trueprice/][field:truepricemax runphp=\"yes\"]if(empty(@me)){@me=\"\";}else{@me=\" - \".@me;}[/field:truepricemax]</p></div></li>\r\n				",2864,3278);
+$z[16][4]['limit']="0,8";
+$z[16][4]['channelid']="6";
+$z[16][4]['addfields']="trueprice,truepricemax";
+$z[16][4]['typeid']="22";
+$z[17]=Array("include","",3342,3379);
+$z[17][4]['filename']="footer.htm";
+
+?>

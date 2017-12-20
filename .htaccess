@@ -2,3 +2,4 @@ RewriteEngine On
 RewriteBase /
 RewriteRule ^romance/(.*)$ /tags.php?/$1
 RewriteRule ^plus/romanticfile.html /plus/romanticfile.php?action=post&t=1
+RewriteRule ^romantic/(.*)$	/custom/$1

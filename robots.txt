@@ -17,3 +17,4 @@ Disallow: /plus/count.php
 Disallow: /include
 Disallow: /templets
 Disallow: /tormt
+Disallow: /custom

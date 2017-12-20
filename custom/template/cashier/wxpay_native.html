@@ -1,0 +1,44 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+    <title>TheOne在线支付</title>
+    <style type="text/css">
+        .wechat_pay{width: 980px; height: 430px; margin: 30px auto; background: url(../template/cashier/images/wechat_pay.png);}
+        .wechat_pay img{width: 270px; height: 270px; margin-left: 140px; margin-top: 40px;}
+    </style>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.8.2/jquery.min.js"></script>
+</head>
+<body>
+    <div class="wechat_pay"><img alt="模式二扫码支付" src="http://paysdk.weixin.qq.com/example/qrcode.php?data=<?php echo urlencode($url2);?>"/></div>
+</body>
+<script type="text/javascript">
+function pay_status(){
+    var orderid = "<?php echo $out_trade_no; ?>";
+    
+    $.ajax({
+        type:"post",
+        url:"wxpayAjax.php",
+        data:{'order_id':orderid},
+        success:function(data){
+            if(data == '1'){
+                window.clearInterval(int);
+                setTimeout(function(){
+                    window.location.href="result.php?result=success";
+                },500);
+            }else if(data == '2'){
+                window.clearInterval(int);
+                setTimeout(function(){
+                    window.location.href="result.php?result=fail";
+                },500);
+            }
+        },
+        error:function(){
+            window.clearInterval(int);
+            window.location.href="result.php?result=fail";
+        }
+    });
+}
+var int = setInterval(function(){pay_status()},2000);
+</script>
+</html>

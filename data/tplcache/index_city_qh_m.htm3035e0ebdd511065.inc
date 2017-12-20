@@ -1,0 +1,48 @@
+<?php
+$z[0]=Array("arclist","\r\n					<li class=\"view\">\r\n                        <a href=\"/m/[field:arcurl/]\">\r\n    						<div class=\"pic\">\r\n    							<img src=\"[field:litpic/]\">\r\n    							<div class=\"cont\">\r\n    								<span class=\"button xq\">¥[field:trueprice/]起</span>\r\n    							</div>\r\n    							<div class=\"clear\"></div>\r\n    						</div>\r\n    						<div class=\"con\">\r\n    							<h5>[field:title/]</h5>\r\n    							<p>卫坡古民居翠湾果岭观唐生态园炎帝本草园洛阳粤钰青...</p>\r\n    						</div>\r\n                        </a>\r\n					</li>\r\n                ",3059,3748);
+$z[0][4]['typeid']="22";
+$z[0][4]['row']="4";
+$z[0][4]['titlelen']="60";
+$z[0][4]['addfields']="truepricemax,trueprice";
+$z[0][4]['channelid']="6";
+$z[0][4]['keyword']="热门";
+$z[1]=Array("arclist","\r\n                    <li class=\"view\">\r\n                        <a href=\"/m/[field:arcurl/]\">\r\n                            <div class=\"pic\">\r\n                                <img src=\"[field:litpic/]\">\r\n                                <div class=\"cont\">\r\n                                    <span class=\"button xq\">¥[field:trueprice/]起</span>\r\n                                </div>\r\n                                <div class=\"clear\"></div>\r\n                            </div>\r\n                            <div class=\"con\">\r\n                                <h5>[field:title/]</h5>\r\n                                <p>卫坡古民居翠湾果岭观唐生态园炎帝本草园洛阳粤钰青...</p>\r\n                            </div>\r\n                        </a>\r\n                    </li>\r\n                ",3814,4755);
+$z[1][4]['typeid']="22";
+$z[1][4]['row']="4";
+$z[1][4]['titlelen']="60";
+$z[1][4]['addfields']="truepricemax,trueprice";
+$z[1][4]['channelid']="6";
+$z[1][4]['keyword']="实惠";
+$z[2]=Array("arclist","\r\n                    <li class=\"view\">\r\n                        <a href=\"/m[field:arcurl/]\">\r\n                            <div class=\"pic\">\r\n                                <img src=\"[field:litpic/]\">\r\n                                <div class=\"cont\">\r\n                                    <span class=\"button xq\">¥[field:trueprice/]起</span>\r\n                                </div>\r\n                                <div class=\"clear\"></div>\r\n                            </div>\r\n                            <div class=\"con\">\r\n                                <h5>[field:title/]</h5>\r\n                                <p>卫坡古民居翠湾果岭观唐生态园炎帝本草园洛阳粤钰青...</p>\r\n                            </div>\r\n                        </a>\r\n                    </li>\r\n                ",4845,5785);
+$z[2][4]['typeid']="22";
+$z[2][4]['row']="4";
+$z[2][4]['titlelen']="60";
+$z[2][4]['addfields']="truepricemax,trueprice";
+$z[2][4]['channelid']="6";
+$z[2][4]['keyword']="高端";
+$z[3]=Array("arclist","\r\n                    <li>\r\n                        <a class=\"news\" href=\"/m[field:arcurl/]\">\r\n                            <div class=\"pic\">\r\n                                <img src=\"[field:litpic/]\"/>\r\n                            </div>\r\n                            <div class=\"project_cont\">\r\n                                <h5>[field:title/]</h5>\r\n                            </div>\r\n                            <div class=\"price\">\r\n                                <p>2015/04/16</p>\r\n                                <span>[field:click/]</span>\r\n                                <i class=\"am-icon-eye\"></i>\r\n                                <div class=\"clear\"></div>\r\n                            </div>\r\n                        </a>\r\n                    </li>\r\n                ",12257,13099);
+$z[3][4]['typeid']="16";
+$z[3][4]['row']="5";
+$z[3][4]['titlelen']="60";
+$z[4]=Array("arclist","\r\n                    <li>\r\n                        <a class=\"news\" href=\"/m[field:arcurl/]\">\r\n                            <div class=\"pic\">\r\n                                <img src=\"[field:litpic/]\"/>\r\n                            </div>\r\n                            <div class=\"project_cont\">\r\n                                <h5>[field:title/]</h5>\r\n                            </div>\r\n                            <div class=\"price\">\r\n                                <p>2015/04/16</p>\r\n                                <span>[field:click/]</span>\r\n                                <i class=\"am-icon-eye\"></i>\r\n                                <div class=\"clear\"></div>\r\n                            </div>\r\n                        </a>\r\n                    </li>\r\n                ",13475,14317);
+$z[4][4]['typeid']="40";
+$z[4][4]['row']="5";
+$z[4][4]['titlelen']="60";
+$z[5]=Array("arclist","\r\n                    <li>\r\n                        <a class=\"news\" href=\"/m[field:arcurl/]\">\r\n                            <div class=\"pic\">\r\n                                <img src=\"[field:litpic/]\"/>\r\n                            </div>\r\n                            <div class=\"project_cont\">\r\n                                <h5>[field:title/]</h5>\r\n                            </div>\r\n                            <div class=\"price\">\r\n                                <p>2015/04/16</p>\r\n                                <span>[field:click/]</span>\r\n                                <i class=\"am-icon-eye\"></i>\r\n                                <div class=\"clear\"></div>\r\n                            </div>\r\n                        </a>\r\n                    </li>\r\n                ",14697,15539);
+$z[5][4]['typeid']="26";
+$z[5][4]['row']="5";
+$z[5][4]['titlelen']="60";
+$z[6]=Array("arclist","\r\n                    <li>\r\n                        <a class=\"news\" href=\"/m[field:arcurl/]\">\r\n                            <div class=\"pic\">\r\n                                <img src=\"[field:litpic/]\"/>\r\n                            </div>\r\n                            <div class=\"project_cont\">\r\n                                <h5>[field:title/]</h5>\r\n                            </div>\r\n                            <div class=\"price\">\r\n                                <p>2015/04/16</p>\r\n                                <span>[field:click/]</span>\r\n                                <i class=\"am-icon-eye\"></i>\r\n                                <div class=\"clear\"></div>\r\n                            </div>\r\n                        </a>\r\n                    </li>\r\n                ",15926,16768);
+$z[6][4]['typeid']="17";
+$z[6][4]['row']="5";
+$z[6][4]['titlelen']="60";
+$z[7]=Array("arclist","\r\n                    <li>\r\n                        <a class=\"news\" href=\"/m[field:arcurl/]\">\r\n                            <div class=\"pic\">\r\n                                <img src=\"[field:litpic/]\"/>\r\n                            </div>\r\n                            <div class=\"project_cont\">\r\n                                <h5>[field:title/]</h5>\r\n                            </div>\r\n                            <div class=\"price\">\r\n                                <p>2015/04/16</p>\r\n                                <span>[field:click/]</span>\r\n                                <i class=\"am-icon-eye\"></i>\r\n                                <div class=\"clear\"></div>\r\n                            </div>\r\n                        </a>\r\n                    </li>\r\n                ",17151,17993);
+$z[7][4]['typeid']="18";
+$z[7][4]['row']="5";
+$z[7][4]['titlelen']="60";
+$z[8]=Array("arclist","\r\n                    <li>\r\n                        <a class=\"news\" href=\"/m[field:arcurl/]\">\r\n                            <div class=\"pic\">\r\n                                <img src=\"[field:litpic/]\"/>\r\n                            </div>\r\n                            <div class=\"project_cont\">\r\n                                <h5>[field:title/]</h5>\r\n                            </div>\r\n                            <div class=\"price\">\r\n                                <p>2015/04/16</p>\r\n                                <span>[field:click/]</span>\r\n                                <i class=\"am-icon-eye\"></i>\r\n                                <div class=\"clear\"></div>\r\n                            </div>\r\n                        </a>\r\n                    </li>\r\n                ",18369,19211);
+$z[8][4]['typeid']="19";
+$z[8][4]['row']="5";
+$z[8][4]['titlelen']="60";
+
+?>
