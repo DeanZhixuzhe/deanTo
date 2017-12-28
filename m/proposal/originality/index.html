@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>17 - TheOne浪漫策划公司</title>
+<meta name="keywords" content="17" />
+<meta name="description" content="17" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta content="telephone=no" name="format-detection">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<!--库-->
+<link rel="stylesheet" type="text/css" href="/static/m/css/amazeui.css">
+<script type="text/javascript" src="/static/m/js/jquery.min.js"></script>
+<script type="text/javascript" src="/static/m/js/amazeui.js"></script>
+<!-- 样式 -->
+<link rel="stylesheet" type="text/css" href="/static/m/css/style.css">
+</head>
+<body>
+<!--公共版头-->
+<div id="header">
+    <a class="return" href="javascript:if(document.referrer.indexOf('1314theone')>=0){history.go(-1);}else{window.location='/m/';}"><i class="am-icon-angle-left"></i></a>
+    <h1>求婚创意</h1>
+    <div class="nav">
+        <div class="tit">导航 <span class="am-icon-caret-down"></span></div>
+        <div class="con">
+            <ul class="am-avg-sm-3">
+                <li><a href="/m/">首页</a></li>
+                <li><a href="/m/mall/">浪漫套餐</a></li>
+                <li><a href="/m/case/">浪漫案例</a></li>
+                <li><a href="/m/proposal/">求婚攻略</a></li>
+                <li><a href="/m/proposal/plan/">求婚策划</a></li>
+                <li><a href="/m/proposal/originality/">求婚创意</a></li>
+                <li><a href="/m/proposal/mode/">求婚方式</a></li>
+                <li><a href="/m/proposal/song/">求婚歌曲</a></li>
+                <li><a href="/m/proposal/ring/">求婚戒指</a></li>
+                <li><a href="/m/proposal/word/">求婚词</a></li>
+                <li><a href="/m/proposal/kuaishan/">快闪求婚</a></li>
+                <li><a href="/m/proposal/dianyingyuan/">电影院求婚</a></li>
+                <li><a href="/m/proposal/ktv/">KTV求婚</a></li>
+                <li><a href="/m/proposal/kafeiting/">咖啡厅求婚</a></li>
+                <li><a href="/m/proposal/canting/">餐厅求婚</a></li>
+            </ul>
+        </div>
+        <div class="head_mask"></div>
+    </div>
+</div>
+<div id="news_list">
+    <div class="hei30"></div>
+    <ul>
+        
+    </ul>
+    <ul class="pagina">
+    <li><span class="pageinfo">共 <strong>0</strong>页<strong>0</strong>条记录</span></li>
+
+    </ul>
+</div>
+<div class="foot_h"></div>
+<div id="footer">
+    <ul class="am-avg-sm-4">
+        <li class="active">
+            <a href="/m/">
+                <img src="/static/m/images/icon-footer01-a.png"/>
+                <p>首页</p>
+            </a>
+        </li>
+        <li>
+            <a href="/m/mall/" rel="nofollow">
+                <img src="/static/m/images/icon-footer2-a.png"/>
+                <p>商城</p>
+            </a>
+        </li>
+        <li>
+            <a href="/m/" rel="nofollow">
+                <img src="/static/m/images/icon-footer2-a.png"/>
+                <p>定制</p>
+            </a>
+        </li>
+        <li class="am-dropdown am-dropdown-up" data-am-dropdown>
+            <a rel="nofollow" class="am-dropdown-toggle">
+                <img src="/static/m/images/icon-footer2-a.png"/>
+                <p>客服</p>
+            </a>
+            <div class="am-dropdown-content foot_kf">
+                <a href="tencent://message/?uin=3547038718&Site=qq&Menu=yes" rel="nofollow" target="_blank">QQ咨询</a>
+                <a href="javascript:;" id="weixin">微信咨询</a>
+                <a href="tel:17353237074" rel="nofollow">电话咨询</a>
+            </div>
+        </li>
+    </ul>
+    <div class="wxsb">
+        <p>微信中长按图片识别二维码</p>
+        <img src="/static/images/wechat@linda_1.jpg">
+        <p>或者复制微信号加好友</p>
+        <span>theonelangman</span>
+    </div>
+    <div class="foot_mask"></div>
+</div>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b852b11b2eba5cc8858312816b5106eb";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script type="text/javascript">
+    $(function() {
+        $('#weixin').click(function(e){
+            if ($('.wxsb').hasClass('wxshow')) {
+                $('.wxsb').removeClass('wxshow');
+                $('.foot_mask').css('display','none');
+            }else {
+                $('.wxsb').addClass('wxshow');
+                $('.foot_mask').css('display','block');
+            }
+            e.stopPropagation();
+        });
+        $('.wxsb').click(function(e){
+            e.stopPropagation();
+        });
+        $('.foot_mask').click(function(e){
+            $('.wxsb').removeClass('wxshow');
+            $('.foot_mask').css('display','none');
+        });
+
+        $('#header .tit').click(function(e){
+            if ($('#header .con').hasClass('conshow')) {
+                $('#header .con').removeClass('conshow');
+                $('.head_mask').css('display','none');
+            }else {
+                $('#header .con').addClass('conshow');
+                $('.head_mask').css('display','block');
+            }
+            e.stopPropagation();
+        });
+        $('#header .con').click(function(e){
+            e.stopPropagation();
+        });
+        $('.head_mask').click(function(e){
+            $('#header .con').removeClass('conshow');
+            $('.head_mask').css('display','none');
+        });
+    });
+</script>
+</body>
+</html>
