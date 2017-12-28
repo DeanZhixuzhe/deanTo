@@ -16,7 +16,7 @@ function browserRedirect() {
         var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
         if ((bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) )
         {                      
-            window.location.href='/romantic/cashier/cashier.php?terminal=wap';
+            window.location.href='/custom/cashier/cashier.php?terminal=wap';
         }             
 }             
 browserRedirect();
@@ -96,10 +96,10 @@ browserRedirect();
 	</div>
 
 	<div class="content">
-	<form action="/romantic/cashier/pay.php" class="payform" method="get" target="_blank" name="payment" id="payment">
+	<form action="payWxUp.php" class="payform" method="get" target="_blank" name="payment" id="payment">
 		<div class="miaoshu">
 			<div class="m1"><p>订单提交成功，请您尽快付款！订单号：<input type="text" name="WIDout_trade_no" id="out_trade_no" value="<?php echo $out_trade_no; ?>" readonly="ture"></p><span>应付金额&nbsp;￥<input type="text" name="WIDtotal_fee" id="total_fee" value="<?php echo $trueprice; ?>" readonly="ture"></span></div>
-			<div class="m2"><p>由于预定客户较多，为了避免档期和人员安排冲突，请您在<strong>15分钟</strong>内完成支付！<em><img src="/static/images/pay/bao.png">在线支付保障</em></p><span></span></div>
+			<div class="m2"><p>由于预定客户较多，为了避免档期和人员安排冲突，请您在<strong>15分钟</strong>内完成支付！<em><img src="images/bao.png">在线支付保障</em></p><span></span></div>
 		</div>
 		<div class="mok">
 			<h4>商品信息</h4>
@@ -108,18 +108,19 @@ browserRedirect();
 				<div class="ri">
 					<h2><?php echo $title; ?></h2>
 					<div class="shopyh"><?php echo $discountsCon; ?></div>
+					<div>代金券金额：<?php echo $coupon_fee; ?></div>
 				</div>
 			</div>
 		</div>
 		<div class="mok">
 			<h4>选择支付方式</h4>
 			<div class="paymode">
-				<label><input type="radio" name="pingtai" value="wechat" checked="checked"><img src="/static/images/pay/paywechaticon.png"><span>微信支付</span></label>
-				<label><input type="radio" name="pingtai" value="alipay"><img src="/static/images/pay/payaliicon.png"><span>支付宝</span></label>
+				<label><input type="radio" name="pingtai" value="wechat" checked="checked"><img src="/custom/template/cashier/images/paywechaticon.png"><span>微信支付</span></label>
+				<label><input type="radio" name="pingtai" value="alipay"><img src="/custom/template/cashier/images/payaliicon.png"><span>支付宝</span></label>
 			</div>
 			<div class="isubmit">
 				<input type="hidden" name="terminal" value="pc" >
-				<input type="hidden" name="brower" value="<?php echo $brower; ?>">
+				<input type="hidden" name="WIDcoupon_fee" value="<?php echo $coupon_fee; ?>">
 				<input type="hidden" name="WIDsubject" value="<?php echo $title; ?>" >
 				<input type="hidden" name="WIDtotal_fee" value="<?php echo $trueprice; ?>" >
 				<input type="submit" class="alisubmit" value ="确认支付">
@@ -134,9 +135,9 @@ browserRedirect();
 	</div>
 
 	<div class="footer">
-		<p>Copyright &copy; <?php echo date('Y');?> TheOne 1314THEONE.com 版权所有</p>
+		<p>Copyright &copy; 2017 TheOne 1314THEONE.com 版权所有</p>
 		<hr>
-		<img src="/static/images/pay/IASErdnJnLbiMvSoxkaQ.png">
+		<img src="/custom/template/cashier/images/IASErdnJnLbiMvSoxkaQ.png">
 	</div>
 </body>
 

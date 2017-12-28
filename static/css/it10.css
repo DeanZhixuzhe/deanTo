@@ -276,3 +276,9 @@ div,ul,li,p,dl,dt,dd,i,em,a,h1,h2,h3,h4,h5,h6,img{box-sizing: border-box;-moz-bo
 .pages li{float: left;border: 1px solid #eee; margin-right: 10px;padding: 5px 10px;}
 .pages li.thisclass{background: #97B01E}
 .pages li a{ font-size: 14px;}
+
+.fuwu{width: 100%; overflow: hidden; /*background: #fff;*/ padding: 12px 0}
+.fuwu dl{float: left; text-align: center; width: 20%; border-right: 1px solid #D9D9D9;}
+.fuwu dl:last-child{border-right: 0;}
+.fuwu dl dt{font-size: 24px; color: #737373; line-height: 38px;}
+.fuwu dl dd{font-size: 18px; color: #c9c7c9; line-height: 30px;}

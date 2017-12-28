@@ -1,6 +1,6 @@
 <?php
 ini_set('date.timezone','Asia/Shanghai');
-require_once('../getuserinfo.php');
+require_once('../../getuserinfo.php');
 $terminal = isset($_GET['terminal'])?$_GET['terminal']:'pc';
 $pingtai = isset($_GET['pingtai'])?$_GET['pingtai']:'';
 $body = isset($_GET['WIDbody'])?$_GET['WIDbody']:'';
@@ -8,6 +8,7 @@ $subject = isset($_GET['WIDsubject'])?$_GET['WIDsubject']:'';
 $total_fee = isset($_GET['WIDtotal_fee'])?$_GET['WIDtotal_fee']:0;
 $out_trade_no = isset($_GET['WIDout_trade_no'])?$_GET['WIDout_trade_no']:'';
 $show_url = isset($_GET['WIDshow_url'])?$_GET['WIDshow_url']:'www.1314theone.com';
+$coupon_fee = isset($_GET['WIDcoupon_fee'])?$_GET['WIDcoupon_fee']:0;;
 
 if (stripos($GLOBALS['agent'],'microMessenger')!==false) {
     $brower = "wx";
@@ -18,12 +19,14 @@ if (stripos($GLOBALS['agent'],'microMessenger')!==false) {
 
 //PC微信扫码
 if ($terminal == 'pc' && $pingtai == 'wechat') {
-	require_once('../extend/wechatPay/lib/WxPay.Api.php');
-	require_once('../extend/wechatPay/lib/WxPay.Config.php');
-	require_once('../extend/wechatPay/lib/WxPay.Data.php');
-	require_once('../extend/wechatPay/lib/WxPay.Exception.php');
-	require_once('../extend/wechatPay/example/WxPay.NativePay.php');
-	require_once('../extend/wechatPay/example/log.php');
+	echo "zhifu1";
+	require_once('lib/WxPay.Api.php');
+	require_once('lib/WxPay.Config.php');
+	require_once('lib/WxPay.Data.php');
+	require_once('lib/WxPay.Exception.php');
+	require_once('example/WxPay.NativePay.php');
+	require_once('example/log.php');
+	echo "zhifu2";
 	//初始化日志
 	$logHandler= new CLogFileHandler("../extend/wechatPay/logs/".date('Y-m-d').'.log');
 	$log = Log::Init($logHandler, 15);
@@ -37,19 +40,24 @@ if ($terminal == 'pc' && $pingtai == 'wechat') {
 	 * 4、在支付成功通知中需要查单确认是否真正支付成功（见：notify.php）
 	 */
 	$input = new WxPayUnifiedOrder();
+	echo "zhifu3";
 	$input->SetBody($subject);
 	$input->SetAttach($body);
 	$input->SetOut_trade_no($out_trade_no);
-	$input->SetTotal_fee(intval($total_fee)*100);
+	$input->SetTotal_fee($total_fee);
 	$input->SetTime_start(date("YmdHis"));
 	$input->SetTime_expire(date("YmdHis", time() + 600));
 	$input->SetGoods_tag("test");
 	$input->SetNotify_url("http://www.1314theone.com/romantic/extend/wechatPay/example/notify.php");
 	$input->SetTrade_type("NATIVE");
 	$input->SetProduct_id("123456789");
+	$input->SetCoupon_fee($coupon_fee);
+	echo "zhifu4";
 	$result = $notify->GetPayUrl($input);
+	echo "zhifu5";
+	print_r($result);
 	$url2 = $result["code_url"];
-	include('../template/cashier/wxpay_native.html');
+	include('wxpay_native.html');
 	exit;
 }
 
@@ -97,7 +105,7 @@ if ($terminal == 'wap' && $pingtai == 'wechat' && $brower == 'h5') {
 	$input->SetBody($subject);
 	$input->SetAttach($body);
 	$input->SetOut_trade_no($out_trade_no);
-	$input->SetTotal_fee(intval($total_fee)*100);
+	$input->SetTotal_fee($total_fee);
 	$input->SetTime_start(date("YmdHis"));
 	$input->SetTime_expire(date("YmdHis", time() + 600));
 	$input->SetGoods_tag("test");
@@ -166,7 +174,7 @@ if ($terminal == 'wap' && $pingtai == 'wechat' && $brower == 'wx') {
 	$input->SetBody($subject);
 	$input->SetAttach($body);
 	$input->SetOut_trade_no($out_trade_no);
-	$input->SetTotal_fee(intval($total_fee)*100);
+	$input->SetTotal_fee($total_fee);
 	$input->SetTime_start(date("YmdHis"));
 	$input->SetTime_expire(date("YmdHis", time() + 600));
 	$input->SetGoods_tag("test");
