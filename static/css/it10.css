@@ -131,8 +131,9 @@ div,ul,li,p,dl,dt,dd,i,em,a,h1,h2,h3,h4,h5,h6,img{box-sizing: border-box;-moz-bo
 .related_colums li{float: left; width: 110px; height: 40px; line-height: 40px; text-align: center; background: #F69; color: #fff; border-radius: 3px; margin: 0 5px 10px;}
 .related_colums li a{color: #fff;}
 
-.banner{height: 600px; color: #FCFCFC; background-image: url(../images/c1200.jpg); background-position: center; background-repeat: no-repeat; background-size: cover; overflow: hidden;}
-.banner .info{width: 500px; height: 250px; margin: 150px auto 0; text-align: center; line-height: 45px;}
+.banner{height: 810px; width: 100%; color: #FCFCFC; position: relative; background-size: cover; overflow: hidden;}
+.banner video{min-width: 100%; min-height: 100%; width: auto; height: auto; overflow: hidden; display: block; position: absolute; right: 0; bottom: 0; z-index: -1}
+.banner .info{width: 100%; height: 250px; margin: 250px auto 0; text-align: center; line-height: 45px; position: absolute; top: 0; left: 0;}
 .banner .info p{font-size: 28px; margin: 0 0 10px;}
 .banner .info span{font-size: 20px;}
 .banner .info a{height: 48px; line-height: 48px; font-size: 16px; width: 250px; color: #fff; border-radius: 5px; background: url(../images/fhbg.png); display: block; margin: 80px auto 0;}
