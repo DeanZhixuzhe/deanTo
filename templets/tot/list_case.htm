@@ -51,7 +51,7 @@ runphp='yes'}global $dsql;$dir = $dsql->GetOne("SELECT typedir FROM dede_arctype
 			<span class="module_t_l mbn"><h1>{dede:field name='typename'/}</h1></span>
 			<div class="pic_list">{dede:list pagesize='15'}
 				<dl>
-					<dt><a href="[field:arcurl/]" target="_blank"><img src="[field:litpic/]" title="[field:title/]"></a></dt>
+					<dt><a href="[field:arcurl/]" target="_blank"><img src="http://img1.1314theone.com[field:litpic/]" title="[field:title/]"></a></dt>
 					<dd class="tit"><a href="[field:arcurl/]" target="_blank" title="[field:title/]">[field:title/]</a></dd>
 				</dl>{/dede:list}
 			</div>
@@ -62,7 +62,7 @@ runphp='yes'}global $dsql;$dir = $dsql->GetOne("SELECT typedir FROM dede_arctype
 		<div class="pt015">
 			<span class="module_t_c">推荐套餐</span>
 			<ul class="piczy_price">{dede:arclist limit='0,8' channelid='6' addfields='trueprice,truepricemax' typeid='22'}
-				<li><div class="piczy_p_l"><a href="[field:arcurl/]"><img src="[field:litpic/]" title="[field:title/]"></a></div><div class="piczy_p_r"><a href="">[field:title/]</a><p>¥[field:trueprice/][field:truepricemax runphp="yes"]if(empty(@me)){@me="";}else{@me=" - ".@me;}[/field:truepricemax]</p></div></li>
+				<li><div class="piczy_p_l"><a href="[field:arcurl/]"><img src="http://img1.1314theone.com[field:litpic/]" title="[field:title/]"></a></div><div class="piczy_p_r"><a href="">[field:title/]</a><p>¥[field:trueprice/][field:truepricemax runphp="yes"]if(empty(@me)){@me="";}else{@me=" - ".@me;}[/field:truepricemax]</p></div></li>
 				{/dede:arclist}
 			</ul>
 		</div>

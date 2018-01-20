@@ -38,7 +38,7 @@
     </div>
 </div>
 <div id="news_detail">
-    <div class="cover" style="background-image: url({dede:field.litpic/});">
+    <div class="cover" style="background-image: url(http://img1.1314theone.com{dede:field.litpic/});">
         <div class="return" data-am-sticky="{top:5}">
             <a class="" href="javascript:if(document.referrer.indexOf('1314theone')>=0){history.go(-1);}else{window.location='/m/';}"><i class="am-icon-angle-left"></i></a>
         </div>
@@ -53,7 +53,7 @@
         </div>
     </div>
     <div class="content">
-        {dede:field.body/}
+        {dede:field.body runphp="yes"}if(strpos(@me,'src="/')!==false){@me = str_replace('src="/','src="http://img1.1314theone.com/',@me);}{/dede:field.body}
     </div>
 </div>
 {dede:include filename="footer_m.htm"/}

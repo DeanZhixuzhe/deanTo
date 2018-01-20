@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset>
+<url>
+	<loc>http://www.1314theone.com/</loc>
+	<lastmod>{dede:arclist row=1 titlelen=24 orderby=pubdate}[field:pubdate function=strftime('%Y-%m-%d',@me)/]{/dede:arclist}</lastmod>
+	<changefreq>daily</changefreq>
+	<priority>1.0</priority>
+</url>
+{dede:field.id runphp="yes"}global $dsql;
+	$sql = "SELECT * FROM `dede_arctype` WHERE isdefault=1";
+	$dsql->Execute("me", $sql);
+	while ($row = $dsql->GetArray("me")){
+		$con .= '<url>
+  <loc>'.str_replace('{cmspath}','http://www.1314theone.com',$row['typedir']).'/</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.8</priority>
+</url>';
+	}
+	@me = $con;
+{/dede:field.id}
+{dede:field.id runphp="yes"}global $dsql;
+	$sql = "SELECT * FROM `dede_archives` WHERE channel=-1 AND title LIKE '%求婚%'";
+	$dsql->Execute("me", $sql);
+	while ($row = $dsql->GetArray("me")){
+		$con .= '<url>
+  <loc>http://www.1314theone.com/proposal/'.str_replace('/index','',$row['filename']).'/</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.8</priority>
+</url>';
+	}
+	@me = $con;
+{/dede:field.id}
+{dede:field.id runphp="yes"}global $dsql;
+	$sql = "SELECT arc.*,tp.typedir,tp.typename,tp.corank,tp.isdefault,tp.defaultname,tp.namerule,tp.namerule2,tp.ispart,tp.moresite,tp.siteurl,tp.sitepath FROM `dede_archives` AS arc LEFT JOIN `dede_arctype` tp ON arc.typeid=tp.id WHERE arc.arcrank>=0 AND arc.typeid IN(14,16,17,18,19,20,21,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,44,45) AND channel<>-1 ORDER BY pubdate DESC LIMIT 0,1000";
+	$dsql->Execute("me", $sql);
+	while ($row = $dsql->GetArray("me")){
+		$con .= '<url>
+  <loc>http://www.1314theone.com'.GetFileUrl($row['id'], $row['typeid'], $row['senddate'], $row['title'], $row['ismake'], $row['arcrank'], $row['namerule'], $row['typedir'], $row['money'], $row['filename'], $row['moresite'], $row['siteurl'], $row['sitepath']).'/</loc>
+  <lastmod>'.date('Y-m-d',$row['pubdate']).'</lastmod>
+  <priority>0.6</priority>
+</url>';
+	}
+	@me = $con;
+{/dede:field.id}
+</urlset>

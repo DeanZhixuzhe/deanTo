@@ -49,7 +49,7 @@ runphp='yes'}$id=@me;@me='';$url=GetOneArchive($id);@me=$url['arcurl'];{/dede:fi
 		<div class="content">
 			<h1>{dede:field.title/}</h1>
 			<div class="con_info"><span>作者：{dede:field.writer/}</span><span>时间：{dede:field.pubdate function="MyDate('Y-m-d H:i',@me)"/}</span><span>浏览：<script src="{dede:field name='phpurl'/}/count.php?view=yes&aid={dede:field name='id'/}&mid={dede:field name='mid'/}" type='text/javascript' language="javascript"></script></span></div>
-			<div class="con_article">{dede:field.body/}</div>
+			<div class="con_article">{dede:field.body runphp="yes"}if(strpos(@me,'src="/')!==false){@me = str_replace('src="/','src="http://img1.1314theone.com/',@me);@me = str_ireplace('.png','.png/picture1',@me);@me = str_ireplace('.jpg','.jpg/picture1',@me);}{/dede:field.body}</div>
 		</div>
 		<div class="pt050">
 			<span class="module_t_l">相关阅读</span>
@@ -134,7 +134,7 @@ function related($myme){
 		<div class="pt050">
 			<span class="module_t_l">热门套餐<a href="/mall/" class="more" rel="nofollow">更多</a></span>
 			<ul class="picsx_price">{dede:arclist limit='0,4' channelid='6' addfields='trueprice,truepricemax' typeid='22'}
-				<li><a href="[field:arcurl/]" target="_blank" rel="nofollow"><img src="[field:litpic/]" title="[field:title/]"><span>[field:title/]</span></a><p>￥[field:trueprice/][field:truepricemax runphp="yes"]if(empty(@me)){@me="";}else{@me=" - ".@me;}[/field:truepricemax]</p></li>
+				<li><a href="[field:arcurl/]" target="_blank" rel="nofollow"><img src="http://img1.1314theone.com[field:litpic/]" title="[field:title/]"><span>[field:title/]</span></a><p>￥[field:trueprice/][field:truepricemax runphp="yes"]if(empty(@me)){@me="";}else{@me=" - ".@me;}[/field:truepricemax]</p></li>
 				{/dede:arclist}
 				<div class="cl"></div>
 			</ul>
@@ -232,7 +232,7 @@ function related($myme){
 		<div class="pt015">
 			<span class="module_t_c">推荐套餐</span>
 			<ul class="piczy_price">{dede:arclist limit='0,8' channelid='6' addfields='trueprice,truepricemax' typeid='22'}
-				<li><div class="piczy_p_l"><a href="[field:arcurl/]" target="_blank" rel="nofollow"><img src="[field:litpic/]" title="[field:title/]"></a></div><div class="piczy_p_r"><a href="[field:arcurl/]" target="_blank" rel="nofollow">[field:title/]</a><p>¥[field:trueprice/][field:truepricemax runphp="yes"]if(empty(@me)){@me="";}else{@me=" - ".@me;}[/field:truepricemax]</p></div></li>
+				<li><div class="piczy_p_l"><a href="[field:arcurl/]" target="_blank" rel="nofollow"><img src="http://img1.1314theone.com[field:litpic/]" title="[field:title/]"></a></div><div class="piczy_p_r"><a href="[field:arcurl/]" target="_blank" rel="nofollow">[field:title/]</a><p>¥[field:trueprice/][field:truepricemax runphp="yes"]if(empty(@me)){@me="";}else{@me=" - ".@me;}[/field:truepricemax]</p></div></li>
 				{/dede:arclist}
 			</ul>
 		</div>

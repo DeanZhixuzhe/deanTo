@@ -9,18 +9,19 @@ $z[3][4]['name']="description";
 $z[3][4]['function']="html2text(@me)";
 $z[4]=Array("include","",551,588);
 $z[4][4]['filename']="meta_m.htm";
-$z[5]=Array("field","",2173,2193);
+$z[5]=Array("field","",2199,2219);
 $z[5][4]['name']="litpic";
-$z[6]=Array("field","",2489,2508);
+$z[6]=Array("field","",2515,2534);
 $z[6][4]['name']="title";
-$z[7]=Array("field","",2533,2585);
+$z[7]=Array("field","",2559,2611);
 $z[7][4]['name']="pubdate";
 $z[7][4]['function']="MyDate('Y-m-d',@me)";
-$z[8]=Array("field","",2759,2778);
+$z[8]=Array("field","",2785,2804);
 $z[8][4]['name']="click";
-$z[9]=Array("field","",2850,2868);
+$z[9]=Array("field","if(strpos(@me,'src=\"/')!==false){@me = str_replace('src=\"/','src=\"http://img1.1314theone.com/',@me);}",2876,3025);
 $z[9][4]['name']="body";
-$z[10]=Array("include","",2890,2929);
+$z[9][4]['runphp']="yes";
+$z[10]=Array("include","",3047,3086);
 $z[10][4]['filename']="footer_m.htm";
 
 ?>

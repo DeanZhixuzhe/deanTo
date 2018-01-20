@@ -16,7 +16,7 @@ $z[6]=Array("include","",445,492);
 $z[6][4]['filename']="about/about_left.htm";
 $z[7]=Array("field","",554,573);
 $z[7][4]['name']="title";
-$z[8]=Array("include","",8065,8102);
+$z[8]=Array("include","",6999,7036);
 $z[8][4]['filename']="footer.htm";
 
 ?>

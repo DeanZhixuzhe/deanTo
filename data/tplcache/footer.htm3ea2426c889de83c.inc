@@ -61,17 +61,17 @@ $z[29]=Array("global","",3221,3248);
 $z[29][4]['name']="cfg_basehost";
 $z[30]=Array("global","",3329,3356);
 $z[30][4]['name']="cfg_basehost";
-$z[31]=Array("global","",4261,4286);
+$z[31]=Array("global","",4980,5005);
 $z[31][4]['name']="cfg_static";
-$z[32]=Array("global","",4363,4388);
+$z[32]=Array("global","",5082,5107);
 $z[32][4]['name']="cfg_static";
-$z[33]=Array("global","",4474,4499);
+$z[33]=Array("global","",5193,5218);
 $z[33][4]['name']="cfg_static";
-$z[34]=Array("global","",4579,4604);
+$z[34]=Array("global","",5298,5323);
 $z[34][4]['name']="cfg_static";
-$z[35]=Array("global","",4893,4918);
+$z[35]=Array("global","",5612,5637);
 $z[35][4]['name']="cfg_static";
-$z[36]=Array("global","",5008,5033);
+$z[36]=Array("global","",5727,5752);
 $z[36][4]['name']="cfg_static";
 
 ?>

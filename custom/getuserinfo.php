@@ -75,7 +75,7 @@ function get_os(){
         	$system_val = $sys;
 	        foreach ($val as $key => $value) {
 	        	if(preg_match('/'.$key.'/i',$agent,$m)){
-	            $system_val = $sys." ".$value.$m[1];
+	            // $system_val = $sys." ".$value.$m[1];
 	            $system_val = str_ireplace('win','Windows',$system_val);
 	            $system_val = str_ireplace('_', '.', $system_val);
 	            break;    
@@ -105,7 +105,7 @@ function get_os(){
     	if (preg_match('/'.$fac.'/i',$agent)){
     		$facility_val = $fac;
 	        if(preg_match('/'.$val.'/i',$agent,$m)){
-	        	$facility_val = $fac." ".$m[1]." ".$m[2];
+	        	// $facility_val = $fac." ".$m[1]." ".$m[2];
 	        	break;    
 	        }
 	    	break;
